@@ -3,7 +3,7 @@
 
 <head>
 
-<h2 id="clases">Biblioteca de Clases</h2>
+<title>Biblioteca de Clases</title>
 
 <style>
 
@@ -14,20 +14,43 @@ color:white;
 text-align:center;
 padding:40px;
 }
-  
-<div class="hero">
-<h1>☕ 1 Habilidad x 1 Café</h1>
-<p>Clases de IA prácticas para docentes — una habilidad por semana.</p>
-<a href="#clases">
-<button>Ver clases</button>
-</a>
-</div>
-  
-h1{
-font-size:40px;
-margin-bottom:40px;
+
+/* HERO (PORTADA) */
+.hero{
+background-image:url("portada.jpg");
+background-size:cover;
+background-position:center;
+padding:120px 40px;
+border-radius:15px;
+margin-bottom:60px;
+box-shadow:0 0 30px rgba(0,0,0,0.8);
 }
 
+.hero h1{
+font-size:60px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:22px;
+margin-bottom:20px;
+}
+
+.hero button{
+padding:14px 35px;
+font-size:18px;
+background:#ff4b2b;
+border:none;
+border-radius:10px;
+cursor:pointer;
+color:white;
+}
+
+.hero button:hover{
+background:#ff2a00;
+}
+
+/* CONTENEDOR CLASES */
 .contenedor{
 display:flex;
 justify-content:center;
@@ -35,6 +58,7 @@ flex-wrap:wrap;
 gap:30px;
 }
 
+/* TARJETAS */
 .clase{
 background:#1c1c1c;
 width:300px;
@@ -54,6 +78,7 @@ border-radius:10px;
 margin-bottom:10px;
 }
 
+/* BOTONES */
 button{
 padding:12px 25px;
 font-size:16px;
@@ -68,63 +93,44 @@ margin-top:10px;
 button:hover{
 background:#ff2a00;
 }
-.hero{
-background-image:url("portada.jpg");
-background-size:cover;
-background-position:center;
-padding:120px 40px;
-border-radius:15px;
-margin-bottom:60px;
-box-shadow:0 0 30px rgba(0,0,0,0.8);
-}
 
-.hero h1{
-font-size:50px;
-margin-bottom:10px;
-}
-
-.hero p{
-font-size:22px;
-margin-bottom:20px;
-}
 </style>
 
 </head>
 
 <body>
 
+<!-- PORTADA -->
+<div class="hero">
 <h1>☕ 1 Habilidad x 1 Café</h1>
+<p>Clases de IA prácticas para docentes — una habilidad por semana.</p>
+<a href="#clases">
+<button>Explorar clases</button>
+</a>
+</div>
 
-<h2>Biblioteca de Clases</h2>
+<!-- TITULO -->
+<h2 id="clases">Biblioteca de Clases</h2>
 
+<!-- CLASES -->
 <div class="contenedor">
 
 <div class="clase">
-
 <img src="clase1.jpeg">
-
 <h3>Clase 1</h3>
-
 <p>Introducción a IA para docentes</p>
-
 <a href="clase1.html">
 <button>Ver clase</button>
 </a>
-
 </div>
 
 <div class="clase">
-
 <img src="clase2.jpeg">
-
 <h3>Clase 2</h3>
-
 <p>Crear evaluaciones con IA</p>
-
 <a href="clase2.html">
 <button>Ver clase</button>
 </a>
-
 </div>
 
 </div>
