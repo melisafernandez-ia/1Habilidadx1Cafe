@@ -9,9 +9,15 @@
 
 body{
 font-family:Arial;
-background:#f4f4f4;
+background:#0f0f0f;
+color:white;
 text-align:center;
 padding:40px;
+}
+
+h1{
+font-size:40px;
+margin-bottom:40px;
 }
 
 .contenedor{
@@ -23,28 +29,34 @@ gap:30px;
 
 .clase{
 
-background:white;
+background:#1c1c1c;
 width:300px;
-padding:20px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+padding:25px;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,0,0,0.6);
+transition:transform 0.3s;
 
+}
+
+.clase:hover{
+transform:scale(1.05);
 }
 
 button{
 
-padding:10px 20px;
+padding:12px 25px;
 font-size:16px;
-background:#4CAF50;
+background:#ff4b2b;
 color:white;
 border:none;
-border-radius:6px;
+border-radius:8px;
 cursor:pointer;
+margin-top:10px;
 
 }
 
 button:hover{
-background:#45a049;
+background:#ff2a00;
 }
 
 </style>
@@ -53,13 +65,15 @@ background:#45a049;
 
 <body>
 
-<h1>Biblioteca de Clases</h1>
+<h1>☕ 1 Habilidad x 1 Café</h1>
+
+<h2>Biblioteca de Clases</h2>
 
 <div class="contenedor">
 
 <div class="clase">
 
-<h2>Clase 1</h2>
+<h3>Clase 1</h3>
 
 <p>Introducción a IA para docentes</p>
 
@@ -71,7 +85,7 @@ background:#45a049;
 
 <div class="clase">
 
-<h2>Clase 2</h2>
+<h3>Clase 2</h3>
 
 <p>Crear evaluaciones con IA</p>
 
