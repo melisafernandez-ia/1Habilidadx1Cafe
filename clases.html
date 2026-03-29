@@ -14,12 +14,18 @@ text-align:center;
 padding:40px;
 }
 
+.contenedor{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+}
+
 .clase{
 
 background:white;
-margin:20px auto;
+width:300px;
 padding:20px;
-width:400px;
 border-radius:10px;
 box-shadow:0 0 10px rgba(0,0,0,0.1);
 
@@ -37,6 +43,10 @@ cursor:pointer;
 
 }
 
+button:hover{
+background:#45a049;
+}
+
 </style>
 
 </head>
@@ -45,7 +55,10 @@ cursor:pointer;
 
 <h1>Biblioteca de Clases</h1>
 
+<div class="contenedor">
+
 <div class="clase">
+
 <h2>Clase 1</h2>
 
 <p>Introducción a IA para docentes</p>
@@ -62,7 +75,9 @@ cursor:pointer;
 
 <p>Crear evaluaciones con IA</p>
 
-<button>Ver clase</button>
+<button>Próximamente</button>
+
+</div>
 
 </div>
 
