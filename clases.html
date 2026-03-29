@@ -2,134 +2,147 @@
 <html>
 
 <head>
+    <title>Biblioteca de Clases</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #0f0f0f;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
 
-<title>Biblioteca de Clases</title>
+        /* HERO (PORTADA) */
+        .hero {
+            margin-bottom: 60px;
+        }
 
-<style>
+        .hero img {
+            width: 100%; /* Se ajusta al contenedor */
+            height: auto; /* Mantiene proporción */
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+            display: block; /* elimina espacios extra */
+        }
 
-body{
-font-family:Arial;
-background:#0f0f0f;
-color:white;
-text-align:center;
-padding:40px;
-}
+        /* TITULO PORTADA (opcional) */
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
-/* HERO (PORTADA) */
-.hero{
-    background-image:url("portada.jpeg");
-    background-size:cover;
-    background-position:center;
-    padding:120px 40px;
-    border-radius:15px;
-    margin-bottom:60px;
-    box-shadow:0 0 30px rgba(0,0,0,0.8);
-}
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
 
-.hero h1{
-font-size:60px;
-margin-bottom:10px;
-}
+        .hero button {
+            padding: 14px 35px;
+            font-size: 18px;
+            background: #ff4b2b;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+        }
 
-.hero p{
-font-size:22px;
-margin-bottom:20px;
-}
+        .hero button:hover {
+            background: #ff2a00;
+        }
 
-.hero button{
-padding:14px 35px;
-font-size:18px;
-background:#ff4b2b;
-border:none;
-border-radius:10px;
-cursor:pointer;
-color:white;
-}
+        /* CONTENEDOR CLASES */
+        .contenedor {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
 
-.hero button:hover{
-background:#ff2a00;
-}
+        /* TARJETAS */
+        .clase {
+            background: #1c1c1c;
+            width: 300px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s;
+        }
 
-/* CONTENEDOR CLASES */
-.contenedor{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:30px;
-}
+        .clase:hover {
+            transform: scale(1.05);
+        }
 
-/* TARJETAS */
-.clase{
-background:#1c1c1c;
-width:300px;
-padding:25px;
-border-radius:12px;
-box-shadow:0 0 15px rgba(0,0,0,0.6);
-transition:transform 0.3s;
-}
+        .clase img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
 
-.clase:hover{
-transform:scale(1.05);
-}
+        /* BOTONES */
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            background: #ff4b2b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
 
-.clase img{
-width:100%;
-border-radius:10px;
-margin-bottom:10px;
-}
+        button:hover {
+            background: #ff2a00;
+        }
 
-/* BOTONES */
-button{
-padding:12px 25px;
-font-size:16px;
-background:#ff4b2b;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-margin-top:10px;
-}
+        /* Responsive para móviles */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
 
-button:hover{
-background:#ff2a00;
-}
-
-</style>
-
+            .clase {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- PORTADA -->
-<div class="hero">
+    <!-- PORTADA -->
+    <div class="hero">
+        <img src="portada.jpeg" alt="Portada">
+    </div>
 
-</div>
+    <!-- TITULO -->
+    <h2 id="clases">Biblioteca de Clases</h2>
 
-<!-- TITULO -->
-<h2 id="clases">Biblioteca de Clases</h2>
+    <!-- CLASES -->
+    <div class="contenedor">
 
-<!-- CLASES -->
-<div class="contenedor">
+        <div class="clase">
+            <img src="clase1.jpeg" alt="Clase 1">
+            <h3>Clase 1</h3>
+            <p>Introducción a IA para docentes</p>
+            <a href="clase1.html">
+                <button>Ver clase</button>
+            </a>
+        </div>
 
-<div class="clase">
-<img src="clase1.jpeg">
-<h3>Clase 1</h3>
-<p>Introducción a IA para docentes</p>
-<a href="clase1.html">
-<button>Ver clase</button>
-</a>
-</div>
+        <div class="clase">
+            <img src="clase2.jpeg" alt="Clase 2">
+            <h3>Clase 2</h3>
+            <p>Crear evaluaciones con IA</p>
+            <a href="clase2.html">
+                <button>Ver clase</button>
+            </a>
+        </div>
 
-<div class="clase">
-<img src="clase2.jpeg">
-<h3>Clase 2</h3>
-<p>Crear evaluaciones con IA</p>
-<a href="clase2.html">
-<button>Ver clase</button>
-</a>
-</div>
-
-</div>
+    </div>
 
 </body>
 
