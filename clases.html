@@ -2,171 +2,125 @@
 <html>
 
 <head>
-    <title>Biblioteca de Clases</title>
-    <style>
-        body {
-            font-family: Arial;
-            background: #0f0f0f;
-            color: white;
-            text-align: center;
-            padding: 40px;
-        }
+<title>Biblioteca de Clases</title>
 
-        /* HERO (PORTADA) tipo banner */
-        .hero {
-            position: relative;
-            background-image: url("portada.jpeg");
-            background-size: cover; /* ocupa todo el contenedor */
-            background-position: center;
-            height: 180px; /* altura reducida */
-            border-radius: 15px;
-            margin-bottom: 60px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
-            overflow: hidden;
-        }
+<style>
 
-        /* Contenido encima de la portada */
-        .hero-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            text-align: center;
-        }
+body{
+font-family:Arial;
+background:#0f0f0f;
+color:white;
+text-align:center;
+padding:40px;
+}
 
-        .hero-content h1 {
-            font-size: 28px;
-            margin: 0;
-        }
+/* PORTADA */
+.hero{
+margin-bottom:60px;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 0 30px rgba(0,0,0,0.8);
+}
 
-        .hero-content p {
-            font-size: 16px;
-            margin: 5px 0 10px 0;
-        }
+.hero img{
+width:100%;
+height:auto;
+display:block;
+}
 
-        .hero-content button {
-            padding: 10px 25px;
-            font-size: 16px;
-            background: #ff4b2b;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            color: white;
-        }
+/* CONTENEDOR CLASES */
+.contenedor{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+}
 
-        .hero-content button:hover {
-            background: #ff2a00;
-        }
+/* TARJETAS */
+.clase{
+background:#1c1c1c;
+width:300px;
+padding:25px;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,0,0,0.6);
+transition:transform 0.3s;
+}
 
-        /* CONTENEDOR CLASES */
-        .contenedor {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
+.clase:hover{
+transform:scale(1.05);
+}
 
-        /* TARJETAS */
-        .clase {
-            background: #1c1c1c;
-            width: 300px;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-            transition: transform 0.3s;
-        }
+.clase img{
+width:100%;
+border-radius:10px;
+margin-bottom:10px;
+}
 
-        .clase:hover {
-            transform: scale(1.05);
-        }
+/* BOTONES */
+button{
+padding:12px 25px;
+font-size:16px;
+background:#ff4b2b;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+margin-top:10px;
+}
 
-        .clase img {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
+button:hover{
+background:#ff2a00;
+}
 
-        /* BOTONES */
-        button {
-            padding: 12px 25px;
-            font-size: 16px;
-            background: #ff4b2b;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
+/* RESPONSIVE */
+@media (max-width:768px){
 
-        button:hover {
-            background: #ff2a00;
-        }
+body{
+padding:20px;
+}
 
-        /* Responsive para móviles */
-        @media (max-width: 768px) {
-            body {
-                padding: 20px;
-            }
+.clase{
+width:90%;
+}
 
-            .clase {
-                width: 90%;
-            }
+}
 
-            .hero {
-                height: 120px;
-            }
+</style>
 
-            .hero-content h1 {
-                font-size: 20px;
-            }
-
-            .hero-content p {
-                font-size: 14px;
-            }
-
-            .hero-content button {
-                padding: 8px 20px;
-                font-size: 14px;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
-    <!-- PORTADA -->
-    <div class="hero">
-        <div class="hero-content">
-            <h1>Biblioteca de Clases</h1>
-            <p>Aprende sobre IA y digitalización</p>
-            <button>Explorar Clases</button>
-        </div>
-    </div>
+<!-- PORTADA -->
+<div class="hero">
+<img src="portada.jpeg" alt="Portada">
+</div>
 
-    <!-- CLASES -->
-    <div class="contenedor">
+<!-- TITULO -->
+<h2>Biblioteca de Clases</h2>
 
-        <div class="clase">
-            <img src="clase1.jpeg" alt="Clase 1">
-            <h3>Clase 1</h3>
-            <p>Introducción a IA para docentes</p>
-            <a href="clase1.html">
-                <button>Ver clase</button>
-            </a>
-        </div>
+<!-- CLASES -->
+<div class="contenedor">
 
-        <div class="clase">
-            <img src="clase2.jpeg" alt="Clase 2">
-            <h3>Clase 2</h3>
-            <p>Crear evaluaciones con IA</p>
-            <a href="clase2.html">
-                <button>Ver clase</button>
-            </a>
-        </div>
+<div class="clase">
+<img src="clase1.jpeg">
+<h3>Clase 1</h3>
+<p>Introducción a IA para docentes</p>
+<a href="clase1.html">
+<button>Ver clase</button>
+</a>
+</div>
 
-    </div>
+<div class="clase">
+<img src="clase2.jpeg">
+<h3>Clase 2</h3>
+<p>Crear evaluaciones con IA</p>
+<a href="clase2.html">
+<button>Ver clase</button>
+</a>
+</div>
+
+</div>
 
 </body>
-
 </html>
