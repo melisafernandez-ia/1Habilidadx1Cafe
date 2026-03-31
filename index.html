@@ -72,7 +72,7 @@ button:hover{
   display:flex;
   justify-content:center;
   gap:50px;
-  align-items:stretch; /* estira video y temario al mismo alto */
+  align-items:stretch;
   padding:60px 20px;
   flex-wrap:wrap;
   background:#fff;
@@ -90,14 +90,14 @@ button:hover{
 .video-temario .video-container iframe{
   width:100%;
   max-width:560px;
-  height:100%; /* altura completa del contenedor */
-  min-height:300px; /* altura mínima para móviles */
+  height:100%;
+  min-height:300px;
   border-radius:12px;
   box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
 .temario{
-  flex:1; /* ocupa mismo espacio que el video */
+  flex:1;
   text-align:left;
   display:flex;
   flex-direction:column;
@@ -120,6 +120,7 @@ button:hover{
   border-radius:8px;
   display:flex;
   align-items:center;
+  position:relative; /* para tooltip */
   transition:0.3s;
   cursor:pointer;
 }
@@ -138,6 +139,45 @@ button:hover{
   transform:translateX(5px);
 }
 
+/* TOOLTIP PREMIUM */
+.temario li span{
+  visibility:hidden;
+  width:260px;
+  background:#333;
+  color:#fff;
+  text-align:left;
+  padding:12px;
+  border-radius:8px;
+  position:absolute;
+  left:110%;
+  top:50%;
+  transform:translateY(-50%) translateY(20px); /* baja 20px */
+  opacity:0;
+  transition:opacity 0.4s ease, transform 0.4s ease;
+  z-index:10;
+  box-shadow:0 5px 15px rgba(0,0,0,0.3);
+  pointer-events:none;
+}
+
+/* Flecha del tooltip */
+.temario li span::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  left:-8px;
+  transform:translateY(-50%);
+  border-width:8px;
+  border-style:solid;
+  border-color: transparent #333 transparent transparent;
+}
+
+/* Mostrar tooltip al hover */
+.temario li:hover span{
+  visibility:visible;
+  opacity:1;
+  transform:translateY(-50%) translateY(0); /* sube al lugar correcto */
+}
+
 /* RESPONSIVE */
 @media (max-width:1000px){
   .video-temario{
@@ -153,6 +193,19 @@ button:hover{
   .temario{
     max-width:90%;
     margin-top:30px;
+  }
+
+  .temario li span{
+    left:0;
+    top:100%;
+    transform:translateY(10px);
+  }
+
+  .temario li span::after{
+    left:20px;
+    top:-8px;
+    border-color: #333 transparent transparent transparent;
+    border-width: 8px;
   }
 }
 
@@ -195,14 +248,30 @@ button:hover{
   <div class="temario">
     <h3>Temario de las clases</h3>
     <ul>
-      <li>Clase 1: Introducción a la IA y herramientas básicas</li>
-      <li>Clase 2: Automatización de tareas administrativas</li>
-      <li>Clase 3: Creación de contenidos educativos con IA</li>
-      <li>Clase 4: Evaluaciones y correcciones automáticas</li>
-      <li>Clase 5: Integración de IA en la planificación de clases</li>
-      <li>Clase 6: Prompts avanzados y buenas prácticas</li>
-      <li>Clase 7: Recursos y plantillas listas para usar</li>
-      <li>Clase 8: Proyecto final práctico de aplicación en tu aula</li>
+      <li>Clase 1: Introducción a la IA
+        <span>Conocerás los conceptos básicos de IA y las herramientas iniciales que puedes usar en tu aula.</span>
+      </li>
+      <li>Clase 2: Automatización de tareas
+        <span>Aprenderás a automatizar tareas administrativas y ahorrar tiempo en correcciones y planificación.</span>
+      </li>
+      <li>Clase 3: Contenidos educativos
+        <span>Creación de materiales, presentaciones y recursos educativos con ayuda de IA de manera rápida y efectiva.</span>
+      </li>
+      <li>Clase 4: Evaluaciones automáticas
+        <span>Cómo generar evaluaciones, correcciones y retroalimentación automática para tus estudiantes.</span>
+      </li>
+      <li>Clase 5: Integración en planificación
+        <span>Aprenderás a incluir herramientas de IA directamente en tus planes de clase semanales.</span>
+      </li>
+      <li>Clase 6: Prompts avanzados
+        <span>Mejores prácticas para escribir prompts efectivos y obtener resultados más precisos.</span>
+      </li>
+      <li>Clase 7: Recursos y plantillas
+        <span>Acceso a plantillas, prompts y recursos listos para aplicar en tus clases desde el primer día.</span>
+      </li>
+      <li>Clase 8: Proyecto final
+        <span>Aplicación práctica de todo lo aprendido mediante un proyecto integrador para tu aula.</span>
+      </li>
     </ul>
   </div>
 
