@@ -160,26 +160,28 @@ button:hover{
   background:#1ebe5b;
 }
 
-/* PASOS */
+/* PASOS EN FILA */
 
 .pasos{
   display: flex;
   justify-content: center;
-  gap: 40px;
-  margin-top: 40px;
+  gap: 30px;
+  margin-top:40px;
   flex-wrap: wrap;
 }
 
-.pasos div {
-  background: #1c1c1c;
-  padding: 20px 25px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
-  min-width: 150px;
-  text-align: center;
-  font-size: 18px;
-  color: #ccc;
+.pasos .paso{
+  background:#1c1c1c;
+  padding:20px 25px;
+  border-radius:12px;
+  box-shadow:0 0 15px rgba(0,0,0,0.5);
+  min-width:150px;
+  text-align:center;
+  font-size:18px;
+  color:#ccc;
 }
+
+/* LOGIN */
 
 .login{
   margin-top:40px;
@@ -259,68 +261,44 @@ button:hover{
 </div>
 
 
-<!-- CREAR CUENTA -->
+<!-- PASOS REALES UNO AL LADO DEL OTRO -->
 
 <div class="seccion">
 
-  <div class="registro">
-
-    <h2>1️⃣ Crear cuenta</h2>
-
-    <input type="email" id="email" placeholder="Tu correo electrónico">
-
-    <input type="password" id="password" placeholder="Crea una contraseña">
-
-    <button onclick="registrar()">Crear cuenta</button>
-
-    <p id="mensaje"></p>
-
-  </div>
-
-</div>
-
-
-<!-- PAGO -->
-
-<div class="seccion">
-
-  <h2>2️⃣ Realizar pago</h2>
-
-  <div class="alias">
-
-    <p><b>Pagar por transferencia</b></p>
-    Alias: <b>melisa.f.</b><br>
-    Titular: <b>Melisa Fernández</b><br>
-    Cuenta: Mercado Pago
-
-  </div>
-
-  <p>3️⃣ Luego envía el comprobante</p>
-
-  <a href="https://wa.me/543435508780">
-    <button class="whatsapp">
-      Enviar comprobante por WhatsApp
-    </button>
-  </a>
-
-  <!-- PASOS EN FILA -->
   <div class="pasos">
-    <div>1️⃣ Crear cuenta</div>
-    <div>2️⃣ Realizar pago</div>
-    <div>3️⃣ Enviar comprobante</div>
-    <div>4️⃣ Activaremos tu acceso</div>
+    <div class="paso">
+      <h3>1️⃣ Crear cuenta</h3>
+      <input type="email" id="email" placeholder="Tu correo electrónico">
+      <input type="password" id="password" placeholder="Crea una contraseña">
+      <button onclick="registrar()">Crear cuenta</button>
+      <p id="mensaje"></p>
+    </div>
+
+    <div class="paso">
+      <h3>2️⃣ Realizar pago</h3>
+      <div class="alias">
+        <p><b>Pagar por transferencia</b></p>
+        Alias: <b>melisa.f.</b><br>
+        Titular: <b>Melisa Fernández</b><br>
+        Cuenta: Mercado Pago
+      </div>
+    </div>
+
+    <div class="paso">
+      <h3>3️⃣ Enviar comprobante</h3>
+      <a href="https://wa.me/543435508780">
+        <button class="whatsapp">
+          Enviar comprobante por WhatsApp
+        </button>
+      </a>
+    </div>
   </div>
 
   <div class="login">
-
     <p>¿Ya tienes cuenta activa?</p>
-
     <a href="login.html">
-      <button>
-        Ingresar a la plataforma
-      </button>
+      <button>Ingresar a la plataforma</button>
     </a>
-
   </div>
 
 </div>
