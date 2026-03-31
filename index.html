@@ -72,7 +72,7 @@ button:hover{
   display:flex;
   justify-content:center;
   gap:50px;
-  align-items:flex-start;
+  align-items:stretch; /* estira video y temario al mismo alto */
   padding:60px 20px;
   flex-wrap:wrap;
   background:#fff;
@@ -80,16 +80,27 @@ button:hover{
   border-bottom:1px solid #ddd;
 }
 
-.video-temario iframe{
-  width:560px;
-  height:315px;
+.video-temario .video-container{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.video-temario .video-container iframe{
+  width:100%;
+  max-width:560px;
+  height:100%; /* altura completa del contenedor */
+  min-height:300px; /* altura mínima para móviles */
   border-radius:12px;
   box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
 .temario{
-  max-width:400px;
+  flex:1; /* ocupa mismo espacio que el video */
   text-align:left;
+  display:flex;
+  flex-direction:column;
 }
 
 .temario h3{
@@ -134,13 +145,14 @@ button:hover{
     align-items:center;
   }
 
-  .video-temario iframe{
+  .video-temario .video-container iframe{
     width:90%;
     height:250px;
   }
 
   .temario{
     max-width:90%;
+    margin-top:30px;
   }
 }
 
@@ -175,7 +187,9 @@ button:hover{
 <div class="video-temario">
 
   <!-- VIDEO -->
-  <iframe src="https://www.youtube.com/embed/1umqS76Hlm0" title="Video explicativo del curso" frameborder="0" allowfullscreen></iframe>
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/1umqS76Hlm0" title="Video explicativo del curso" frameborder="0" allowfullscreen></iframe>
+  </div>
 
   <!-- TEMARIO -->
   <div class="temario">
