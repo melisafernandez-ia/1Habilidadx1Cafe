@@ -40,9 +40,9 @@ body{
   margin:0 auto;
 }
 
-/* BOTON DE ENTRAR A CLASES (ahora debajo de la hero) */
+/* BOTON DE ENTRAR ABAJO DE LA IMAGEN */
 .boton-clases-container{
-  margin:30px auto;
+  margin:15px auto; /* menos espacio */
 }
 
 .boton-clases-container button{
@@ -62,7 +62,7 @@ body{
 
 /* SECCION INFORMACION */
 .info{
-  padding:60px 20px;
+  padding:40px 20px; /* menos espacio */
 }
 
 .info h2{
@@ -142,7 +142,7 @@ body{
   transform:translateX(5px);
 }
 
-/* TOOLTIP PREMIUM */
+/* TOOLTIP */
 .temario li span{
   visibility:hidden;
   width:260px;
@@ -152,14 +152,15 @@ body{
   padding:12px;
   border-radius:8px;
   position:absolute;
-  left:110%;
+  left:105%;
   top:50%;
-  transform:translateY(-50%) translateY(20px); /* baja 20px al inicio */
+  transform:translateY(-50%);
   opacity:0;
   transition:opacity 0.4s ease, transform 0.4s ease;
   z-index:10;
   box-shadow:0 5px 15px rgba(0,0,0,0.3);
   pointer-events:none;
+  white-space:normal; /* permite multilinea */
 }
 
 /* Flecha del tooltip */
@@ -178,7 +179,7 @@ body{
 .temario li:hover span{
   visibility:visible;
   opacity:1;
-  transform:translateY(-50%) translateY(0);
+  transform:translateY(-50%) translateX(0);
 }
 
 /* RESPONSIVE */
