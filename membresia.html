@@ -253,36 +253,38 @@ createUserWithEmailAndPassword
 
 const firebaseConfig = {
 
-apiKey: "TU_API_KEY",
-authDomain: "TU_PROYECTO.firebaseapp.com",
-projectId: "TU_PROYECTO",
-storageBucket: "TU_PROYECTO.appspot.com",
-messagingSenderId: "XXXX",
-appId: "XXXX"
+apiKey: "AIzaSyBFJH3LRuaS8yc6iDsXXcwACzpddA8lr5c",
+authDomain: "habilidadx1cafe.firebaseapp.com",
+projectId: "habilidadx1cafe",
+storageBucket: "habilidadx1cafe.firebasestorage.app",
+messagingSenderId: "113035104487",
+appId: "1:113035104487:web:1427b58f5263136d321242",
+measurementId: "G-KTCF00V3VC"
 
 };
 
 const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
 
 
 window.registrar = function(){
 
-let email = document.getElementById("email").value
-let password = document.getElementById("password").value
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
 
 createUserWithEmailAndPassword(auth,email,password)
 
 .then(()=>{
 
 document.getElementById("mensaje").innerText =
-"Cuenta creada. Ahora envía tu comprobante por WhatsApp para activar el acceso."
+"Cuenta creada correctamente. Ahora envía el comprobante por WhatsApp para activar tu acceso.";
 
 })
 
 .catch((error)=>{
 
-document.getElementById("mensaje").innerText = error.message
+document.getElementById("mensaje").innerText = error.message;
 
 })
 
