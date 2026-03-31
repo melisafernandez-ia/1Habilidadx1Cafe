@@ -15,27 +15,24 @@ text-align:center;
 padding:60px;
 }
 
-/* TITULO */
-
 h1{
-font-size:46px;
+font-size:42px;
 margin-bottom:10px;
 }
 
 .subtitulo{
-font-size:20px;
-color:#cccccc;
-margin-bottom:50px;
+color:#bbb;
+margin-bottom:40px;
 }
 
-/* CONTENEDOR DE TARJETAS */
+/* CONTENEDOR DE PRECIOS */
 
 .precios{
 display:flex;
 justify-content:center;
 gap:40px;
 flex-wrap:wrap;
-margin-bottom:50px;
+margin-bottom:40px;
 }
 
 /* TARJETAS */
@@ -44,9 +41,14 @@ margin-bottom:50px;
 background:#1c1c1c;
 padding:35px;
 border-radius:14px;
-width:280px;
+width:270px;
 box-shadow:0 0 20px rgba(0,0,0,0.6);
-position:relative;
+transition:0.3s;
+}
+
+.tarjeta:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,0.8);
 }
 
 .tarjeta h2{
@@ -54,62 +56,37 @@ margin-bottom:10px;
 }
 
 .precio{
-font-size:42px;
+font-size:38px;
 margin:15px 0;
-font-weight:bold;
-}
-
-/* BENEFICIOS */
-
-.beneficios{
-text-align:left;
-margin-top:15px;
-line-height:1.9;
-font-size:15px;
+color:#ff4b2b;
 }
 
 /* TARJETA DESTACADA */
 
 .destacada{
 border:2px solid #ff4b2b;
-transform:scale(1.08);
+transform:scale(1.05);
 }
 
-/* ETIQUETA MAS ELEGIDO */
-
-.etiqueta{
-position:absolute;
-top:-12px;
-left:50%;
-transform:translateX(-50%);
-background:#ff4b2b;
-color:white;
-padding:6px 16px;
-font-size:12px;
-border-radius:20px;
-font-weight:bold;
-}
-
-/* BLOQUE DE PAGO */
+/* ALIAS */
 
 .alias{
 background:#1c1c1c;
-padding:30px;
+padding:25px;
 border-radius:12px;
-max-width:520px;
+max-width:500px;
 margin:auto;
 margin-top:30px;
 font-size:20px;
-line-height:1.8;
 }
 
-/* BOTON */
+/* BOTONES */
 
 button{
-margin-top:35px;
-padding:16px 34px;
+margin-top:25px;
+padding:16px 35px;
 font-size:18px;
-background:#25D366;
+background:#ff4b2b;
 color:white;
 border:none;
 border-radius:8px;
@@ -117,7 +94,33 @@ cursor:pointer;
 }
 
 button:hover{
+background:#ff2a00;
+}
+
+.whatsapp{
+background:#25D366;
+}
+
+.whatsapp:hover{
 background:#1ebe5b;
+}
+
+/* MENSAJE DE SEGURIDAD */
+
+.seguridad{
+margin-top:25px;
+font-size:16px;
+color:#ccc;
+max-width:520px;
+margin-left:auto;
+margin-right:auto;
+line-height:1.6;
+}
+
+.activacion{
+margin-top:15px;
+color:#ffcc00;
+font-size:15px;
 }
 
 </style>
@@ -128,44 +131,33 @@ background:#1ebe5b;
 
 <h1>Accede a las clases</h1>
 
-<div class="subtitulo">
-Aprende herramientas de Inteligencia Artificial aplicadas a educación<br>
-con encuentros prácticos cada semana
-</div>
+<p class="subtitulo">
+Aprende herramientas de Inteligencia Artificial aplicadas a la educación
+</p>
 
 <div class="precios">
 
 <div class="tarjeta">
 
-<h2>📚 Clase individual</h2>
+<h2>📚 Clase en vivo</h2>
 
 <div class="precio">$5000</div>
 
-<div class="beneficios">
-✔ Acceso al próximo encuentro en vivo<br>
-✔ Clase en directo por Google Meet<br>
-✔ Espacio para preguntas en vivo
-</div>
+<p>
+Acceso al próximo encuentro en vivo por Google Meet
+</p>
 
 </div>
 
 <div class="tarjeta destacada">
 
-<div class="etiqueta">
-Más elegido
-</div>
+<h2>🚀 Membresía mensual</h2>
 
-<h2>🚀 Membresía</h2>
+<div class="precio">$18000</div>
 
-<div class="precio">$18000 / mes</div>
-
-<div class="beneficios">
-✔ Acceso a todos los encuentros en vivo<br>
-✔ Materiales descargables<br>
-✔ Acceso a clases grabadas<br>
-✔ Biblioteca completa de clases<br>
-✔ Nuevas clases cada semana
-</div>
+<p>
+Acceso a todos los vivos, materiales y clases grabadas
+</p>
 
 </div>
 
@@ -173,7 +165,7 @@ Más elegido
 
 <div class="alias">
 
-<b>Pagar por transferencia</b><br><br>
+<p><b>Pagar por transferencia</b></p>
 
 Alias: <b>melisa.f.</b><br>
 Titular: <b>Melisa Fernández</b><br>
@@ -181,18 +173,24 @@ Cuenta: Mercado Pago
 
 </div>
 
-<p style="margin-top:35px;">
-Luego envía el comprobante por WhatsApp para habilitar tu acceso
+<p style="margin-top:30px;">
+Luego envía el comprobante por WhatsApp
 </p>
 
 <a href="https://wa.me/543435508780">
-<button>
+<button class="whatsapp">
 Enviar comprobante por WhatsApp
 </button>
 </a>
-<p style="margin-top:20px; font-size:16px; color:#ccc; max-width:500px; margin-left:auto; margin-right:auto;">
-Una vez enviado el comprobante de pago, recibirás por WhatsApp o email tus credenciales de acceso para ingresar a la plataforma y ver todas las clases disponibles.
+
+<p class="seguridad">
+Una vez enviado el comprobante de pago recibirás por WhatsApp o email tus credenciales de acceso para ingresar a la plataforma y ver todas las clases disponibles.
 </p>
+
+<p class="activacion">
+⏱ Activación del acceso generalmente dentro de las 12 horas.
+</p>
+
 </body>
 
 </html>
