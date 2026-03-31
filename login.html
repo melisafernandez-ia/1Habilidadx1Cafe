@@ -3,7 +3,7 @@
 
 <head>
 
-<title>Ingreso a las clases</title>
+<title>Login</title>
 
 <style>
 
@@ -11,43 +11,46 @@ body{
 font-family:Arial;
 background:#0f0f0f;
 color:white;
-text-align:center;
-padding:60px;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 }
 
-h1{
-margin-bottom:20px;
-}
-
-.contenedor{
+.login-box{
 background:#1c1c1c;
 padding:40px;
-border-radius:12px;
-max-width:400px;
-margin:auto;
+border-radius:10px;
+width:300px;
+text-align:center;
 }
 
 input{
 width:90%;
 padding:12px;
-margin:10px;
-border-radius:8px;
+margin:10px 0;
 border:none;
-font-size:16px;
+border-radius:6px;
 }
 
 button{
-padding:14px 28px;
-font-size:18px;
+padding:12px 25px;
 background:#ff4b2b;
 color:white;
 border:none;
-border-radius:8px;
+border-radius:6px;
 cursor:pointer;
 }
 
 button:hover{
 background:#ff2a00;
+}
+
+a{
+color:#25D366;
+display:block;
+margin-top:15px;
+cursor:pointer;
 }
 
 </style>
@@ -56,29 +59,40 @@ background:#ff2a00;
 
 <body>
 
-<h1>Ingreso a la biblioteca</h1>
+<div class="login-box">
 
-<p>Ingresa con el email autorizado para acceder a las clases</p>
+<h2>Ingreso a las clases</h2>
 
-<div class="contenedor">
+<input type="email" id="email" placeholder="Email">
 
-<input id="email" type="email" placeholder="Email">
-
-<input id="password" type="password" placeholder="Contraseña">
+<input type="password" id="password" placeholder="Contraseña">
 
 <br>
 
-<button onclick="login()">Ingresar</button>
+<button onclick="login()">
+Ingresar
+</button>
+
+<a onclick="resetPassword()">
+¿Olvidaste tu contraseña?
+</a>
 
 </div>
+
 
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { 
+getAuth,
+signInWithEmailAndPassword,
+sendPasswordResetEmail
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
 
 const firebaseConfig = {
+
 apiKey: "AIzaSyBFJH3LRuaS8yc6iDsXXcwACzpddA8lr5c",
 authDomain: "habilidadx1cafe.firebaseapp.com",
 projectId: "habilidadx1cafe",
@@ -86,29 +100,55 @@ storageBucket: "habilidadx1cafe.firebasestorage.app",
 messagingSenderId: "113035104487",
 appId: "1:113035104487:web:1427b58f5263136d321242",
 measurementId: "G-KTCF00V3VC"
+
 };
 
 const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
 
 window.login = function(){
 
-const email=document.getElementById("email").value;
-const password=document.getElementById("password").value;
+const email = document.getElementById("email").value;
+
+const password = document.getElementById("password").value;
 
 signInWithEmailAndPassword(auth,email,password)
 
-.then((userCredential)=>{
+.then(() => {
 
-window.location="clases.html";
+window.location.href="clases.html"
 
 })
 
-.catch((error)=>{
+.catch(() => {
 
-alert("Email o contraseña incorrectos");
+alert("Email o contraseña incorrectos")
 
 });
+
+}
+
+
+window.resetPassword = function(){
+
+const email = document.getElementById("email").value;
+
+if(email===""){
+
+alert("Escribe tu email primero")
+
+return
+
+}
+
+sendPasswordResetEmail(auth,email)
+
+.then(()=>{
+
+alert("Te enviamos un email para recuperar tu contraseña")
+
+})
 
 }
 
