@@ -5,208 +5,171 @@
 <title>1 Habilidad x 1 Café</title>
 
 <style>
-
 /* ESTILO GENERAL */
-body{
+body {
   font-family: Arial, sans-serif;
-  margin:0;
-  background:#f4f4f4;
-  text-align:center;
-  color:#333;
+  margin: 0;
+  background: #f4f4f4;
+  text-align: center;
+  color: #333;
 }
 
 /* PORTADA */
-.hero{
-  background-image:url("portada5.png");
-  background-size:cover;
-  background-position:center;
-  height:420px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  color:white;
-  text-shadow:0 2px 10px rgba(0,0,0,0.7);
+.hero {
+  background-image: url("portada5.png");
+  background-size: cover;
+  background-position: center;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }
 
-.hero h1{
-  font-size:55px;
-  margin-bottom:10px;
+.hero h1 {
+  font-size: 55px;
+  margin-bottom: 10px;
 }
 
-.hero p{
-  font-size:22px;
-  max-width:700px;
-  margin:0 auto;
+.hero p {
+  font-size: 22px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 /* BOTON DE ENTRAR ABAJO DE LA IMAGEN */
-.boton-clases-container{
-  margin-top:40px; /* separacion desde la hero */
-  margin-bottom:20px;
+.boton-clases-container {
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
-.boton-clases-container button{
-  padding:15px 30px;
-  font-size:18px;
-  background:#ff4b2b; /* color rojo original */
-  color:white;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  transition:0.3s;
+.boton-clases-container button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background: #ff4b2b; /* rojo original */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.boton-clases-container button:hover{
-  background:#ff2a00;
+.boton-clases-container button:hover {
+  background: #ff2a00;
 }
 
 /* SECCION INFORMACION */
-.info{
-  padding:30px 20px;
+.info {
+  padding: 30px 20px;
 }
 
-.info h2{
-  color:#333;
-  margin-bottom:20px;
+.info h2 {
+  color: #333;
+  margin-bottom: 20px;
 }
 
 /* VIDEO + TEMARIO */
-.video-temario{
-  display:flex;
-  justify-content:center;
-  gap:50px;
-  align-items:stretch;
-  padding:60px 20px;
-  flex-wrap:wrap;
-  background:#fff;
-  border-top:1px solid #ddd;
-  border-bottom:1px solid #ddd;
+.video-temario {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  align-items: flex-start;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
-.video-temario .video-container{
-  flex:1;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+.video-temario .video-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.video-temario .video-container iframe{
-  width:100%;
-  max-width:560px;
-  height:100%;
-  min-height:300px;
-  border-radius:12px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.2);
+.video-temario .video-container iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 100%;
+  min-height: 300px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-.temario{
-  flex:1;
-  text-align:left;
-  display:flex;
-  flex-direction:column;
+.temario-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.temario h3{
-  color:#ff4b2b;
-  margin-bottom:15px;
+.temario {
+  text-align: left;
 }
 
-.temario ul{
-  list-style:none;
-  padding-left:0;
+.temario h3 {
+  color: #ff4b2b;
+  margin-bottom: 15px;
 }
 
-.temario li{
-  font-size:18px;
-  margin-bottom:12px;
-  padding:10px;
-  border-radius:8px;
-  display:flex;
-  align-items:center;
-  position:relative; /* necesario para tooltip */
-  transition:0.3s;
-  cursor:pointer;
-  background:#f9f9f9;
+.temario ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
 }
 
-/* Iconos de clase */
-.temario li::before{
-  content:"☕";
-  margin-right:10px;
-  font-size:20px;
+.temario li {
+  font-size: 18px;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  background: #f9f9f9;
 }
 
-/* Hover animado del item */
-.temario li:hover{
-  background:#ff4b2b;
-  color:white;
-  transform:translateX(5px);
+.temario li:hover {
+  background: #ff4b2b;
+  color: white;
+  transform: translateX(5px);
 }
 
-/* TOOLTIP FUNCIONAL */
-.temario li .tooltip{
-  display:none; /* oculto por defecto */
-  position:absolute;
-  left:105%;
-  top:50%;
-  transform:translateY(-50%);
-  width:280px;
-  background:#ff4b2b;
-  color:#fff;
-  padding:12px;
-  border-radius:10px;
-  z-index:10;
-  box-shadow:0 5px 20px rgba(0,0,0,0.3);
-  font-size:15px;
-  line-height:1.5;
-  pointer-events:none;
-}
-
-/* Flecha del tooltip */
-.temario li .tooltip::after{
-  content:"";
-  position:absolute;
-  top:50%;
-  left:-10px;
-  transform:translateY(-50%);
-  border-width:10px;
-  border-style:solid;
-  border-color: transparent #ff4b2b transparent transparent;
-}
-
-/* Hover: mostrar tooltip */
-.temario li:hover .tooltip{
-  display:block;
+/* CUADRO DE DESCRIPCION */
+.descripcion {
+  margin-top: 20px;
+  background: #ff4b2b;
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  min-height: 80px;
+  max-width: 400px;
+  transition: 0.3s;
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: left;
 }
 
 /* RESPONSIVE */
-@media (max-width:1000px){
-  .video-temario{
-    flex-direction:column;
-    align-items:center;
+@media (max-width: 1000px) {
+  .video-temario {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .video-temario .video-container iframe{
-    width:90%;
-    height:250px;
+  .video-temario .video-container iframe {
+    width: 90%;
+    height: 250px;
   }
 
-  .temario{
-    max-width:90%;
-    margin-top:30px;
+  .temario-container {
+    align-items: center;
   }
 
-  .temario li .tooltip{
-    left:0;
-    top:100%;
-    transform:translateY(10px);
-  }
-
-  .temario li .tooltip::after{
-    left:20px;
-    top:-10px;
-    border-color: #ff4b2b transparent transparent transparent;
+  .descripcion {
+    max-width: 90%;
   }
 }
 
@@ -249,38 +212,44 @@ body{
     <iframe src="https://www.youtube.com/embed/1umqS76Hlm0" title="Video explicativo del curso" frameborder="0" allowfullscreen></iframe>
   </div>
 
-  <!-- TEMARIO -->
-  <div class="temario">
-    <h3>Temario de las clases</h3>
-    <ul>
-      <li>Clase 1: Introducción a la IA
-        <div class="tooltip">Conocerás los conceptos básicos de IA y las herramientas iniciales que puedes usar en tu aula.</div>
-      </li>
-      <li>Clase 2: Automatización de tareas
-        <div class="tooltip">Aprenderás a automatizar tareas administrativas y ahorrar tiempo en correcciones y planificación.</div>
-      </li>
-      <li>Clase 3: Contenidos educativos
-        <div class="tooltip">Creación de materiales, presentaciones y recursos educativos con ayuda de IA de manera rápida y efectiva.</div>
-      </li>
-      <li>Clase 4: Evaluaciones automáticas
-        <div class="tooltip">Cómo generar evaluaciones, correcciones y retroalimentación automática para tus estudiantes.</div>
-      </li>
-      <li>Clase 5: Integración en planificación
-        <div class="tooltip">Aprenderás a incluir herramientas de IA directamente en tus planes de clase semanales.</div>
-      </li>
-      <li>Clase 6: Prompts avanzados
-        <div class="tooltip">Mejores prácticas para escribir prompts efectivos y obtener resultados más precisos.</div>
-      </li>
-      <li>Clase 7: Recursos y plantillas
-        <div class="tooltip">Acceso a plantillas, prompts y recursos listos para aplicar en tus clases desde el primer día.</div>
-      </li>
-      <li>Clase 8: Proyecto final
-        <div class="tooltip">Aplicación práctica de todo lo aprendido mediante un proyecto integrador para tu aula.</div>
-      </li>
-    </ul>
+  <!-- TEMARIO + DESCRIPCION -->
+  <div class="temario-container">
+    <div class="temario">
+      <h3>Temario de las clases</h3>
+      <ul>
+        <li data-desc="Conocerás los conceptos básicos de IA y las herramientas iniciales que puedes usar en tu aula.">Clase 1: Introducción a la IA</li>
+        <li data-desc="Aprenderás a automatizar tareas administrativas y ahorrar tiempo en correcciones y planificación.">Clase 2: Automatización de tareas</li>
+        <li data-desc="Creación de materiales, presentaciones y recursos educativos con ayuda de IA de manera rápida y efectiva.">Clase 3: Contenidos educativos</li>
+        <li data-desc="Cómo generar evaluaciones, correcciones y retroalimentación automática para tus estudiantes.">Clase 4: Evaluaciones automáticas</li>
+        <li data-desc="Aprenderás a incluir herramientas de IA directamente en tus planes de clase semanales.">Clase 5: Integración en planificación</li>
+        <li data-desc="Mejores prácticas para escribir prompts efectivos y obtener resultados más precisos.">Clase 6: Prompts avanzados</li>
+        <li data-desc="Acceso a plantillas, prompts y recursos listos para aplicar en tus clases desde el primer día.">Clase 7: Recursos y plantillas</li>
+        <li data-desc="Aplicación práctica de todo lo aprendido mediante un proyecto integrador para tu aula.">Clase 8: Proyecto final</li>
+      </ul>
+    </div>
+
+    <div class="descripcion" id="descripcion">
+      Pasa el cursor sobre cada clase para ver la descripción aquí.
+    </div>
   </div>
 
 </div>
+
+<script>
+// Capturamos los items y el cuadro de descripción
+const items = document.querySelectorAll('.temario li');
+const descBox = document.getElementById('descripcion');
+
+// Para cada item, al pasar el mouse mostramos la descripción
+items.forEach(item => {
+  item.addEventListener('mouseover', () => {
+    descBox.textContent = item.getAttribute('data-desc');
+  });
+  item.addEventListener('mouseout', () => {
+    descBox.textContent = 'Pasa el cursor sobre cada clase para ver la descripción aquí.';
+  });
+});
+</script>
 
 </body>
 </html>
