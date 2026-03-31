@@ -138,16 +138,6 @@ font-size:18px;
 
 /* TEXTOS */
 
-.seguridad{
-margin-top:25px;
-font-size:16px;
-color:#ccc;
-max-width:520px;
-margin-left:auto;
-margin-right:auto;
-line-height:1.6;
-}
-
 .activacion{
 margin-top:20px;
 color:#ffcc00;
@@ -229,7 +219,10 @@ Enviar comprobante por WhatsApp
 </a>
 
 <p style="margin-top:25px;color:#ccc;">
-Una vez enviado el comprobante verificaremos el pago y activaremos tu acceso a la plataforma.
+1️⃣ Crea tu cuenta<br>
+2️⃣ Realiza el pago<br>
+3️⃣ Envía el comprobante por WhatsApp<br>
+4️⃣ Activaremos tu acceso a la plataforma
 </p>
 
 <a href="login.html">
@@ -241,6 +234,7 @@ Acceder a la plataforma
 <p class="activacion">
 ⏱ Activación del acceso generalmente dentro de las 12 horas.
 </p>
+
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -249,7 +243,6 @@ import {
 getAuth,
 createUserWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
 
 const firebaseConfig = {
 
@@ -267,11 +260,20 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
-
 window.registrar = function(){
 
 let email = document.getElementById("email").value;
 let password = document.getElementById("password").value;
+
+if(email === "" || password === ""){
+document.getElementById("mensaje").innerText = "Por favor completa email y contraseña.";
+return;
+}
+
+if(password.length < 6){
+document.getElementById("mensaje").innerText = "La contraseña debe tener al menos 6 caracteres.";
+return;
+}
 
 createUserWithEmailAndPassword(auth,email,password)
 
@@ -291,6 +293,7 @@ document.getElementById("mensaje").innerText = error.message;
 }
 
 </script>
+
 </body>
 
 </html>
