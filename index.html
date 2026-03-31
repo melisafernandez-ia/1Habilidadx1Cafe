@@ -92,13 +92,12 @@ body {
 
 .video-temario .video-container iframe {
   width: 100%;
-  height: 100%;
-  min-height: 500px; /* altura igual al temario */
+  height: 500px; /* altura igual al temario */
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* TEMARIO CON DESCRIPCIONES AL COSTADO */
+/* TEMARIO */
 .temario-container {
   flex: 1;
   display: flex;
@@ -115,58 +114,45 @@ body {
   list-style: none;
   padding-left: 0;
   margin: 0;
+  width: 100%;
 }
 
 .temario li {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+  position: relative;
   background: #f9f9f9;
   margin-bottom: 12px;
-  padding: 10px;
+  padding: 12px;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
-  position: relative;
-  flex-wrap: nowrap; /* evitar que se rompa el nombre a otra línea */
+  text-align: left;
 }
 
 .temario li:hover {
   background: #ff4b2b;
   color: white;
-  transform: translateX(3px);
 }
 
 /* NOMBRE DEL TEMA */
 .temario li .nombre {
   font-size: 18px;
-  flex: 0 0 200px; /* ancho fijo para alinear todos los nombres */
-  text-align: left;
-  white-space: nowrap; /* evita salto de línea */
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-/* CUADRO DESCRIPTIVO */
-.temario li .tooltip {
+/* DESCRIPCION DE LA CLASE */
+.temario li .descripcion {
   display: none;
-  flex: 1;
+  margin-top: 8px;
   background: #ff4b2b;
   color: white;
-  padding: 12px;
-  border-radius: 8px;
-  margin-left: 15px;
+  padding: 10px;
+  border-radius: 6px;
   font-size: 15px;
   line-height: 1.5;
   transition: 0.3s;
-  text-align: left;
-  max-width: 400px; /* evita que se haga demasiado ancho */
-  word-wrap: break-word;
 }
 
 /* SHOW ON HOVER */
-.temario li:hover .tooltip {
+.temario li:hover .descripcion {
   display: block;
 }
 
@@ -185,21 +171,6 @@ body {
   .temario-container {
     width: 90%;
     margin-top: 30px;
-  }
-
-  .temario li {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .temario li .tooltip {
-    margin-left: 0;
-    margin-top: 8px;
-    width: 100%;
-  }
-
-  .temario li .nombre {
-    flex: none;
   }
 }
 </style>
@@ -241,30 +212,30 @@ body {
     <iframe src="https://www.youtube.com/embed/1umqS76Hlm0" title="Video explicativo del curso" frameborder="0" allowfullscreen></iframe>
   </div>
 
-  <!-- TEMARIO + DESCRIPCIONES AL COSTADO -->
+  <!-- TEMARIO -->
   <div class="temario-container">
     <div class="temario">
       <h3>Temario de las clases</h3>
       <ul>
         <li>
           <span class="nombre">Clase 1: Introducción a la IA</span>
-          <span class="tooltip">Conocerás los conceptos básicos de IA y las herramientas iniciales que puedes usar en tu aula.</span>
+          <span class="descripcion">Conocerás los conceptos básicos de IA y las herramientas iniciales que puedes usar en tu aula.</span>
         </li>
         <li>
           <span class="nombre">Clase 2: Automatización de tareas</span>
-          <span class="tooltip">Aprenderás a automatizar tareas administrativas y ahorrar tiempo en correcciones y planificación.</span>
+          <span class="descripcion">Aprenderás a automatizar tareas administrativas y ahorrar tiempo en correcciones y planificación.</span>
         </li>
         <li>
           <span class="nombre">Clase 3: Contenidos educativos</span>
-          <span class="tooltip">Creación de materiales, presentaciones y recursos educativos con ayuda de IA de manera rápida y efectiva.</span>
+          <span class="descripcion">Creación de materiales, presentaciones y recursos educativos con ayuda de IA de manera rápida y efectiva.</span>
         </li>
         <li>
           <span class="nombre">Clase 4: Evaluaciones automáticas</span>
-          <span class="tooltip">Cómo generar evaluaciones, correcciones y retroalimentación automática para tus estudiantes.</span>
+          <span class="descripcion">Cómo generar evaluaciones, correcciones y retroalimentación automática para tus estudiantes.</span>
         </li>
         <li>
           <span class="nombre">Clase 5: Integración en planificación</span>
-          <span class="tooltip">Aprenderás a incluir herramientas de IA directamente en tus planes de clase semanales.</span>
+          <span class="descripcion">Aprenderás a incluir herramientas de IA directamente en tus planes de clase semanales.</span>
         </li>
       </ul>
     </div>
