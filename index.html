@@ -2,76 +2,146 @@
 <html>
 
 <head>
-
 <title>1 Habilidad x 1 Café</title>
 
 <style>
 
 /* ESTILO GENERAL */
-
 body{
-font-family: Arial;
-margin:0;
-background:#f4f4f4;
-text-align:center;
+  font-family: Arial, sans-serif;
+  margin:0;
+  background:#f4f4f4;
+  text-align:center;
+  color:#333;
 }
 
 /* PORTADA */
-
 .hero{
-background-image:url("portada5.png");
-background-size:cover;
-background-position:center;
-height:420px;
+  background-image:url("portada5.png");
+  background-size:cover;
+  background-position:center;
+  height:420px;
 
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 
-color:white;
-text-shadow:0 2px 10px rgba(0,0,0,0.7);
+  color:white;
+  text-shadow:0 2px 10px rgba(0,0,0,0.7);
 }
-
-/* TITULO */
 
 .hero h1{
-font-size:55px;
-margin-bottom:10px;
+  font-size:55px;
+  margin-bottom:10px;
 }
-
-/* TEXTO */
 
 .hero p{
-font-size:22px;
-max-width:700px;
+  font-size:22px;
+  max-width:700px;
 }
 
-/* BOTON */
-
 button{
-margin-top:25px;
-padding:15px 30px;
-font-size:18px;
-background:#ff4b2b;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
+  margin-top:25px;
+  padding:15px 30px;
+  font-size:18px;
+  background:#ff4b2b;
+  color:white;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.3s;
 }
 
 button:hover{
-background:#ff2a00;
+  background:#ff2a00;
 }
 
 /* SECCION INFORMACION */
-
 .info{
-padding:60px 20px;
+  padding:60px 20px;
 }
 
 .info h2{
-color:#333;
+  color:#333;
+  margin-bottom:20px;
+}
+
+/* VIDEO + TEMARIO */
+.video-temario{
+  display:flex;
+  justify-content:center;
+  gap:50px;
+  align-items:flex-start;
+  padding:60px 20px;
+  flex-wrap:wrap;
+  background:#fff;
+  border-top:1px solid #ddd;
+  border-bottom:1px solid #ddd;
+}
+
+.video-temario iframe{
+  width:560px;
+  height:315px;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.temario{
+  max-width:400px;
+  text-align:left;
+}
+
+.temario h3{
+  color:#ff4b2b;
+  margin-bottom:15px;
+}
+
+.temario ul{
+  list-style:none;
+  padding-left:0;
+}
+
+.temario li{
+  font-size:18px;
+  margin-bottom:12px;
+  padding:10px;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  transition:0.3s;
+  cursor:pointer;
+}
+
+/* Íconos para cada clase */
+.temario li::before{
+  content:"☕";
+  margin-right:10px;
+  font-size:20px;
+}
+
+/* Hover animado */
+.temario li:hover{
+  background:#ff4b2b;
+  color:white;
+  transform:translateX(5px);
+}
+
+/* RESPONSIVE */
+@media (max-width:1000px){
+  .video-temario{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .video-temario iframe{
+    width:90%;
+    height:250px;
+  }
+
+  .temario{
+    max-width:90%;
+  }
 }
 
 </style>
@@ -81,34 +151,48 @@ color:#333;
 <body>
 
 <div class="hero">
-
-<h1>☕ 1 Habilidad x 1 Café</h1>
-
-<p>
-Aprende herramientas de Inteligencia Artificial útiles para docentes
-</p>
-
-<a href="membresia.html">
-<button>Entrar a las clases</button>
-</a>
-
+  <h1>☕ 1 Habilidad x 1 Café</h1>
+  <p>
+    Aprende herramientas de Inteligencia Artificial útiles para docentes
+  </p>
+  <a href="membresia.html">
+    <button>Entrar a las clases</button>
+  </a>
 </div>
 
 <div class="info">
+  <h2>Clases prácticas de IA que te servirán para ahorrar tiempo</h2>
+  <p>
+    Cada semana una herramienta nueva de Inteligencia Artificial explicada
+    de forma simple y aplicada a la educación.
+  </p>
+  <p>
+    Prompts, evaluaciones, actividades y recursos listos para usar.
+  </p>
+</div>
 
-<h2>Clases prácticas de IA que te servirán para ahorrar tiempo</h2>
+<!-- VIDEO + TEMARIO -->
+<div class="video-temario">
 
-<p>
-Cada semana una herramienta nueva de Inteligencia Artificial explicada
-de forma simple y aplicada a la educación.
-</p>
+  <!-- VIDEO -->
+  <iframe src="https://www.youtube.com/embed/1umqS76Hlm0" title="Video explicativo del curso" frameborder="0" allowfullscreen></iframe>
 
-<p>
-Prompts, evaluaciones, actividades y recursos listos para usar.
-</p>
+  <!-- TEMARIO -->
+  <div class="temario">
+    <h3>Temario de las clases</h3>
+    <ul>
+      <li>Clase 1: Introducción a la IA y herramientas básicas</li>
+      <li>Clase 2: Automatización de tareas administrativas</li>
+      <li>Clase 3: Creación de contenidos educativos con IA</li>
+      <li>Clase 4: Evaluaciones y correcciones automáticas</li>
+      <li>Clase 5: Integración de IA en la planificación de clases</li>
+      <li>Clase 6: Prompts avanzados y buenas prácticas</li>
+      <li>Clase 7: Recursos y plantillas listas para usar</li>
+      <li>Clase 8: Proyecto final práctico de aplicación en tu aula</li>
+    </ul>
+  </div>
 
 </div>
 
 </body>
-
 </html>
