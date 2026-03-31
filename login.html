@@ -3,7 +3,7 @@
 
 <head>
 
-<title>Ingreso a la plataforma</title>
+<title>Ingreso a las clases</title>
 
 <style>
 
@@ -16,13 +16,7 @@ padding:60px;
 }
 
 h1{
-font-size:40px;
 margin-bottom:20px;
-}
-
-p{
-color:#cccccc;
-margin-bottom:30px;
 }
 
 .contenedor{
@@ -31,14 +25,12 @@ padding:40px;
 border-radius:12px;
 max-width:400px;
 margin:auto;
-box-shadow:0 0 20px rgba(0,0,0,0.6);
 }
 
 input{
 width:90%;
 padding:12px;
-margin-top:10px;
-margin-bottom:20px;
+margin:10px;
 border-radius:8px;
 border:none;
 font-size:16px;
@@ -64,24 +56,63 @@ background:#ff2a00;
 
 <body>
 
-<h1>Ingreso a las clases</h1>
+<h1>Ingreso a la biblioteca</h1>
 
-<p>
-Si ya enviaste tu comprobante por WhatsApp,<br>
-ingresa tu email para acceder a la biblioteca de clases.
-</p>
+<p>Ingresa con el email autorizado para acceder a las clases</p>
 
 <div class="contenedor">
 
-<input type="email" placeholder="Tu email">
+<input id="email" type="email" placeholder="Email">
+
+<input id="password" type="password" placeholder="Contraseña">
 
 <br>
 
-<a href="clases.html">
-<button>Ingresar</button>
-</a>
+<button onclick="login()">Ingresar</button>
 
 </div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+apiKey: "AIzaSyBFJH3LRuaS8yc6iDsXXcwACzpddA8lr5c",
+authDomain: "habilidadx1cafe.firebaseapp.com",
+projectId: "habilidadx1cafe",
+storageBucket: "habilidadx1cafe.firebasestorage.app",
+messagingSenderId: "113035104487",
+appId: "1:113035104487:web:1427b58f5263136d321242",
+measurementId: "G-KTCF00V3VC"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.login = function(){
+
+const email=document.getElementById("email").value;
+const password=document.getElementById("password").value;
+
+signInWithEmailAndPassword(auth,email,password)
+
+.then((userCredential)=>{
+
+window.location="clases.html";
+
+})
+
+.catch((error)=>{
+
+alert("Email o contraseña incorrectos");
+
+});
+
+}
+
+</script>
 
 </body>
 
