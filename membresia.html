@@ -8,176 +8,189 @@
 <style>
 
 body{
-margin:0;
-font-family:Arial;
-color:white;
-background:#0f0f0f;
-text-align:center;
+  margin:0;
+  font-family:Arial;
+  color:white;
+  background:#0f0f0f;
+  text-align:center;
 }
 
 /* HERO */
 
 .hero{
-background-image:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c");
-background-size:cover;
-background-position:center;
-padding:120px 20px;
-position:relative;
+  background-image:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c");
+  background-size:cover;
+  background-position:center;
+  padding:120px 20px;
+  position:relative;
 }
 
 .hero::after{
-content:"";
-position:absolute;
-top:0;
-left:0;
-right:0;
-bottom:0;
-background:rgba(0,0,0,0.65);
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:rgba(0,0,0,0.65);
 }
 
 .hero-content{
-position:relative;
-z-index:2;
+  position:relative;
+  z-index:2;
 }
 
 .hero h1{
-font-size:48px;
-margin-bottom:10px;
+  font-size:48px;
+  margin-bottom:10px;
 }
 
 .subtitulo{
-color:#ccc;
-font-size:18px;
-margin-bottom:30px;
+  color:#ccc;
+  font-size:18px;
+  margin-bottom:30px;
 }
 
 .hero button{
-padding:14px 28px;
-font-size:18px;
-background:#ff4b2b;
-border:none;
-border-radius:8px;
-color:white;
-cursor:pointer;
+  padding:14px 28px;
+  font-size:18px;
+  background:#ff4b2b;
+  border:none;
+  border-radius:8px;
+  color:white;
+  cursor:pointer;
 }
 
 .hero button:hover{
-background:#ff2a00;
+  background:#ff2a00;
 }
 
 /* SECCIONES */
 
 .seccion{
-padding:70px 20px;
+  padding:70px 20px;
 }
 
 /* PLANES */
 
 .precios{
-display:flex;
-justify-content:center;
-gap:40px;
-flex-wrap:wrap;
-margin-top:40px;
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
+  margin-top:40px;
 }
 
 .tarjeta{
-background:#1c1c1c;
-padding:35px;
-border-radius:14px;
-width:270px;
-box-shadow:0 0 20px rgba(0,0,0,0.6);
-transition:0.3s;
+  background:#1c1c1c;
+  padding:35px;
+  border-radius:14px;
+  width:270px;
+  box-shadow:0 0 20px rgba(0,0,0,0.6);
+  transition:0.3s;
 }
 
 .tarjeta:hover{
-transform:translateY(-5px);
+  transform:translateY(-5px);
 }
 
 .precio{
-font-size:38px;
-margin:15px 0;
-color:#ff4b2b;
+  font-size:38px;
+  margin:15px 0;
+  color:#ff4b2b;
 }
 
 .destacada{
-border:2px solid #ff4b2b;
-transform:scale(1.05);
+  border:2px solid #ff4b2b;
+  transform:scale(1.05);
 }
 
 /* REGISTRO */
 
 .registro{
-background:#1c1c1c;
-max-width:420px;
-margin:auto;
-padding:35px;
-border-radius:14px;
-box-shadow:0 0 20px rgba(0,0,0,0.6);
+  background:#1c1c1c;
+  max-width:420px;
+  margin:auto;
+  padding:35px;
+  border-radius:14px;
+  box-shadow:0 0 20px rgba(0,0,0,0.6);
 }
 
 input{
-width:90%;
-padding:14px;
-margin-bottom:15px;
-border-radius:8px;
-border:none;
-font-size:16px;
-background:#2b2b2b;
-color:white;
+  width:90%;
+  padding:14px;
+  margin-bottom:15px;
+  border-radius:8px;
+  border:none;
+  font-size:16px;
+  background:#2b2b2b;
+  color:white;
 }
 
 button{
-padding:14px 30px;
-font-size:17px;
-background:#ff4b2b;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
+  padding:14px 30px;
+  font-size:17px;
+  background:#ff4b2b;
+  color:white;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
 }
 
 button:hover{
-background:#ff2a00;
+  background:#ff2a00;
 }
 
 /* PAGO */
 
 .alias{
-background:#1c1c1c;
-padding:25px;
-border-radius:12px;
-max-width:420px;
-margin:40px auto;
-font-size:18px;
+  background:#1c1c1c;
+  padding:25px;
+  border-radius:12px;
+  max-width:420px;
+  margin:40px auto;
+  font-size:18px;
 }
 
 .whatsapp{
-background:#25D366;
+  background:#25D366;
 }
 
 .whatsapp:hover{
-background:#1ebe5b;
+  background:#1ebe5b;
 }
 
 /* PASOS */
 
 .pasos{
-color:#ccc;
-margin-top:40px;
-line-height:1.7;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.pasos div {
+  background: #1c1c1c;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  min-width: 150px;
+  text-align: center;
+  font-size: 18px;
+  color: #ccc;
 }
 
 .login{
-margin-top:40px;
+  margin-top:40px;
 }
 
 .login button{
-background:#444;
+  background:#444;
 }
 
 .login button:hover{
-background:#666;
+  background:#666;
 }
 
 </style>
@@ -190,21 +203,21 @@ background:#666;
 
 <div class="hero">
 
-<div class="hero-content">
+  <div class="hero-content">
 
-<h1>Habilidad x 1 Café</h1>
+    <h1>Habilidad x 1 Café</h1>
 
-<p class="subtitulo">
-Clases y recursos de Inteligencia Artificial para docentes
-</p>
+    <p class="subtitulo">
+      Clases y recursos de Inteligencia Artificial para docentes
+    </p>
 
-<a href="login.html">
-<button>
-Ingresar a la plataforma
-</button>
-</a>
+    <a href="login.html">
+      <button>
+        Ingresar a la plataforma
+      </button>
+    </a>
 
-</div>
+  </div>
 
 </div>
 
@@ -213,35 +226,35 @@ Ingresar a la plataforma
 
 <div class="seccion">
 
-<h2>Planes de acceso</h2>
+  <h2>Planes de acceso</h2>
 
-<div class="precios">
+  <div class="precios">
 
-<div class="tarjeta">
+    <div class="tarjeta">
 
-<h3>📚 Clase en vivo</h3>
+      <h3>📚 Clase en vivo</h3>
 
-<div class="precio">$5000</div>
+      <div class="precio">$5000</div>
 
-<p>
-Acceso al próximo encuentro en vivo por Google Meet
-</p>
+      <p>
+        Acceso al próximo encuentro en vivo por Google Meet
+      </p>
 
-</div>
+    </div>
 
-<div class="tarjeta destacada">
+    <div class="tarjeta destacada">
 
-<h3>🚀 Membresía mensual</h3>
+      <h3>🚀 Membresía mensual</h3>
 
-<div class="precio">$18000/mes</div>
+      <div class="precio">$18000/mes</div>
 
-<p>
-Acceso a todos los vivos, materiales y clases grabadas
-</p>
+      <p>
+        Acceso a todos los vivos, materiales y clases grabadas
+      </p>
 
-</div>
+    </div>
 
-</div>
+  </div>
 
 </div>
 
@@ -250,19 +263,19 @@ Acceso a todos los vivos, materiales y clases grabadas
 
 <div class="seccion">
 
-<div class="registro">
+  <div class="registro">
 
-<h2>1️⃣ Crear cuenta</h2>
+    <h2>1️⃣ Crear cuenta</h2>
 
-<input type="email" id="email" placeholder="Tu correo electrónico">
+    <input type="email" id="email" placeholder="Tu correo electrónico">
 
-<input type="password" id="password" placeholder="Crea una contraseña">
+    <input type="password" id="password" placeholder="Crea una contraseña">
 
-<button onclick="registrar()">Crear cuenta</button>
+    <button onclick="registrar()">Crear cuenta</button>
 
-<p id="mensaje"></p>
+    <p id="mensaje"></p>
 
-</div>
+  </div>
 
 </div>
 
@@ -271,50 +284,44 @@ Acceso a todos los vivos, materiales y clases grabadas
 
 <div class="seccion">
 
-<h2>2️⃣ Realizar pago</h2>
+  <h2>2️⃣ Realizar pago</h2>
 
-<div class="alias">
+  <div class="alias">
 
-<p><b>Pagar por transferencia</b></p>
+    <p><b>Pagar por transferencia</b></p>
+    Alias: <b>melisa.f.</b><br>
+    Titular: <b>Melisa Fernández</b><br>
+    Cuenta: Mercado Pago
 
-Alias: <b>melisa.f.</b><br>
-Titular: <b>Melisa Fernández</b><br>
-Cuenta: Mercado Pago
+  </div>
 
-</div>
+  <p>3️⃣ Luego envía el comprobante</p>
 
-<p>3️⃣ Luego envía el comprobante</p>
+  <a href="https://wa.me/543435508780">
+    <button class="whatsapp">
+      Enviar comprobante por WhatsApp
+    </button>
+  </a>
 
-<a href="https://wa.me/543435508780">
-<button class="whatsapp">
-Enviar comprobante por WhatsApp
-</button>
-</a>
+  <!-- PASOS EN FILA -->
+  <div class="pasos">
+    <div>1️⃣ Crear cuenta</div>
+    <div>2️⃣ Realizar pago</div>
+    <div>3️⃣ Enviar comprobante</div>
+    <div>4️⃣ Activaremos tu acceso</div>
+  </div>
 
-<div class="pasos">
+  <div class="login">
 
-<p>
+    <p>¿Ya tienes cuenta activa?</p>
 
-1️⃣ Crea tu cuenta<br>
-2️⃣ Realiza el pago<br>
-3️⃣ Envía el comprobante<br>
-4️⃣ Activaremos tu acceso
+    <a href="login.html">
+      <button>
+        Ingresar a la plataforma
+      </button>
+    </a>
 
-</p>
-
-</div>
-
-<div class="login">
-
-<p>¿Ya tienes cuenta activa?</p>
-
-<a href="login.html">
-<button>
-Ingresar a la plataforma
-</button>
-</a>
-
-</div>
+  </div>
 
 </div>
 
@@ -322,58 +329,43 @@ Ingresar a la plataforma
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import { 
-getAuth,
-createUserWithEmailAndPassword
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
-
-apiKey: "AIzaSyBFJH3LRuaS8yc6iDsXXcwACzpddA8lr5c",
-authDomain: "habilidadx1cafe.firebaseapp.com",
-projectId: "habilidadx1cafe",
-storageBucket: "habilidadx1cafe.firebasestorage.app",
-messagingSenderId: "113035104487",
-appId: "1:113035104487:web:1427b58f5263136d321242",
-measurementId: "G-KTCF00V3VC"
-
+  apiKey: "AIzaSyBFJH3LRuaS8yc6iDsXXcwACzpddA8lr5c",
+  authDomain: "habilidadx1cafe.firebaseapp.com",
+  projectId: "habilidadx1cafe",
+  storageBucket: "habilidadx1cafe.firebasestorage.app",
+  messagingSenderId: "113035104487",
+  appId: "1:113035104487:web:1427b58f5263136d321242",
+  measurementId: "G-KTCF00V3VC"
 };
 
 const app = initializeApp(firebaseConfig);
-
 const auth = getAuth(app);
 
 window.registrar = function(){
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
 
-let email = document.getElementById("email").value;
-let password = document.getElementById("password").value;
+  if(email === "" || password === ""){
+    document.getElementById("mensaje").innerText = "Completa email y contraseña.";
+    return;
+  }
 
-if(email === "" || password === ""){
-document.getElementById("mensaje").innerText = "Completa email y contraseña.";
-return;
-}
+  if(password.length < 6){
+    document.getElementById("mensaje").innerText = "La contraseña debe tener al menos 6 caracteres.";
+    return;
+  }
 
-if(password.length < 6){
-document.getElementById("mensaje").innerText = "La contraseña debe tener al menos 6 caracteres.";
-return;
-}
-
-createUserWithEmailAndPassword(auth,email,password)
-
-.then(()=>{
-
-document.getElementById("mensaje").innerText =
-"Cuenta creada. Ahora realiza el pago y envía el comprobante.";
-
-})
-
-.catch((error)=>{
-
-document.getElementById("mensaje").innerText = error.message;
-
-})
-
+  createUserWithEmailAndPassword(auth,email,password)
+    .then(()=>{
+      document.getElementById("mensaje").innerText =
+        "Cuenta creada. Ahora realiza el pago y envía el comprobante.";
+    })
+    .catch((error)=>{
+      document.getElementById("mensaje").innerText = error.message;
+    })
 }
 
 </script>
