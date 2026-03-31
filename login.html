@@ -8,15 +8,48 @@
 <style>
 
 body{
+margin:0;
 font-family:Arial;
-background:#0f0f0f;
 color:white;
+
+/* imagen de fondo */
+background-image:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c");
+background-size:cover;
+background-position:center;
+
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
-margin:0;
 }
+
+/* capa oscura encima de la imagen */
+
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+/* titulo */
+
+.titulo{
+font-size:38px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.subtitulo{
+color:#ccc;
+margin-bottom:30px;
+}
+
+/* caja login */
 
 .login-box{
 background:#1c1c1c;
@@ -24,11 +57,7 @@ padding:40px;
 border-radius:12px;
 width:340px;
 text-align:center;
-box-shadow:0 0 20px rgba(0,0,0,0.6);
-}
-
-h2{
-margin-bottom:25px;
+box-shadow:0 0 25px rgba(0,0,0,0.7);
 }
 
 input{
@@ -55,6 +84,7 @@ border:none;
 border-radius:8px;
 cursor:pointer;
 font-size:16px;
+width:100%;
 }
 
 button:hover{
@@ -88,15 +118,21 @@ background:#1ebe5b;
 
 <body>
 
-<div class="login-box">
+<div class="overlay">
 
-<h2>Ingreso a las clases</h2>
+<div class="titulo">
+Habilidad x 1 Café
+</div>
+
+<div class="subtitulo">
+Plataforma de clases y recursos con IA para docentes
+</div>
+
+<div class="login-box">
 
 <input type="email" id="email" placeholder="Tu email">
 
 <input type="password" id="password" placeholder="Tu contraseña">
-
-<br>
 
 <button onclick="login()">
 Ingresar
@@ -117,6 +153,8 @@ Ingresar
 Ver membresía
 </button>
 </a>
+
+</div>
 
 </div>
 
@@ -153,7 +191,6 @@ const auth = getAuth(app);
 window.login = function(){
 
 const email = document.getElementById("email").value;
-
 const password = document.getElementById("password").value;
 
 signInWithEmailAndPassword(auth,email,password)
@@ -167,44 +204,34 @@ window.location.href="clases.html"
 .catch((error) => {
 
 if(error.code === "auth/user-not-found"){
-alert("No existe una cuenta con ese email. Primero debes crear tu cuenta en la membresía.");
+alert("No existe una cuenta con ese email. Primero debes registrarte en la membresía.");
 }
 
 else if(error.code === "auth/wrong-password"){
 alert("Contraseña incorrecta.");
 }
 
-else if(error.code === "auth/invalid-email"){
-alert("El email no es válido.");
-}
-
 else{
-alert("Tu acceso aún no fue activado. Si ya pagaste la membresía envía el comprobante por WhatsApp.");
+alert("Tu acceso aún no fue activado. Si ya pagaste la membresía envía tu comprobante por WhatsApp.");
 }
 
 });
 
 }
 
-
 window.resetPassword = function(){
 
 const email = document.getElementById("email").value;
 
 if(email===""){
-
 alert("Escribe tu email primero")
-
 return
-
 }
 
 sendPasswordResetEmail(auth,email)
 
 .then(()=>{
-
 alert("Te enviamos un email para recuperar tu contraseña")
-
 })
 
 }
