@@ -42,13 +42,14 @@ body{
 
 /* BOTON DE ENTRAR ABAJO DE LA IMAGEN */
 .boton-clases-container{
-  margin:20px auto 10px auto; /* bajamos 1 cm más */
+  margin-top:40px; /* separacion desde la hero */
+  margin-bottom:20px;
 }
 
 .boton-clases-container button{
   padding:15px 30px;
   font-size:18px;
-  background:#1e90ff; /* azul moderno */
+  background:#ff4b2b; /* color rojo original */
   color:white;
   border:none;
   border-radius:8px;
@@ -57,7 +58,7 @@ body{
 }
 
 .boton-clases-container button:hover{
-  background:#0056b3;
+  background:#ff2a00;
 }
 
 /* SECCION INFORMACION */
@@ -123,7 +124,7 @@ body{
   border-radius:8px;
   display:flex;
   align-items:center;
-  position:relative; /* Contenedor relativo para tooltip */
+  position:relative; /* necesario para tooltip */
   transition:0.3s;
   cursor:pointer;
   background:#f9f9f9;
@@ -143,27 +144,23 @@ body{
   transform:translateX(5px);
 }
 
-/* TOOLTIP PREMIUM CON FADE + SLIDE */
+/* TOOLTIP FUNCIONAL */
 .temario li .tooltip{
-  visibility:hidden;
-  width:280px;
-  background:#222;
-  color:#fff;
-  text-align:left;
-  padding:15px;
-  border-radius:12px;
+  display:none; /* oculto por defecto */
   position:absolute;
   left:105%;
   top:50%;
-  transform:translateY(-50%) translateX(-20px);
-  opacity:0;
-  transition:opacity 0.4s ease, transform 0.4s ease, background 0.3s;
+  transform:translateY(-50%);
+  width:280px;
+  background:#ff4b2b;
+  color:#fff;
+  padding:12px;
+  border-radius:10px;
   z-index:10;
-  box-shadow:0 10px 25px rgba(0,0,0,0.3);
-  pointer-events:none;
-  white-space:normal;
+  box-shadow:0 5px 20px rgba(0,0,0,0.3);
   font-size:15px;
   line-height:1.5;
+  pointer-events:none;
 }
 
 /* Flecha del tooltip */
@@ -175,16 +172,12 @@ body{
   transform:translateY(-50%);
   border-width:10px;
   border-style:solid;
-  border-color: transparent #222 transparent transparent;
+  border-color: transparent #ff4b2b transparent transparent;
 }
 
 /* Hover: mostrar tooltip */
 .temario li:hover .tooltip{
-  visibility:visible;
-  opacity:1;
-  transform:translateY(-50%) translateX(0);
-  background:#ff4b2b;
-  box-shadow:0 10px 25px rgba(0,0,0,0.6);
+  display:block;
 }
 
 /* RESPONSIVE */
@@ -214,7 +207,6 @@ body{
     left:20px;
     top:-10px;
     border-color: #ff4b2b transparent transparent transparent;
-    border-width: 10px;
   }
 }
 
