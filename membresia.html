@@ -8,34 +8,78 @@
 <style>
 
 body{
+margin:0;
 font-family:Arial;
-background:#0f0f0f;
 color:white;
+background:#0f0f0f;
 text-align:center;
-padding:60px;
 }
 
-h1{
-font-size:42px;
+/* HERO */
+
+.hero{
+background-image:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c");
+background-size:cover;
+background-position:center;
+padding:120px 20px;
+position:relative;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:rgba(0,0,0,0.65);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.hero h1{
+font-size:48px;
 margin-bottom:10px;
 }
 
 .subtitulo{
-color:#bbb;
-margin-bottom:40px;
+color:#ccc;
+font-size:18px;
+margin-bottom:30px;
 }
 
-/* CONTENEDOR PRECIOS */
+.hero button{
+padding:14px 28px;
+font-size:18px;
+background:#ff4b2b;
+border:none;
+border-radius:8px;
+color:white;
+cursor:pointer;
+}
+
+.hero button:hover{
+background:#ff2a00;
+}
+
+/* SECCIONES */
+
+.seccion{
+padding:70px 20px;
+}
+
+/* PLANES */
 
 .precios{
 display:flex;
 justify-content:center;
 gap:40px;
 flex-wrap:wrap;
-margin-bottom:50px;
+margin-top:40px;
 }
-
-/* TARJETAS */
 
 .tarjeta{
 background:#1c1c1c;
@@ -48,11 +92,6 @@ transition:0.3s;
 
 .tarjeta:hover{
 transform:translateY(-5px);
-box-shadow:0 10px 25px rgba(0,0,0,0.8);
-}
-
-.tarjeta h2{
-margin-bottom:10px;
 }
 
 .precio{
@@ -75,17 +114,10 @@ margin:auto;
 padding:35px;
 border-radius:14px;
 box-shadow:0 0 20px rgba(0,0,0,0.6);
-margin-bottom:40px;
 }
-
-.registro h2{
-margin-bottom:20px;
-}
-
-/* INPUTS */
 
 input{
-width:85%;
+width:90%;
 padding:14px;
 margin-bottom:15px;
 border-radius:8px;
@@ -95,14 +127,7 @@ background:#2b2b2b;
 color:white;
 }
 
-input::placeholder{
-color:#aaa;
-}
-
-/* BOTONES */
-
 button{
-margin-top:10px;
 padding:14px 30px;
 font-size:17px;
 background:#ff4b2b;
@@ -116,6 +141,17 @@ button:hover{
 background:#ff2a00;
 }
 
+/* PAGO */
+
+.alias{
+background:#1c1c1c;
+padding:25px;
+border-radius:12px;
+max-width:420px;
+margin:40px auto;
+font-size:18px;
+}
+
 .whatsapp{
 background:#25D366;
 }
@@ -124,24 +160,24 @@ background:#25D366;
 background:#1ebe5b;
 }
 
-/* ALIAS */
+/* PASOS */
 
-.alias{
-background:#1c1c1c;
-padding:25px;
-border-radius:12px;
-max-width:420px;
-margin:auto;
-margin-top:20px;
-font-size:18px;
+.pasos{
+color:#ccc;
+margin-top:40px;
+line-height:1.7;
 }
 
-/* TEXTOS */
+.login{
+margin-top:40px;
+}
 
-.activacion{
-margin-top:20px;
-color:#ffcc00;
-font-size:15px;
+.login button{
+background:#444;
+}
+
+.login button:hover{
+background:#666;
 }
 
 </style>
@@ -150,17 +186,40 @@ font-size:15px;
 
 <body>
 
-<h1>Accede a las clases</h1>
+<!-- HERO -->
+
+<div class="hero">
+
+<div class="hero-content">
+
+<h1>Habilidad x 1 Café</h1>
 
 <p class="subtitulo">
-Aprende herramientas de Inteligencia Artificial aplicadas a la educación
+Clases y recursos de Inteligencia Artificial para docentes
 </p>
+
+<a href="login.html">
+<button>
+Ingresar a la plataforma
+</button>
+</a>
+
+</div>
+
+</div>
+
+
+<!-- PLANES -->
+
+<div class="seccion">
+
+<h2>Planes de acceso</h2>
 
 <div class="precios">
 
 <div class="tarjeta">
 
-<h2>📚 Clase en vivo</h2>
+<h3>📚 Clase en vivo</h3>
 
 <div class="precio">$5000</div>
 
@@ -172,7 +231,7 @@ Acceso al próximo encuentro en vivo por Google Meet
 
 <div class="tarjeta destacada">
 
-<h2>🚀 Membresía mensual</h2>
+<h3>🚀 Membresía mensual</h3>
 
 <div class="precio">$18000/mes</div>
 
@@ -184,9 +243,16 @@ Acceso a todos los vivos, materiales y clases grabadas
 
 </div>
 
+</div>
+
+
+<!-- CREAR CUENTA -->
+
+<div class="seccion">
+
 <div class="registro">
 
-<h2>Crear cuenta de acceso</h2>
+<h2>1️⃣ Crear cuenta</h2>
 
 <input type="email" id="email" placeholder="Tu correo electrónico">
 
@@ -198,6 +264,15 @@ Acceso a todos los vivos, materiales y clases grabadas
 
 </div>
 
+</div>
+
+
+<!-- PAGO -->
+
+<div class="seccion">
+
+<h2>2️⃣ Realizar pago</h2>
+
 <div class="alias">
 
 <p><b>Pagar por transferencia</b></p>
@@ -208,9 +283,7 @@ Cuenta: Mercado Pago
 
 </div>
 
-<p style="margin-top:30px;">
-Luego envía el comprobante por WhatsApp
-</p>
+<p>3️⃣ Luego envía el comprobante</p>
 
 <a href="https://wa.me/543435508780">
 <button class="whatsapp">
@@ -218,22 +291,33 @@ Enviar comprobante por WhatsApp
 </button>
 </a>
 
-<p style="margin-top:25px;color:#ccc;">
+<div class="pasos">
+
+<p>
+
 1️⃣ Crea tu cuenta<br>
 2️⃣ Realiza el pago<br>
-3️⃣ Envía el comprobante por WhatsApp<br>
-4️⃣ Activaremos tu acceso a la plataforma
+3️⃣ Envía el comprobante<br>
+4️⃣ Activaremos tu acceso
+
 </p>
+
+</div>
+
+<div class="login">
+
+<p>¿Ya tienes cuenta activa?</p>
 
 <a href="login.html">
 <button>
-Acceder a la plataforma
+Ingresar a la plataforma
 </button>
 </a>
 
-<p class="activacion">
-⏱ Activación del acceso generalmente dentro de las 12 horas.
-</p>
+</div>
+
+</div>
+
 
 <script type="module">
 
@@ -266,7 +350,7 @@ let email = document.getElementById("email").value;
 let password = document.getElementById("password").value;
 
 if(email === "" || password === ""){
-document.getElementById("mensaje").innerText = "Por favor completa email y contraseña.";
+document.getElementById("mensaje").innerText = "Completa email y contraseña.";
 return;
 }
 
@@ -280,7 +364,7 @@ createUserWithEmailAndPassword(auth,email,password)
 .then(()=>{
 
 document.getElementById("mensaje").innerText =
-"Cuenta creada correctamente. Ahora envía el comprobante por WhatsApp para activar tu acceso.";
+"Cuenta creada. Ahora realiza el pago y envía el comprobante.";
 
 })
 
