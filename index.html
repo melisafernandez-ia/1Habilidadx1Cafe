@@ -42,7 +42,7 @@ body{
 
 /* BOTON DE ENTRAR ABAJO DE LA IMAGEN */
 .boton-clases-container{
-  margin:10px auto; /* menos espacio */
+  margin:20px auto 10px auto; /* bajamos 1 cm más */
 }
 
 .boton-clases-container button{
@@ -57,12 +57,12 @@ body{
 }
 
 .boton-clases-container button:hover{
-  background:#0056b3; /* azul más oscuro al pasar */
+  background:#0056b3;
 }
 
 /* SECCION INFORMACION */
 .info{
-  padding:30px 20px; /* menos espacio */
+  padding:30px 20px;
 }
 
 .info h2{
@@ -123,9 +123,10 @@ body{
   border-radius:8px;
   display:flex;
   align-items:center;
-  position:relative; /* para tooltip */
+  position:relative; /* Contenedor relativo para tooltip */
   transition:0.3s;
   cursor:pointer;
+  background:#f9f9f9;
 }
 
 /* Iconos de clase */
@@ -143,7 +144,7 @@ body{
 }
 
 /* TOOLTIP PREMIUM CON FADE + SLIDE */
-.temario li span{
+.temario li .tooltip{
   visibility:hidden;
   width:280px;
   background:#222;
@@ -154,7 +155,7 @@ body{
   position:absolute;
   left:105%;
   top:50%;
-  transform:translateY(-50%) translateX(-20px); /* empieza a la izquierda */
+  transform:translateY(-50%) translateX(-20px);
   opacity:0;
   transition:opacity 0.4s ease, transform 0.4s ease, background 0.3s;
   z-index:10;
@@ -166,7 +167,7 @@ body{
 }
 
 /* Flecha del tooltip */
-.temario li span::after{
+.temario li .tooltip::after{
   content:"";
   position:absolute;
   top:50%;
@@ -178,11 +179,11 @@ body{
 }
 
 /* Hover: mostrar tooltip */
-.temario li:hover span{
+.temario li:hover .tooltip{
   visibility:visible;
   opacity:1;
   transform:translateY(-50%) translateX(0);
-  background:#ff4b2b; /* cambia color */
+  background:#ff4b2b;
   box-shadow:0 10px 25px rgba(0,0,0,0.6);
 }
 
@@ -203,13 +204,13 @@ body{
     margin-top:30px;
   }
 
-  .temario li span{
+  .temario li .tooltip{
     left:0;
     top:100%;
     transform:translateY(10px);
   }
 
-  .temario li span::after{
+  .temario li .tooltip::after{
     left:20px;
     top:-10px;
     border-color: #ff4b2b transparent transparent transparent;
@@ -261,28 +262,28 @@ body{
     <h3>Temario de las clases</h3>
     <ul>
       <li>Clase 1: Introducción a la IA
-        <span>Conocerás los conceptos básicos de IA y las herramientas iniciales que puedes usar en tu aula.</span>
+        <div class="tooltip">Conocerás los conceptos básicos de IA y las herramientas iniciales que puedes usar en tu aula.</div>
       </li>
       <li>Clase 2: Automatización de tareas
-        <span>Aprenderás a automatizar tareas administrativas y ahorrar tiempo en correcciones y planificación.</span>
+        <div class="tooltip">Aprenderás a automatizar tareas administrativas y ahorrar tiempo en correcciones y planificación.</div>
       </li>
       <li>Clase 3: Contenidos educativos
-        <span>Creación de materiales, presentaciones y recursos educativos con ayuda de IA de manera rápida y efectiva.</span>
+        <div class="tooltip">Creación de materiales, presentaciones y recursos educativos con ayuda de IA de manera rápida y efectiva.</div>
       </li>
       <li>Clase 4: Evaluaciones automáticas
-        <span>Cómo generar evaluaciones, correcciones y retroalimentación automática para tus estudiantes.</span>
+        <div class="tooltip">Cómo generar evaluaciones, correcciones y retroalimentación automática para tus estudiantes.</div>
       </li>
       <li>Clase 5: Integración en planificación
-        <span>Aprenderás a incluir herramientas de IA directamente en tus planes de clase semanales.</span>
+        <div class="tooltip">Aprenderás a incluir herramientas de IA directamente en tus planes de clase semanales.</div>
       </li>
       <li>Clase 6: Prompts avanzados
-        <span>Mejores prácticas para escribir prompts efectivos y obtener resultados más precisos.</span>
+        <div class="tooltip">Mejores prácticas para escribir prompts efectivos y obtener resultados más precisos.</div>
       </li>
       <li>Clase 7: Recursos y plantillas
-        <span>Acceso a plantillas, prompts y recursos listos para aplicar en tus clases desde el primer día.</span>
+        <div class="tooltip">Acceso a plantillas, prompts y recursos listos para aplicar en tus clases desde el primer día.</div>
       </li>
       <li>Clase 8: Proyecto final
-        <span>Aplicación práctica de todo lo aprendido mediante un proyecto integrador para tu aula.</span>
+        <div class="tooltip">Aplicación práctica de todo lo aprendido mediante un proyecto integrador para tu aula.</div>
       </li>
     </ul>
   </div>
