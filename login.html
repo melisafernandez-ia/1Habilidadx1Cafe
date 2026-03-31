@@ -3,7 +3,7 @@
 
 <head>
 
-<title>Login</title>
+<title>Ingreso a la plataforma</title>
 
 <style>
 
@@ -15,42 +15,71 @@ display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
+margin:0;
 }
 
 .login-box{
 background:#1c1c1c;
 padding:40px;
-border-radius:10px;
-width:300px;
+border-radius:12px;
+width:340px;
 text-align:center;
+box-shadow:0 0 20px rgba(0,0,0,0.6);
+}
+
+h2{
+margin-bottom:25px;
 }
 
 input{
 width:90%;
-padding:12px;
+padding:14px;
 margin:10px 0;
 border:none;
-border-radius:6px;
+border-radius:8px;
+background:#2b2b2b;
+color:white;
+font-size:15px;
+}
+
+input::placeholder{
+color:#aaa;
 }
 
 button{
 padding:12px 25px;
+margin-top:10px;
 background:#ff4b2b;
 color:white;
 border:none;
-border-radius:6px;
+border-radius:8px;
 cursor:pointer;
+font-size:16px;
 }
 
 button:hover{
 background:#ff2a00;
 }
 
-a{
+.link{
 color:#25D366;
 display:block;
 margin-top:15px;
 cursor:pointer;
+}
+
+.membresia{
+margin-top:25px;
+padding-top:20px;
+border-top:1px solid #333;
+}
+
+.membresia button{
+background:#25D366;
+}
+
+.membresia button:hover{
+background:#1ebe5b;
 }
 
 </style>
@@ -63,9 +92,9 @@ cursor:pointer;
 
 <h2>Ingreso a las clases</h2>
 
-<input type="email" id="email" placeholder="Email">
+<input type="email" id="email" placeholder="Tu email">
 
-<input type="password" id="password" placeholder="Contraseña">
+<input type="password" id="password" placeholder="Tu contraseña">
 
 <br>
 
@@ -73,9 +102,23 @@ cursor:pointer;
 Ingresar
 </button>
 
-<a onclick="resetPassword()">
+<a class="link" onclick="resetPassword()">
 ¿Olvidaste tu contraseña?
 </a>
+
+<div class="membresia">
+
+<p style="color:#ccc;">
+¿Aún no tienes acceso?
+</p>
+
+<a href="membresia.html">
+<button>
+Ver membresía
+</button>
+</a>
+
+</div>
 
 </div>
 
@@ -121,9 +164,23 @@ window.location.href="clases.html"
 
 })
 
-.catch(() => {
+.catch((error) => {
 
-alert("Email o contraseña incorrectos")
+if(error.code === "auth/user-not-found"){
+alert("No existe una cuenta con ese email. Primero debes crear tu cuenta en la membresía.");
+}
+
+else if(error.code === "auth/wrong-password"){
+alert("Contraseña incorrecta.");
+}
+
+else if(error.code === "auth/invalid-email"){
+alert("El email no es válido.");
+}
+
+else{
+alert("Tu acceso aún no fue activado. Si ya pagaste la membresía envía el comprobante por WhatsApp.");
+}
 
 });
 
@@ -153,13 +210,7 @@ alert("Te enviamos un email para recuperar tu contraseña")
 }
 
 </script>
-<p style="margin-top:20px;color:#ccc;">
-¿No tienes acceso?
-</p>
 
-<a href="membresia.html">
-<button>Ver membresía</button>
-</a>
 </body>
 
 </html>
