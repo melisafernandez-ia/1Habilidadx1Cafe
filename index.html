@@ -119,6 +119,7 @@ body {
 
 .temario li {
   display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   background: #f9f9f9;
@@ -128,19 +129,23 @@ body {
   cursor: pointer;
   transition: 0.3s;
   position: relative;
+  flex-wrap: nowrap; /* evitar que se rompa el nombre a otra línea */
 }
 
 .temario li:hover {
   background: #ff4b2b;
   color: white;
-  transform: translateX(5px);
+  transform: translateX(3px);
 }
 
 /* NOMBRE DEL TEMA */
 .temario li .nombre {
   font-size: 18px;
-  flex: 0 0 180px; /* ancho fijo para alinear todos los nombres */
+  flex: 0 0 200px; /* ancho fijo para alinear todos los nombres */
   text-align: left;
+  white-space: nowrap; /* evita salto de línea */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* CUADRO DESCRIPTIVO */
@@ -156,6 +161,8 @@ body {
   line-height: 1.5;
   transition: 0.3s;
   text-align: left;
+  max-width: 400px; /* evita que se haga demasiado ancho */
+  word-wrap: break-word;
 }
 
 /* SHOW ON HOVER */
@@ -258,18 +265,6 @@ body {
         <li>
           <span class="nombre">Clase 5: Integración en planificación</span>
           <span class="tooltip">Aprenderás a incluir herramientas de IA directamente en tus planes de clase semanales.</span>
-        </li>
-        <li>
-          <span class="nombre">Clase 6: Prompts avanzados</span>
-          <span class="tooltip">Mejores prácticas para escribir prompts efectivos y obtener resultados más precisos.</span>
-        </li>
-        <li>
-          <span class="nombre">Clase 7: Recursos y plantillas</span>
-          <span class="tooltip">Acceso a plantillas, prompts y recursos listos para aplicar en tus clases desde el primer día.</span>
-        </li>
-        <li>
-          <span class="nombre">Clase 8: Proyecto final</span>
-          <span class="tooltip">Aplicación práctica de todo lo aprendido mediante un proyecto integrador para tu aula.</span>
         </li>
       </ul>
     </div>
