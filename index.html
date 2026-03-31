@@ -87,27 +87,23 @@ body {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
 }
 
 .video-temario .video-container iframe {
   width: 100%;
-  max-width: 560px;
   height: 100%;
-  min-height: 300px;
+  min-height: 500px; /* altura igual al temario */
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* TEMARIO CON DESCRIPCIONES AL COSTADO */
 .temario-container {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.temario {
-  text-align: left;
 }
 
 .temario h3 {
@@ -122,13 +118,16 @@ body {
 }
 
 .temario li {
-  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #f9f9f9;
   margin-bottom: 12px;
   padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
-  background: #f9f9f9;
+  position: relative;
 }
 
 .temario li:hover {
@@ -137,19 +136,30 @@ body {
   transform: translateX(5px);
 }
 
-/* CUADRO DE DESCRIPCION */
-.descripcion {
-  margin-top: 20px;
+/* NOMBRE DEL TEMA */
+.temario li .nombre {
+  font-size: 18px;
+  flex: 1;
+}
+
+/* CUADRO DESCRIPTIVO */
+.temario li .tooltip {
+  display: none;
+  flex: 1;
   background: #ff4b2b;
   color: white;
-  padding: 15px;
-  border-radius: 12px;
-  min-height: 80px;
-  max-width: 400px;
-  transition: 0.3s;
+  padding: 12px;
+  border-radius: 8px;
+  margin-left: 15px;
   font-size: 15px;
   line-height: 1.5;
+  transition: 0.3s;
   text-align: left;
+}
+
+/* SHOW ON HOVER */
+.temario li:hover .tooltip {
+  display: block;
 }
 
 /* RESPONSIVE */
@@ -165,14 +175,21 @@ body {
   }
 
   .temario-container {
-    align-items: center;
+    width: 90%;
+    margin-top: 30px;
   }
 
-  .descripcion {
-    max-width: 90%;
+  .temario li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .temario li .tooltip {
+    margin-left: 0;
+    margin-top: 8px;
+    width: 100%;
   }
 }
-
 </style>
 
 </head>
@@ -212,44 +229,48 @@ body {
     <iframe src="https://www.youtube.com/embed/1umqS76Hlm0" title="Video explicativo del curso" frameborder="0" allowfullscreen></iframe>
   </div>
 
-  <!-- TEMARIO + DESCRIPCION -->
+  <!-- TEMARIO + DESCRIPCIONES AL COSTADO -->
   <div class="temario-container">
     <div class="temario">
       <h3>Temario de las clases</h3>
       <ul>
-        <li data-desc="Conocerás los conceptos básicos de IA y las herramientas iniciales que puedes usar en tu aula.">Clase 1: Introducción a la IA</li>
-        <li data-desc="Aprenderás a automatizar tareas administrativas y ahorrar tiempo en correcciones y planificación.">Clase 2: Automatización de tareas</li>
-        <li data-desc="Creación de materiales, presentaciones y recursos educativos con ayuda de IA de manera rápida y efectiva.">Clase 3: Contenidos educativos</li>
-        <li data-desc="Cómo generar evaluaciones, correcciones y retroalimentación automática para tus estudiantes.">Clase 4: Evaluaciones automáticas</li>
-        <li data-desc="Aprenderás a incluir herramientas de IA directamente en tus planes de clase semanales.">Clase 5: Integración en planificación</li>
-        <li data-desc="Mejores prácticas para escribir prompts efectivos y obtener resultados más precisos.">Clase 6: Prompts avanzados</li>
-        <li data-desc="Acceso a plantillas, prompts y recursos listos para aplicar en tus clases desde el primer día.">Clase 7: Recursos y plantillas</li>
-        <li data-desc="Aplicación práctica de todo lo aprendido mediante un proyecto integrador para tu aula.">Clase 8: Proyecto final</li>
+        <li>
+          <span class="nombre">Clase 1: Introducción a la IA</span>
+          <span class="tooltip">Conocerás los conceptos básicos de IA y las herramientas iniciales que puedes usar en tu aula.</span>
+        </li>
+        <li>
+          <span class="nombre">Clase 2: Automatización de tareas</span>
+          <span class="tooltip">Aprenderás a automatizar tareas administrativas y ahorrar tiempo en correcciones y planificación.</span>
+        </li>
+        <li>
+          <span class="nombre">Clase 3: Contenidos educativos</span>
+          <span class="tooltip">Creación de materiales, presentaciones y recursos educativos con ayuda de IA de manera rápida y efectiva.</span>
+        </li>
+        <li>
+          <span class="nombre">Clase 4: Evaluaciones automáticas</span>
+          <span class="tooltip">Cómo generar evaluaciones, correcciones y retroalimentación automática para tus estudiantes.</span>
+        </li>
+        <li>
+          <span class="nombre">Clase 5: Integración en planificación</span>
+          <span class="tooltip">Aprenderás a incluir herramientas de IA directamente en tus planes de clase semanales.</span>
+        </li>
+        <li>
+          <span class="nombre">Clase 6: Prompts avanzados</span>
+          <span class="tooltip">Mejores prácticas para escribir prompts efectivos y obtener resultados más precisos.</span>
+        </li>
+        <li>
+          <span class="nombre">Clase 7: Recursos y plantillas</span>
+          <span class="tooltip">Acceso a plantillas, prompts y recursos listos para aplicar en tus clases desde el primer día.</span>
+        </li>
+        <li>
+          <span class="nombre">Clase 8: Proyecto final</span>
+          <span class="tooltip">Aplicación práctica de todo lo aprendido mediante un proyecto integrador para tu aula.</span>
+        </li>
       </ul>
-    </div>
-
-    <div class="descripcion" id="descripcion">
-      Pasa el cursor sobre cada clase para ver la descripción aquí.
     </div>
   </div>
 
 </div>
-
-<script>
-// Capturamos los items y el cuadro de descripción
-const items = document.querySelectorAll('.temario li');
-const descBox = document.getElementById('descripcion');
-
-// Para cada item, al pasar el mouse mostramos la descripción
-items.forEach(item => {
-  item.addEventListener('mouseover', () => {
-    descBox.textContent = item.getAttribute('data-desc');
-  });
-  item.addEventListener('mouseout', () => {
-    descBox.textContent = 'Pasa el cursor sobre cada clase para ver la descripción aquí.';
-  });
-});
-</script>
 
 </body>
 </html>
