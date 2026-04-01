@@ -11,8 +11,19 @@ font-family:Arial;
 background:#0f0f0f;
 color:white;
 text-align:center;
-padding:40px;
+margin:0;
+padding:0;
 }
+
+/* CONTENEDOR GENERAL */
+
+.contenido{
+max-width:1200px;
+margin:auto;
+padding:30px;
+}
+
+/* BARRA USUARIO */
 
 .barra-usuario{
 display:flex;
@@ -21,7 +32,12 @@ align-items:center;
 background:#1c1c1c;
 padding:15px 25px;
 border-radius:10px;
-margin-bottom:40px;
+margin-bottom:30px;
+}
+
+.barra-usuario span{
+color:#ddd;
+font-size:16px;
 }
 
 .barra-usuario button{
@@ -33,18 +49,34 @@ border-radius:6px;
 cursor:pointer;
 }
 
+.barra-usuario button:hover{
+background:#ff2a00;
+}
+
+/* HERO */
+
 .hero{
 height:220px;
-margin-bottom:60px;
 border-radius:15px;
 overflow:hidden;
+margin-bottom:50px;
+box-shadow:0 0 25px rgba(0,0,0,0.7);
 }
 
 .hero img{
 width:100%;
 height:100%;
 object-fit:cover;
+display:block;
 }
+
+/* TITULO */
+
+h2{
+margin-bottom:30px;
+}
+
+/* CONTENEDOR CLASES */
 
 .contenedor{
 display:flex;
@@ -53,12 +85,30 @@ flex-wrap:wrap;
 gap:30px;
 }
 
+/* TARJETAS */
+
 .clase{
 background:#1c1c1c;
 width:300px;
-padding:25px;
+padding:20px;
 border-radius:12px;
+box-shadow:0 0 15px rgba(0,0,0,0.6);
+transition:0.3s;
 }
+
+.clase:hover{
+transform:translateY(-5px);
+}
+
+.clase img{
+width:100%;
+height:170px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+/* BOTONES */
 
 button{
 padding:12px 25px;
@@ -71,11 +121,36 @@ cursor:pointer;
 margin-top:10px;
 }
 
+button:hover{
+background:#ff2a00;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:768px){
+
+.barra-usuario{
+flex-direction:column;
+gap:10px;
+}
+
+.clase{
+width:90%;
+}
+
+.hero{
+height:160px;
+}
+
+}
+
 </style>
 
 </head>
 
 <body>
+
+<div class="contenido">
 
 <div class="barra-usuario">
 <span id="usuario"></span>
@@ -94,14 +169,20 @@ margin-top:10px;
 <img src="clase1.jpeg">
 <h3>Clase 1</h3>
 <p>Introducción a IA para docentes</p>
-<a href="clase1.html"><button>Ver clase</button></a>
+<a href="clase1.html">
+<button>Ver clase</button>
+</a>
 </div>
 
 <div class="clase">
 <img src="clase2.jpeg">
 <h3>Clase 2</h3>
 <p>Crear evaluaciones con IA</p>
-<a href="clase2.html"><button>Ver clase</button></a>
+<a href="clase2.html">
+<button>Ver clase</button>
+</a>
+</div>
+
 </div>
 
 </div>
@@ -124,7 +205,7 @@ measurementId: "G-KTCF00V3VC"
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-/* LISTA DE USUARIOS AUTORIZADOS */
+/* USUARIOS AUTORIZADOS */
 
 const usuariosAutorizados = [
 "melisa.fernandez@uner.edu.ar",
