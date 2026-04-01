@@ -2,7 +2,6 @@
 <html>
 
 <head>
-
 <title>Biblioteca de Clases</title>
 
 <style>
@@ -15,8 +14,6 @@ text-align:center;
 padding:40px;
 }
 
-/* BARRA USUARIO */
-
 .barra-usuario{
 display:flex;
 justify-content:space-between;
@@ -25,11 +22,6 @@ background:#1c1c1c;
 padding:15px 25px;
 border-radius:10px;
 margin-bottom:40px;
-}
-
-.barra-usuario span{
-font-size:16px;
-color:#ddd;
 }
 
 .barra-usuario button{
@@ -41,28 +33,18 @@ border-radius:6px;
 cursor:pointer;
 }
 
-.barra-usuario button:hover{
-background:#ff2a00;
-}
-
-/* PORTADA */
-
 .hero{
 height:220px;
 margin-bottom:60px;
 border-radius:15px;
 overflow:hidden;
-box-shadow:0 0 30px rgba(0,0,0,0.8);
 }
 
 .hero img{
 width:100%;
 height:100%;
 object-fit:cover;
-display:block;
 }
-
-/* CONTENEDOR CLASES */
 
 .contenedor{
 display:flex;
@@ -71,28 +53,12 @@ flex-wrap:wrap;
 gap:30px;
 }
 
-/* TARJETAS */
-
 .clase{
 background:#1c1c1c;
 width:300px;
 padding:25px;
 border-radius:12px;
-box-shadow:0 0 15px rgba(0,0,0,0.6);
-transition:transform 0.3s;
 }
-
-.clase:hover{
-transform:scale(1.05);
-}
-
-.clase img{
-width:100%;
-border-radius:10px;
-margin-bottom:10px;
-}
-
-/* BOTONES */
 
 button{
 padding:12px 25px;
@@ -105,24 +71,6 @@ cursor:pointer;
 margin-top:10px;
 }
 
-button:hover{
-background:#ff2a00;
-}
-
-/* RESPONSIVE */
-
-@media (max-width:768px){
-
-body{
-padding:20px;
-}
-
-.clase{
-width:90%;
-}
-
-}
-
 </style>
 
 </head>
@@ -130,15 +78,12 @@ width:90%;
 <body>
 
 <div class="barra-usuario">
-
 <span id="usuario"></span>
-
 <button onclick="logout()">Cerrar sesión</button>
-
 </div>
 
 <div class="hero">
-<img src="portada3.jpeg" alt="Portada">
+<img src="portada3.jpeg">
 </div>
 
 <h2>Biblioteca de Clases</h2>
@@ -149,18 +94,14 @@ width:90%;
 <img src="clase1.jpeg">
 <h3>Clase 1</h3>
 <p>Introducción a IA para docentes</p>
-<a href="clase1.html">
-<button>Ver clase</button>
-</a>
+<a href="clase1.html"><button>Ver clase</button></a>
 </div>
 
 <div class="clase">
 <img src="clase2.jpeg">
 <h3>Clase 2</h3>
 <p>Crear evaluaciones con IA</p>
-<a href="clase2.html">
-<button>Ver clase</button>
-</a>
+<a href="clase2.html"><button>Ver clase</button></a>
 </div>
 
 </div>
@@ -183,12 +124,37 @@ measurementId: "G-KTCF00V3VC"
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+/* LISTA DE USUARIOS AUTORIZADOS */
+
+const usuariosAutorizados = [
+"melisa.fernandez@uner.edu.ar",
+"alumno1@gmail.com",
+"alumno2@gmail.com"
+];
+
 onAuthStateChanged(auth,(user)=>{
 
 if(user){
-document.getElementById("usuario").innerText = "Bienvenido: " + user.email;
-}else{
+
+if(!usuariosAutorizados.includes(user.email)){
+
+alert("Tu acceso aún no fue activado. Envíanos el comprobante por WhatsApp.");
+
+signOut(auth);
+
 window.location.href="login.html";
+
+return;
+
+}
+
+document.getElementById("usuario").innerText =
+"Bienvenido: " + user.email;
+
+}else{
+
+window.location.href="login.html";
+
 }
 
 });
