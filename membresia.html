@@ -144,38 +144,29 @@ background:#00d4ff;
 color:#121212;
 }
 
-/* ----------- PASO 4 DESTACADO ----------- */
+/* ----------- PASO 4 (MISMO ESTILO QUE PASO 3) ----------- */
 
 .paso-login{
-border:2px solid #2dd4bf;
-background:transparent;
-padding:30px;
+background:#00d4ff;
+padding:22px;
 border-radius:12px;
-text-align:center;
-width:260px;
+width:240px;
+text-align:left;
 }
 
 .paso-login h3{
-color:#2dd4bf;
-margin-bottom:20px;
+color:#121212;
 }
 
 .paso-login button{
-width:100%;
-padding:18px;
-font-size:20px;
-background:#2dd4bf;
-color:#0f0f0f;
+width:95%;
+padding:12px;
+background:#00d4ff;
+color:white;
 border:none;
-border-radius:10px;
+border-radius:8px;
 cursor:pointer;
-font-weight:bold;
-transition:0.3s;
-}
-
-.paso-login button:hover{
-background:#14b8a6;
-transform:scale(1.03);
+font-size:16px;
 }
 
 </style>
@@ -365,8 +356,6 @@ return;
 createUserWithEmailAndPassword(auth,email,password)
 
 .then(()=>{
-
-/* ENVIA EMAIL A GOOGLE SHEET */
 
 fetch("https://script.google.com/macros/s/AKfycbwMYN0wLqtyEtwbC7z-nj414_m4S5vLanYBo52TbjEn4nCiud3dboOAoQ5ix3z7RNF0/exec",{
 
