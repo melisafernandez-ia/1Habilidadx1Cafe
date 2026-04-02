@@ -8,199 +8,196 @@
 
 /* ESTILO GENERAL */
 
-body{
-font-family:Arial,sans-serif;
-margin:0;
-background:#f4f4f4;
-text-align:center;
-color:#333;
-}
-
-/* CARTEL INTERMITENTE */
-
-.cartel-inicio{
-background:#ff4b2b;
-color:white;
-padding:15px;
-font-size:20px;
-font-weight:bold;
-animation:parpadeo 1.5s infinite;
-}
-
-@keyframes parpadeo{
-0%{opacity:1;}
-50%{opacity:0.4;}
-100%{opacity:1;}
-}
-
-/* CONTADOR */
-
-.contador{
-background:#222;
-color:white;
-padding:20px;
-font-size:22px;
-font-weight:bold;
-}
-
-.contador span{
-color:#ff4b2b;
-font-size:26px;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+  text-align: center;
+  color: #333;
 }
 
 /* PORTADA */
 
-.hero{
-background-image:url("portada5.png");
-background-size:cover;
-background-position:center;
-height:420px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-color:white;
-text-shadow:0 2px 10px rgba(0,0,0,0.7);
+.hero {
+  background-image: url("portada5.png");
+  background-size: cover;
+  background-position: center;
+  height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
 }
 
-.hero h1{
-font-size:55px;
-margin-bottom:10px;
+.hero h1 {
+  font-size: 55px;
+  margin-bottom: 10px;
 }
 
-.hero p{
-font-size:22px;
-max-width:700px;
-margin:0 auto;
+.hero p {
+  font-size: 22px;
+  max-width: 700px;
+}
+
+/* CONTADOR */
+
+.contador {
+  background: #222;
+  color: white;
+  padding: 18px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.contador span {
+  color: #ff4b2b;
+  font-size: 26px;
 }
 
 /* BOTON */
 
-.boton-clases-container{
-margin-top:40px;
-margin-bottom:20px;
+.boton-clases-container {
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
-.boton-clases-container button{
-padding:15px 30px;
-font-size:18px;
-background:#ff4b2b;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-transition:0.3s;
+.boton-clases-container button {
+  padding: 15px 30px;
+  font-size: 18px;
+  background: #ff4b2b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.boton-clases-container button:hover{
-background:#ff2a00;
+.boton-clases-container button:hover {
+  background: #ff2a00;
 }
 
-/* INFO */
+/* SECCION INFO */
 
-.info{
-padding:30px 20px;
+.info {
+  padding: 30px 20px;
 }
 
-/* VIDEO + TEMARIO */
+/* VIDEO + TEMARIO (RESTAURADO) */
 
-.video-temario{
-display:flex;
-justify-content:center;
-gap:50px;
-align-items:flex-start;
-padding:60px 20px;
-flex-wrap:wrap;
-background:#fff;
-border-top:1px solid #ddd;
-border-bottom:1px solid #ddd;
+.video-temario {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  align-items: flex-start;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
-.video-container iframe{
-width:100%;
-height:500px;
-border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,0.2);
+.video-temario .video-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.video-temario .video-container iframe {
+  width: 100%;
+  height: 500px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.temario-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 /* TEMARIO */
 
-.temario-container{
-flex:1;
-display:flex;
-flex-direction:column;
-align-items:flex-start;
+.temario h3 {
+  color: #ff4b2b;
+  margin-bottom: 15px;
 }
 
-.temario h3{
-color:#ff4b2b;
+.temario ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  width: 100%;
 }
 
-.temario ul{
-list-style:none;
-padding-left:0;
+.temario li {
+  position: relative;
+  background: #f9f9f9;
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: left;
 }
 
-.temario li{
-background:#f9f9f9;
-margin-bottom:12px;
-padding:12px;
-border-radius:8px;
-cursor:pointer;
-text-align:left;
-transition:0.3s;
+.temario li:hover {
+  background: #ff4b2b;
+  color: white;
 }
 
-.temario li:hover{
-background:#ff4b2b;
-color:white;
+.temario li .descripcion {
+  display: none;
+  margin-top: 8px;
+  background: #ff4b2b;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
 }
 
-.descripcion{
-display:none;
-}
-
-.temario li:hover .descripcion{
-display:block;
-margin-top:8px;
+.temario li:hover .descripcion {
+  display: block;
 }
 
 /* BUZON */
 
-.buzon{
-background:white;
-padding:40px 20px;
+.buzon {
+  background: white;
+  padding: 40px 20px;
 }
 
-.buzon h2{
-color:#ff4b2b;
+.buzon h2 {
+  color: #ff4b2b;
 }
 
-.buzon textarea{
-width:80%;
-max-width:600px;
-height:120px;
-padding:12px;
-border-radius:8px;
-border:1px solid #ccc;
-font-size:16px;
-resize:none;
+.buzon textarea {
+  width: 80%;
+  max-width: 600px;
+  height: 120px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
 }
 
-.buzon button{
-margin-top:15px;
-padding:12px 25px;
-background:#ff4b2b;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
+.buzon button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: #ff4b2b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-#mensaje-buzon{
-margin-top:10px;
-color:green;
-font-weight:bold;
+#mensaje-buzon {
+  margin-top: 10px;
+  color: green;
+  font-weight: bold;
 }
 
 </style>
@@ -209,17 +206,16 @@ font-weight:bold;
 
 <body>
 
-<!-- PORTADA -->
+<!-- HERO -->
 
 <div class="hero">
+
 <h1>1 Habilidad x 1 Café</h1>
-<p>Aprende herramientas de Inteligencia Artificial útiles para docentes</p>
-</div>
 
-<!-- CARTEL INICIO -->
+<p>
+Aprende herramientas de Inteligencia Artificial útiles para docentes
+</p>
 
-<div class="cartel-inicio">
-🚀 Iniciamos el sábado 2 de mayo de 2026
 </div>
 
 <!-- CONTADOR -->
@@ -258,7 +254,8 @@ Prompts, evaluaciones y recursos listos para usar.
 
 <div class="video-container">
 
-<iframe src="https://www.youtube.com/embed/1umqS76Hlm0" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/1umqS76Hlm0"
+allowfullscreen></iframe>
 
 </div>
 
@@ -271,33 +268,33 @@ Prompts, evaluaciones y recursos listos para usar.
 <ul>
 
 <li>
-Clase 1: Introducción a la IA
-<div class="descripcion">Conceptos básicos y primeras herramientas.</div>
+<span class="nombre">Clase 1: Introducción a la IA</span>
+<span class="descripcion">Conceptos básicos de IA y primeras herramientas.</span>
 </li>
 
 <li>
-Clase 2: Automatización de tareas
-<div class="descripcion">Automatizar planificación y correcciones.</div>
+<span class="nombre">Clase 2: Automatización de tareas</span>
+<span class="descripcion">Automatizar planificación y correcciones.</span>
 </li>
 
 <li>
-Clase 3: Creación de contenidos
-<div class="descripcion">Generar materiales educativos con IA.</div>
+<span class="nombre">Clase 3: Creación de contenidos</span>
+<span class="descripcion">Generar materiales educativos con IA.</span>
 </li>
 
 <li>
-Clase 4: Evaluaciones automáticas
-<div class="descripcion">Crear evaluaciones y retroalimentación automática.</div>
+<span class="nombre">Clase 4: Evaluaciones automáticas</span>
+<span class="descripcion">Crear evaluaciones y retroalimentación automática.</span>
 </li>
 
 <li>
-Clase 5: IA en planificación
-<div class="descripcion">Integrar IA en tus clases semanales.</div>
+<span class="nombre">Clase 5: IA en planificación</span>
+<span class="descripcion">Integrar IA en tus clases semanales.</span>
 </li>
 
 <li>
-Clase 6: Recursos interactivos
-<div class="descripcion">Diseñar actividades interactivas con IA.</div>
+<span class="nombre">Clase 6: Recursos interactivos</span>
+<span class="descripcion">Diseñar actividades interactivas con IA.</span>
 </li>
 
 </ul>
@@ -308,7 +305,7 @@ Clase 6: Recursos interactivos
 
 </div>
 
-<!-- BUZON DE SUGERENCIAS -->
+<!-- BUZON -->
 
 <div class="buzon">
 
@@ -336,21 +333,18 @@ Enviar sugerencia
 
 function actualizarContador(){
 
-let fechaInicio=new Date("May 2, 2026 10:00:00").getTime();
+let fechaInicio = new Date("May 2, 2026 10:00:00").getTime();
 
-let ahora=new Date().getTime();
+let ahora = new Date().getTime();
 
-let diferencia=fechaInicio-ahora;
+let diferencia = fechaInicio - ahora;
 
-let dias=Math.floor(diferencia/(1000*60*60*24));
+let dias = Math.floor(diferencia/(1000*60*60*24));
+let horas = Math.floor((diferencia%(1000*60*60*24))/(1000*60*60));
+let minutos = Math.floor((diferencia%(1000*60*60))/(1000*60));
+let segundos = Math.floor((diferencia%(1000*60))/1000);
 
-let horas=Math.floor((diferencia%(1000*60*60*24))/(1000*60*60));
-
-let minutos=Math.floor((diferencia%(1000*60*60))/(1000*60));
-
-let segundos=Math.floor((diferencia%(1000*60))/1000);
-
-document.getElementById("contador").innerHTML=
+document.getElementById("contador").innerHTML =
 dias+" días "+horas+" horas "+minutos+" min "+segundos+" seg";
 
 }
@@ -358,11 +352,11 @@ dias+" días "+horas+" horas "+minutos+" min "+segundos+" seg";
 setInterval(actualizarContador,1000);
 
 
-/* ENVIAR SUGERENCIA */
+/* SUGERENCIAS */
 
 function enviarSugerencia(){
 
-let texto=document.getElementById("sugerencia").value;
+let texto = document.getElementById("sugerencia").value;
 
 if(texto===""){
 alert("Escribe una sugerencia");
@@ -386,11 +380,6 @@ document.getElementById("sugerencia").value="";
 }
 
 </script>
-
-</body>
-</html>
-
-</div>
 
 </body>
 </html>
