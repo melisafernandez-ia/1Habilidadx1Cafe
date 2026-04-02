@@ -5,253 +5,390 @@
 <title>1 Habilidad x 1 Café</title>
 
 <style>
+
 /* ESTILO GENERAL */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f4f4f4;
-  text-align: center;
-  color: #333;
+
+body{
+font-family:Arial,sans-serif;
+margin:0;
+background:#f4f4f4;
+text-align:center;
+color:#333;
+}
+
+/* CARTEL INTERMITENTE */
+
+.cartel-inicio{
+background:#ff4b2b;
+color:white;
+padding:15px;
+font-size:20px;
+font-weight:bold;
+animation:parpadeo 1.5s infinite;
+}
+
+@keyframes parpadeo{
+0%{opacity:1;}
+50%{opacity:0.4;}
+100%{opacity:1;}
+}
+
+/* CONTADOR */
+
+.contador{
+background:#222;
+color:white;
+padding:20px;
+font-size:22px;
+font-weight:bold;
+}
+
+.contador span{
+color:#ff4b2b;
+font-size:26px;
 }
 
 /* PORTADA */
-.hero {
-  background-image: url("portada5.png");
-  background-size: cover;
-  background-position: center;
-  height: 420px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+
+.hero{
+background-image:url("portada5.png");
+background-size:cover;
+background-position:center;
+height:420px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
+text-shadow:0 2px 10px rgba(0,0,0,0.7);
 }
 
-.hero h1 {
-  font-size: 55px;
-  margin-bottom: 10px;
+.hero h1{
+font-size:55px;
+margin-bottom:10px;
 }
 
-.hero p {
-  font-size: 22px;
-  max-width: 700px;
-  margin: 0 auto;
+.hero p{
+font-size:22px;
+max-width:700px;
+margin:0 auto;
 }
 
-/* BOTON DE ENTRAR ABAJO DE LA IMAGEN */
-.boton-clases-container {
-  margin-top: 40px;
-  margin-bottom: 20px;
+/* BOTON */
+
+.boton-clases-container{
+margin-top:40px;
+margin-bottom:20px;
 }
 
-.boton-clases-container button {
-  padding: 15px 30px;
-  font-size: 18px;
-  background: #ff4b2b; /* rojo original */
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+.boton-clases-container button{
+padding:15px 30px;
+font-size:18px;
+background:#ff4b2b;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+transition:0.3s;
 }
 
-.boton-clases-container button:hover {
-  background: #ff2a00;
+.boton-clases-container button:hover{
+background:#ff2a00;
 }
 
-/* SECCION INFORMACION */
-.info {
-  padding: 30px 20px;
-}
+/* INFO */
 
-.info h2 {
-  color: #333;
-  margin-bottom: 20px;
+.info{
+padding:30px 20px;
 }
 
 /* VIDEO + TEMARIO */
-.video-temario {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  align-items: flex-start;
-  padding: 60px 20px;
-  flex-wrap: wrap;
-  background: #fff;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+
+.video-temario{
+display:flex;
+justify-content:center;
+gap:50px;
+align-items:flex-start;
+padding:60px 20px;
+flex-wrap:wrap;
+background:#fff;
+border-top:1px solid #ddd;
+border-bottom:1px solid #ddd;
 }
 
-.video-temario .video-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-}
-
-.video-temario .video-container iframe {
-  width: 100%;
-  height: 500px; /* altura igual al temario */
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+.video-container iframe{
+width:100%;
+height:500px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
 /* TEMARIO */
-.temario-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+
+.temario-container{
+flex:1;
+display:flex;
+flex-direction:column;
+align-items:flex-start;
 }
 
-.temario h3 {
-  color: #ff4b2b;
-  margin-bottom: 15px;
+.temario h3{
+color:#ff4b2b;
 }
 
-.temario ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-  width: 100%;
+.temario ul{
+list-style:none;
+padding-left:0;
 }
 
-.temario li {
-  position: relative;
-  background: #f9f9f9;
-  margin-bottom: 12px;
-  padding: 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-  text-align: left;
+.temario li{
+background:#f9f9f9;
+margin-bottom:12px;
+padding:12px;
+border-radius:8px;
+cursor:pointer;
+text-align:left;
+transition:0.3s;
 }
 
-.temario li:hover {
-  background: #ff4b2b;
-  color: white;
+.temario li:hover{
+background:#ff4b2b;
+color:white;
 }
 
-/* NOMBRE DEL TEMA */
-.temario li .nombre {
-  font-size: 18px;
+.descripcion{
+display:none;
 }
 
-/* DESCRIPCION DE LA CLASE */
-.temario li .descripcion {
-  display: none;
-  margin-top: 8px;
-  background: #ff4b2b;
-  color: white;
-  padding: 10px;
-  border-radius: 6px;
-  font-size: 15px;
-  line-height: 1.5;
-  transition: 0.3s;
+.temario li:hover .descripcion{
+display:block;
+margin-top:8px;
 }
 
-/* SHOW ON HOVER */
-.temario li:hover .descripcion {
-  display: block;
+/* BUZON */
+
+.buzon{
+background:white;
+padding:40px 20px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 1000px) {
-  .video-temario {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .video-temario .video-container iframe {
-    width: 90%;
-    height: 250px;
-  }
-
-  .temario-container {
-    width: 90%;
-    margin-top: 30px;
-  }
+.buzon h2{
+color:#ff4b2b;
 }
+
+.buzon textarea{
+width:80%;
+max-width:600px;
+height:120px;
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+resize:none;
+}
+
+.buzon button{
+margin-top:15px;
+padding:12px 25px;
+background:#ff4b2b;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+#mensaje-buzon{
+margin-top:10px;
+color:green;
+font-weight:bold;
+}
+
 </style>
 
 </head>
 
 <body>
 
+<!-- PORTADA -->
+
 <div class="hero">
-  <h1> 1 Habilidad x 1 Café</h1>
-  <p>
-    Aprende herramientas de Inteligencia Artificial útiles para docentes
-  </p>
+<h1>1 Habilidad x 1 Café</h1>
+<p>Aprende herramientas de Inteligencia Artificial útiles para docentes</p>
 </div>
 
-<!-- BOTON DE ENTRAR ABAJO DE LA IMAGEN -->
-<div class="boton-clases-container">
-  <a href="membresia.html">
-    <button>Entrar a las clases</button>
-  </a>
+<!-- CARTEL INICIO -->
+
+<div class="cartel-inicio">
+🚀 Iniciamos el sábado 2 de mayo de 2026
 </div>
+
+<!-- CONTADOR -->
+
+<div class="contador">
+⏳ Faltan <span id="contador"></span> para comenzar
+</div>
+
+<!-- BOTON -->
+
+<div class="boton-clases-container">
+<a href="membresia.html">
+<button>Entrar a las clases</button>
+</a>
+</div>
+
+<!-- INFO -->
 
 <div class="info">
-  <h2>Clases prácticas de IA que te servirán para ahorrar tiempo</h2>
-  <p>
-    Cada semana una herramienta nueva de Inteligencia Artificial explicada
-    de forma simple y aplicada a la educación.
-  </p>
-  <p>
-    Prompts, evaluaciones, actividades y recursos listos para usar.
-  </p>
+
+<h2>Clases prácticas de IA que te servirán para ahorrar tiempo</h2>
+
+<p>
+Cada semana aprenderás una herramienta nueva de Inteligencia Artificial aplicada a la educación.
+</p>
+
+<p>
+Prompts, evaluaciones y recursos listos para usar.
+</p>
+
 </div>
 
 <!-- VIDEO + TEMARIO -->
+
 <div class="video-temario">
 
-  <!-- VIDEO -->
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/1umqS76Hlm0" title="Video explicativo del curso" frameborder="0" allowfullscreen></iframe>
-  </div>
+<div class="video-container">
 
-  <!-- TEMARIO -->
-  <div class="temario-container">
-    <div class="temario">
-      <h3>Temario de las clases</h3>
-      <ul>
-        <li>
-          <span class="nombre">Clase 1: Introducción a la IA</span>
-          <span class="descripcion">Conocerás los conceptos básicos de IA y las herramientas iniciales que puedes usar en tu aula.</span>
-        </li>
-        <li>
-          <span class="nombre">Clase 2: Automatización de tareas</span>
-          <span class="descripcion">Aprenderás a automatizar tareas administrativas y ahorrar tiempo en correcciones y planificación.</span>
-        </li>
-        <li>
-          <span class="nombre">Clase 3: Contenidos educativos</span>
-          <span class="descripcion">Creación de materiales, presentaciones y recursos educativos con ayuda de IA de manera rápida y efectiva.</span>
-        </li>
-        <li>
-          <span class="nombre">Clase 4: Evaluaciones automáticas</span>
-          <span class="descripcion">Cómo generar evaluaciones, correcciones y retroalimentación automática para tus estudiantes.</span>
-        </li>
-        <li>
-          <span class="nombre">Clase 5: Integración en planificación</span>
-          <span class="descripcion">Aprenderás a incluir herramientas de IA directamente en tus planes de clase semanales.</span>
-        </li>
-        <li>
-          <span class="nombre">Clase 6: Creación de recursos interactivos</span>
-          <span class="descripcion">Diseña actividades interactivas y juegos educativos usando IA para motivar a tus estudiantes.</span>
-        </li>
-        <li>
-          <span class="nombre">Clase 7: IA y evaluación personalizada</span>
-          <span class="descripcion">Aprende a generar evaluaciones adaptadas a las necesidades de cada alumno de forma automática.</span>
-        </li>
-        <li>
-          <span class="nombre">Clase 8: Proyecto final y mejores prácticas</span>
-          <span class="descripcion">Aplicarás todo lo aprendido en un proyecto práctico y conocerás recomendaciones para implementarlo en tu aula.</span>
-        </li>
-      </ul>
-    </div>
-  </div>
+<iframe src="https://www.youtube.com/embed/1umqS76Hlm0" allowfullscreen></iframe>
+
+</div>
+
+<div class="temario-container">
+
+<div class="temario">
+
+<h3>Temario de las clases</h3>
+
+<ul>
+
+<li>
+Clase 1: Introducción a la IA
+<div class="descripcion">Conceptos básicos y primeras herramientas.</div>
+</li>
+
+<li>
+Clase 2: Automatización de tareas
+<div class="descripcion">Automatizar planificación y correcciones.</div>
+</li>
+
+<li>
+Clase 3: Creación de contenidos
+<div class="descripcion">Generar materiales educativos con IA.</div>
+</li>
+
+<li>
+Clase 4: Evaluaciones automáticas
+<div class="descripcion">Crear evaluaciones y retroalimentación automática.</div>
+</li>
+
+<li>
+Clase 5: IA en planificación
+<div class="descripcion">Integrar IA en tus clases semanales.</div>
+</li>
+
+<li>
+Clase 6: Recursos interactivos
+<div class="descripcion">Diseñar actividades interactivas con IA.</div>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- BUZON DE SUGERENCIAS -->
+
+<div class="buzon">
+
+<h2>¿Qué te gustaría aprender?</h2>
+
+<p>
+Puedes sugerir herramientas de IA o problemas del aula que te gustaría que abordemos.
+</p>
+
+<textarea id="sugerencia" placeholder="Escribe tu sugerencia aquí"></textarea>
+
+<br>
+
+<button onclick="enviarSugerencia()">
+Enviar sugerencia
+</button>
+
+<p id="mensaje-buzon"></p>
+
+</div>
+
+<script>
+
+/* CONTADOR */
+
+function actualizarContador(){
+
+let fechaInicio=new Date("May 2, 2026 10:00:00").getTime();
+
+let ahora=new Date().getTime();
+
+let diferencia=fechaInicio-ahora;
+
+let dias=Math.floor(diferencia/(1000*60*60*24));
+
+let horas=Math.floor((diferencia%(1000*60*60*24))/(1000*60*60));
+
+let minutos=Math.floor((diferencia%(1000*60*60))/(1000*60));
+
+let segundos=Math.floor((diferencia%(1000*60))/1000);
+
+document.getElementById("contador").innerHTML=
+dias+" días "+horas+" horas "+minutos+" min "+segundos+" seg";
+
+}
+
+setInterval(actualizarContador,1000);
+
+
+/* ENVIAR SUGERENCIA */
+
+function enviarSugerencia(){
+
+let texto=document.getElementById("sugerencia").value;
+
+if(texto===""){
+alert("Escribe una sugerencia");
+return;
+}
+
+fetch("https://script.google.com/macros/s/AKfycbwMYN0wLqtyEtwbC7z-nj414_m4S5vLanYBo52TbjEn4nCiud3dboOAoQ5ix3z7RNF0/exec",{
+
+method:"POST",
+
+body:JSON.stringify({
+sugerencia:texto
+})
+
+});
+
+document.getElementById("mensaje-buzon").innerText="¡Gracias por tu sugerencia!";
+
+document.getElementById("sugerencia").value="";
+
+}
+
+</script>
+
+</body>
+</html>
 
 </div>
 
