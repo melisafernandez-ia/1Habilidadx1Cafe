@@ -1,7 +1,366 @@
-<!DOCTYPE html> <html> <head> <title>Membresía</title> <style> body{ margin:0; font-family:Arial; background:#0d0d0d; color:#e5e5e5; text-align:center; } .hero{ background-image:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c"); background-size:cover; background-position:center; padding:120px 20px; position:relative; } .hero::after{ content:""; position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.7); } .hero-content{ position:relative; z-index:2; } .hero h1{ font-size:48px; color:#8ab4f8; } .hero button{ padding:14px 30px; font-size:18px; background:#4f46e5; border:none; border-radius:8px; color:white; cursor:pointer; } .seccion{ padding:60px 20px; } .precios{ display:flex; justify-content:center; gap:30px; flex-wrap:wrap; } .tarjeta{ background:#1a1a2e; padding:30px; border-radius:12px; width:260px; } .precio{ font-size:30px; color:#8ab4f8; } .pasos{ display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top:30px; } .paso{ background:#1a1a2e; padding:22px; border-radius:12px; width:240px; text-align:left; } .paso h3{ color:#00d4ff; } .paso input{ width:90%; padding:10px; margin-bottom:10px; border:none; border-radius:6px; background:#2b2b3e; color:white; } .verpass{ width:95%; padding:8px; margin-bottom:10px; background:#444; border:none; border-radius:6px; color:white; cursor:pointer; } .paso button{ width:95%; padding:12px; background:#4f46e5; color:white; border:none; border-radius:8px; cursor:pointer; } .whatsapp{ background:#00d4ff; color:#121212; } .paso-login{ background:#2dd4bf; padding:18px; border-radius:12px; text-align:center; } </style> </head> <body> <div class="hero"> <div class="hero-content"> <h1>1 Habilidad x 1 Café</h1> <p>Clases y recursos de IA para docentes</p> <a href="login.html"> <button>Ingresar a la plataforma</button> </a> </div> </div> <div class="seccion"> <h2>Planes de acceso</h2> <div class="precios"> <div class="tarjeta"> <h3>Clase en vivo</h3> <div class="precio">$5000</div> </div> <div class="tarjeta"> <h3>Membresía mensual</h3> <div class="precio">$18000</div> </div> </div> </div> <div class="seccion"> <div class="pasos"> <div class="paso"> <h3>1 Crear cuenta</h3> <input type="email" id="email" placeholder="Tu correo"> <input type="password" id="password" placeholder="Contraseña"> <button class="verpass" id="verpass"> Mostrar contraseña </button> <button id="crearCuenta"> Crear cuenta </button> <p id="mensaje"></p> </div> <div class="paso"> <h3>2 Realizar pago</h3> <p> Alias: melisa.f.<br> Titular: Melisa Fernández </p> </div> <div class="paso"> <h3>3 Enviar comprobante</h3>
+<!DOCTYPE html>
+<html>
 
-<button class="whatsapp" onclick="window.open('https://wa.me/543435508780')">
+<head>
+
+<title>Membresía</title>
+
+<style>
+
+/* ----------- ESTILO GENERAL ----------- */
+
+body{
+margin:0;
+font-family:Arial;
+background:#0d0d0d;
+color:#e5e5e5;
+text-align:center;
+}
+
+/* ----------- HERO ----------- */
+
+.hero{
+background-image:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c");
+background-size:cover;
+background-position:center;
+padding:120px 20px;
+position:relative;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:rgba(0,0,0,0.7);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.hero h1{
+font-size:48px;
+color:#8ab4f8;
+}
+
+.hero button{
+padding:14px 30px;
+font-size:18px;
+background:#4f46e5;
+border:none;
+border-radius:8px;
+color:white;
+cursor:pointer;
+}
+
+/* ----------- SECCIONES ----------- */
+
+.seccion{
+padding:60px 20px;
+}
+
+/* ----------- PRECIOS ----------- */
+
+.precios{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.tarjeta{
+background:#1a1a2e;
+padding:30px;
+border-radius:12px;
+width:260px;
+}
+
+.precio{
+font-size:30px;
+color:#8ab4f8;
+}
+
+/* ----------- PASOS ----------- */
+
+.pasos{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.paso{
+background:#1a1a2e;
+padding:22px;
+border-radius:12px;
+width:240px;
+text-align:left;
+}
+
+.paso h3{
+color:#00d4ff;
+}
+
+.paso input{
+width:90%;
+padding:10px;
+margin-bottom:10px;
+border:none;
+border-radius:6px;
+background:#2b2b3e;
+color:white;
+}
+
+/* ----------- BOTONES ----------- */
+
+.verpass{
+width:95%;
+padding:8px;
+margin-bottom:10px;
+background:#444;
+border:none;
+border-radius:6px;
+color:white;
+cursor:pointer;
+}
+
+.paso button{
+width:95%;
+padding:12px;
+background:#4f46e5;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.whatsapp{
+background:#00d4ff;
+color:#121212;
+}
+
+.paso-login{
+background:#2dd4bf;
+padding:18px;
+border-radius:12px;
+text-align:center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<div class="hero">
+
+<div class="hero-content">
+
+<h1>1 Habilidad x 1 Café</h1>
+
+<p>Clases y recursos de IA para docentes</p>
+
+<a href="login.html">
+<button>Ingresar a la plataforma</button>
+</a>
+
+</div>
+
+</div>
+
+<!-- PLANES -->
+
+<div class="seccion">
+
+<h2>Planes de acceso</h2>
+
+<div class="precios">
+
+<div class="tarjeta">
+<h3>Clase en vivo</h3>
+<div class="precio">$5000</div>
+</div>
+
+<div class="tarjeta">
+<h3>Membresía mensual</h3>
+<div class="precio">$18000</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- PASOS -->
+
+<div class="seccion">
+
+<div class="pasos">
+
+<!-- PASO 1 -->
+
+<div class="paso">
+
+<h3>1 Crear cuenta</h3>
+
+<input type="email" id="email" placeholder="Tu correo">
+
+<input type="password" id="password" placeholder="Contraseña">
+
+<button class="verpass" id="verpass">
+Mostrar contraseña
+</button>
+
+<button id="crearCuenta">
+Crear cuenta
+</button>
+
+<p id="mensaje"></p>
+
+</div>
+
+<!-- PASO 2 -->
+
+<div class="paso">
+
+<h3>2 Realizar pago</h3>
+
+<p>
+Alias: melisa.f.<br>
+Titular: Melisa Fernández
+</p>
+
+</div>
+
+<!-- PASO 3 -->
+
+<div class="paso">
+
+<h3>3 Enviar comprobante</h3>
+
+<button class="whatsapp"
+onclick="window.open('https://wa.me/543435508780')">
 
 Enviar comprobante
 
-</button> </div> <div class="paso-login"> <h3>4 Acceder</h3> <a href="login.html"> <button>Ingresar</button> </a> </div> </div> </div> <script type="module"> import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"; import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"; const firebaseConfig = { apiKey:"AIzaSyBFJH3LRuaS8yc6iDsXXcwACzpddA8lr5c", authDomain:"habilidadx1cafe.firebaseapp.com", projectId:"habilidadx1cafe", storageBucket:"habilidadx1cafe.firebasestorage.app", messagingSenderId:"113035104487", appId:"1:113035104487:web:1427b58f5263136d321242" }; const app = initializeApp(firebaseConfig); const auth = getAuth(app); const emailInput = document.getElementById("email"); const passInput = document.getElementById("password"); const mensaje = document.getElementById("mensaje"); document.getElementById("verpass").addEventListener("click",function(){ if(passInput.type==="password"){ passInput.type="text"; }else{ passInput.type="password"; } }); document.getElementById("crearCuenta").addEventListener("click",function(){ let email=emailInput.value; let password=passInput.value; if(email==="" || password===""){ mensaje.innerText="Completa email y contraseña"; return; } if(password.length<6){ mensaje.innerText="La contraseña debe tener mínimo 6 caracteres"; return; } createUserWithEmailAndPassword(auth,email,password) .then(()=>{ fetch("https://script.google.com/macros/s/AKfycbz5ITk8kWGE45A1jsvRQvYU_Q6veO8MMoK9Z8Ocha4veaasBS9FJztT-kL2rGdg8DY6/exec",{ method:"POST", body:JSON.stringify({email:email}) }); mensaje.innerText="Cuenta creada. Ahora envía el comprobante."; }) .catch(error=>{ mensaje.innerText=error.message; }); }); </script> </body> </html>
+</button>
+
+</div>
+
+<!-- PASO 4 -->
+
+<div class="paso-login">
+
+<h3>4 Acceder</h3>
+
+<a href="login.html">
+<button>Ingresar</button>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<script type="module">
+
+/* ----------- FIREBASE ----------- */
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getAuth,
+createUserWithEmailAndPassword
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+
+apiKey:"AIzaSyBFJH3LRuaS8yc6iDsXXcwACzpddA8lr5c",
+authDomain:"habilidadx1cafe.firebaseapp.com",
+projectId:"habilidadx1cafe",
+storageBucket:"habilidadx1cafe.firebasestorage.app",
+messagingSenderId:"113035104487",
+appId:"1:113035104487:web:1427b58f5263136d321242"
+
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+/* ----------- ELEMENTOS ----------- */
+
+const emailInput = document.getElementById("email");
+const passInput = document.getElementById("password");
+const mensaje = document.getElementById("mensaje");
+
+/* ----------- MOSTRAR PASSWORD ----------- */
+
+document.getElementById("verpass").addEventListener("click",function(){
+
+if(passInput.type==="password"){
+passInput.type="text";
+}
+else{
+passInput.type="password";
+}
+
+});
+
+/* ----------- CREAR CUENTA ----------- */
+
+document.getElementById("crearCuenta").addEventListener("click",function(){
+
+let email=emailInput.value;
+let password=passInput.value;
+
+if(email==="" || password===""){
+
+mensaje.innerText="Completa email y contraseña";
+return;
+
+}
+
+if(password.length<6){
+
+mensaje.innerText="La contraseña debe tener mínimo 6 caracteres";
+return;
+
+}
+
+createUserWithEmailAndPassword(auth,email,password)
+
+.then(()=>{
+
+/* ENVIA EMAIL A GOOGLE SHEET */
+
+fetch("https://script.google.com/macros/s/AKfycbwMYN0wLqtyEtwbC7z-nj414_m4S5vLanYBo52TbjEn4nCiud3dboOAoQ5ix3z7RNF0/exec",{
+
+method:"POST",
+body:JSON.stringify({email:email})
+
+});
+
+mensaje.innerText="Cuenta creada. Ahora envía el comprobante.";
+
+})
+
+.catch(error=>{
+
+mensaje.innerText=error.message;
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
