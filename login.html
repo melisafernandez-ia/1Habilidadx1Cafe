@@ -1,1 +1,361 @@
-<!DOCTYPE html> <html> <head> <title>Ingreso a la plataforma</title> <style> body{ margin:0; font-family:Arial; color:white; background-image:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c"); background-size:cover; background-position:center; height:100vh; display:flex; justify-content:center; align-items:center; } .overlay{ position:absolute; width:100%; height:100%; background:rgba(0,0,0,0.65); display:flex; justify-content:center; align-items:center; flex-direction:column; } .titulo{ font-size:38px; font-weight:bold; margin-bottom:10px; } .subtitulo{ color:#ccc; margin-bottom:30px; } .login-box{ background:#1c1c1c; padding:40px; border-radius:12px; width:340px; text-align:center; box-shadow:0 0 25px rgba(0,0,0,0.7); } input{ width:90%; padding:14px; margin:10px 0; border:none; border-radius:8px; background:#2b2b2b; color:white; font-size:15px; } input::placeholder{ color:#aaa; } button{ padding:12px 25px; margin-top:10px; background:#ff4b2b; color:white; border:none; border-radius:8px; cursor:pointer; font-size:16px; width:100%; } button:hover{ background:#ff2a00; } .link{ color:#25D366; display:block; margin-top:15px; cursor:pointer; } .membresia{ margin-top:25px; padding-top:20px; border-top:1px solid #333; } .membresia button{ background:#25D366; } .membresia button:hover{ background:#1ebe5b; } </style> </head> <body> <div class="overlay"> <div class="titulo"> 1 Habilidad x 1 Café </div> <div class="subtitulo"> Plataforma de clases y recursos con IA para docentes </div> <div class="login-box"> <input type="email" id="email" placeholder="Tu email"> <input type="password" id="password" placeholder="Tu contraseña"> <button onclick="login()"> Ingresar </button> <a class="link" onclick="resetPassword()"> ¿Olvidaste tu contraseña? </a> <div class="membresia"> <p style="color:#ccc;"> ¿Aún no tienes acceso? </p> <a href="membresia.html"> <button> Ver membresía </button> </a> </div> </div> </div> <script type="module"> import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"; import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"; const firebaseConfig = { apiKey: "AIzaSyBFJH3LRuaS8yc6iDsXXcwACzpddA8lr5c", authDomain: "habilidadx1cafe.firebaseapp.com", projectId: "habilidadx1cafe", storageBucket: "habilidadx1cafe.firebasestorage.app", messagingSenderId: "113035104487", appId: "1:113035104487:web:1427b58f5263136d321242", measurementId: "G-KTCF00V3VC" }; const app = initializeApp(firebaseConfig); const auth = getAuth(app); /* URL DE TU GOOGLE SCRIPT */ const API_URL = "https://script.google.com/macros/s/AKfycbwEAst1VomqRyqD2mn8ewx7KJw-lMB7LgPc38PZrC0nmiWk0l1r-1LITmv6g2KKdIc/exec"; window.login = function(){ const email = document.getElementById("email").value; const password = document.getElementById("password").value; signInWithEmailAndPassword(auth,email,password) .then(() => { window.location.href="clases.html" }) .catch((error) => { /* SI EL USUARIO NO EXISTE LO GUARDAMOS EN GOOGLE SHEET */ if(error.code === "auth/user-not-found"){ fetch(API_URL,{ method:"POST", body: JSON.stringify({ email: email }) }); alert("Tu email fue registrado. Debes adquirir la membresía para activar el acceso."); } /* CONTRASEÑA INCORRECTA */ else if(error.code === "auth/wrong-password"){ alert("Contraseña incorrecta."); } /* ACCESO NO ACTIVADO */ else{ alert("Tu acceso aún no fue activado. Si ya pagaste la membresía envía tu comprobante por WhatsApp."); } }); } window.resetPassword = function(){ const email = document.getElementById("email").value; if(email===""){ alert("Escribe tu email primero") return } sendPasswordResetEmail(auth,email) .then(()=>{ alert("Te enviamos un email para recuperar tu contraseña") }) } </script> </body> </html>
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Ingreso a la plataforma</title>
+
+<style>
+
+/* ---------- ESTILO GENERAL ---------- */
+
+body{
+    margin:0;
+    font-family:Arial;
+    color:white;
+
+    background-image:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c");
+    background-size:cover;
+    background-position:center;
+
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ---------- OSCURECER FONDO ---------- */
+
+.overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.65);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+/* ---------- TITULO ---------- */
+
+.titulo{
+    font-size:38px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.subtitulo{
+    color:#ccc;
+    margin-bottom:30px;
+}
+
+/* ---------- CAJA LOGIN ---------- */
+
+.login-box{
+
+    background:#1c1c1c;
+    padding:40px;
+    border-radius:12px;
+
+    width:340px;
+    text-align:center;
+
+    box-shadow:0 0 25px rgba(0,0,0,0.7);
+}
+
+/* ---------- INPUTS ---------- */
+
+.input-container{
+    position:relative;
+}
+
+input{
+
+    width:90%;
+    padding:14px;
+    margin:10px 0;
+
+    border:none;
+    border-radius:8px;
+
+    background:#2b2b2b;
+    color:white;
+    font-size:15px;
+}
+
+input::placeholder{
+    color:#aaa;
+}
+
+/* ---------- OJITO CONTRASEÑA ---------- */
+
+.toggle-pass{
+
+    position:absolute;
+    right:25px;
+    top:50%;
+    transform:translateY(-50%);
+
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* ---------- BOTONES ---------- */
+
+button{
+
+    padding:12px 25px;
+    margin-top:10px;
+
+    background:#ff4b2b;
+    color:white;
+
+    border:none;
+    border-radius:8px;
+
+    cursor:pointer;
+    font-size:16px;
+
+    width:100%;
+}
+
+button:hover{
+    background:#ff2a00;
+}
+
+/* ---------- LINKS ---------- */
+
+.link{
+    color:#25D366;
+    display:block;
+    margin-top:15px;
+    cursor:pointer;
+}
+
+/* ---------- MEMBRESIA ---------- */
+
+.membresia{
+
+    margin-top:25px;
+    padding-top:20px;
+
+    border-top:1px solid #333;
+}
+
+.membresia button{
+    background:#25D366;
+}
+
+.membresia button:hover{
+    background:#1ebe5b;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+    <div class="titulo">
+        1 Habilidad x 1 Café
+    </div>
+
+    <div class="subtitulo">
+        Plataforma de clases y recursos con IA para docentes
+    </div>
+
+    <div class="login-box">
+
+        <!-- EMAIL -->
+
+        <input type="email"
+               id="email"
+               placeholder="Tu email">
+
+        <!-- PASSWORD CON OJITO -->
+
+        <div class="input-container">
+
+            <input type="password"
+                   id="password"
+                   placeholder="Tu contraseña">
+
+            <span class="toggle-pass"
+                  onclick="togglePassword()">
+
+                  👁
+
+            </span>
+
+        </div>
+
+        <!-- BOTON LOGIN -->
+
+        <button onclick="login()">
+            Ingresar
+        </button>
+
+        <!-- RECUPERAR CONTRASEÑA -->
+
+        <a class="link"
+           onclick="resetPassword()">
+
+           ¿Olvidaste tu contraseña?
+
+        </a>
+
+        <!-- MEMBRESIA -->
+
+        <div class="membresia">
+
+            <p style="color:#ccc;">
+                ¿Aún no tienes acceso?
+            </p>
+
+            <a href="membresia.html">
+
+                <button>
+                    Ver membresía
+                </button>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module">
+
+/* ---------- FIREBASE ---------- */
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getAuth,
+signInWithEmailAndPassword,
+sendPasswordResetEmail
+}
+
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyBFJH3LRuaS8yc6iDsXXcwACzpddA8lr5c",
+
+authDomain: "habilidadx1cafe.firebaseapp.com",
+
+projectId: "habilidadx1cafe",
+
+storageBucket: "habilidadx1cafe.firebasestorage.app",
+
+messagingSenderId: "113035104487",
+
+appId: "1:113035104487:web:1427b58f5263136d321242"
+
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+/* ---------- LOGIN ---------- */
+
+window.login = function(){
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    signInWithEmailAndPassword(auth,email,password)
+
+    .then(() => {
+
+        window.location.href="clases.html"
+
+    })
+
+    .catch((error) => {
+
+        /* CONTRASEÑA INCORRECTA */
+
+        if(error.code === "auth/wrong-password"){
+
+            alert("Contraseña incorrecta.");
+
+        }
+
+        /* USUARIO NO ENCONTRADO */
+
+        else if(error.code === "auth/user-not-found"){
+
+            alert("Este email no está registrado.");
+
+        }
+
+        /* USUARIO INACTIVO (NO PAGO) */
+
+        else{
+
+            alert(
+            "Tu acceso aún no fue activado.\n\n" +
+            "El pago puede tardar hasta 12 horas en verificarse.\n\n" +
+            "Si crees que hay un error envía tu comprobante por WhatsApp."
+            );
+
+        }
+
+    });
+
+}
+
+/* ---------- MOSTRAR / OCULTAR PASSWORD ---------- */
+
+window.togglePassword = function(){
+
+    const pass = document.getElementById("password");
+
+    if(pass.type === "password"){
+
+        pass.type = "text";
+
+    }
+
+    else{
+
+        pass.type = "password";
+
+    }
+
+}
+
+/* ---------- RECUPERAR PASSWORD ---------- */
+
+window.resetPassword = function(){
+
+    const email = document.getElementById("email").value;
+
+    if(email===""){
+
+        alert("Escribe tu email primero");
+        return;
+
+    }
+
+    sendPasswordResetEmail(auth,email)
+
+    .then(()=>{
+
+        alert("Te enviamos un email para recuperar tu contraseña");
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
