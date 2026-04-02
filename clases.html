@@ -1,9 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Biblioteca de Clases</title>
+
+<style>
+
+/* ---------- ESTILO GENERAL ---------- */
+
+body{
+font-family:Arial;
+background:#0f0f0f;
+color:white;
+text-align:center;
+margin:0;
+padding:0;
+}
+
+/* ---------- CONTENEDOR GENERAL ---------- */
+
+.contenido{
+max-width:1200px;
+margin:auto;
+padding:30px;
+}
+
+/* ---------- BARRA USUARIO ---------- */
+
+.barra-usuario{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#1c1c1c;
+padding:15px 25px;
+border-radius:10px;
+margin-bottom:30px;
+}
+
+.barra-usuario span{
+color:#ddd;
+font-size:16px;
+}
+
+.barra-usuario button{
+background:#ff4b2b;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.barra-usuario button:hover{
+background:#ff2a00;
+}
+
+/* ---------- HERO ---------- */
+
+.hero{
+height:220px;
+border-radius:15px;
+overflow:hidden;
+margin-bottom:50px;
+box-shadow:0 0 25px rgba(0,0,0,0.7);
+}
+
+.hero img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+/* ---------- TITULO ---------- */
+
+h2{
+margin-bottom:30px;
+}
+
+/* ---------- CONTENEDOR CLASES ---------- */
+
+.contenedor{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+}
+
+/* ---------- TARJETAS ---------- */
+
+.clase{
+background:#1c1c1c;
+width:300px;
+padding:20px;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,0,0,0.6);
+transition:0.3s;
+}
+
+.clase:hover{
+transform:translateY(-5px);
+}
+
+.clase img{
+width:100%;
+height:170px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+/* ---------- BOTONES ---------- */
+
+button{
+padding:12px 25px;
+font-size:16px;
+background:#ff4b2b;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+background:#ff2a00;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width:768px){
+
+.barra-usuario{
+flex-direction:column;
+gap:10px;
+}
+
+.clase{
+width:90%;
+}
+
+.hero{
+height:160px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="contenido">
+
+<!-- BARRA USUARIO -->
+
+<div class="barra-usuario">
+
+<span id="usuario"></span>
+
+<button onclick="logout()">
+Cerrar sesión
+</button>
+
+</div>
+
+<!-- HERO -->
+
+<div class="hero">
+
+<img src="portada3.jpeg">
+
+</div>
+
+<h2>Biblioteca de Clases</h2>
+
+<!-- CLASES -->
+
+<div class="contenedor">
+
+<div class="clase">
+
+<img src="clase1.jpeg">
+
+<h3>Clase 1</h3>
+
+<p>Introducción a IA para docentes</p>
+
+<a href="clase1.html">
+<button>Ver clase</button>
+</a>
+
+</div>
+
+<div class="clase">
+
+<img src="clase2.jpeg">
+
+<h3>Clase 2</h3>
+
+<p>Crear evaluaciones con IA</p>
+
+<a href="clase2.html">
+<button>Ver clase</button>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FIREBASE + VERIFICACION -->
+
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-/* -------- FIREBASE -------- */
+import {
+getAuth,
+onAuthStateChanged,
+signOut
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+/* ---------- FIREBASE ---------- */
 
 const firebaseConfig = {
 
@@ -19,11 +242,12 @@ appId: "1:113035104487:web:1427b58f5263136d321242"
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-/* -------- API -------- */
+/* ---------- API GOOGLE SHEET ---------- */
 
-const API_URL = "https://script.google.com/macros/s/AKfycbwMYN0wLqtyEtwbC7z-nj414_m4S5vLanYBo52TbjEn4nCiud3dboOAoQ5ix3z7RNF0/exec";
+const API_URL =
+"https://script.google.com/macros/s/AKfycbwMYN0wLqtyEtwbC7z-nj414_m4S5vLanYBo52TbjEn4nCiud3dboOAoQ5ix3z7RNF0/exec";
 
-/* -------- VERIFICAR USUARIO -------- */
+/* ---------- VERIFICAR LOGIN ---------- */
 
 onAuthStateChanged(auth, async (user)=>{
 
@@ -50,7 +274,7 @@ body:JSON.stringify({email:user.email})
 
 const data = await res.json();
 
-/* SI NO ESTA ACTIVO */
+/* VERIFICAR MEMBRESIA */
 
 if(data.estado !== "activo"){
 
@@ -76,7 +300,7 @@ window.location.href="login.html";
 
 });
 
-/* -------- LOGOUT -------- */
+/* ---------- LOGOUT ---------- */
 
 window.logout = function(){
 
@@ -89,3 +313,7 @@ window.location.href="login.html";
 }
 
 </script>
+
+</body>
+
+</html>
