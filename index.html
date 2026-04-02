@@ -386,19 +386,32 @@ function enviarSugerencia(){
 
 let texto=document.getElementById("sugerencia").value;
 
-if(texto===""){
+if(texto.trim()===""){
 alert("Escribe una sugerencia");
 return;
 }
 
 fetch("https://script.google.com/macros/s/AKfycbwMYN0wLqtyEtwbC7z-nj414_m4S5vLanYBo52TbjEn4nCiud3dboOAoQ5ix3z7RNF0/exec",{
 method:"POST",
-body:JSON.stringify({sugerencia:texto})
-});
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+sugerencia:texto
+})
+})
+.then(response=>response.json())
+.then(data=>{
 
 document.getElementById("mensaje-buzon").innerText="¡Gracias por tu sugerencia!";
 
 document.getElementById("sugerencia").value="";
+
+})
+.catch(error=>{
+document.getElementById("mensaje-buzon").innerText="Error al enviar sugerencia";
+console.error(error);
+});
 
 }
 
