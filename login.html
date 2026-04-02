@@ -160,73 +160,63 @@ button:hover{
 
 <div class="overlay">
 
-    <div class="titulo">
-        1 Habilidad x 1 Café
-    </div>
+<div class="titulo">
+1 Habilidad x 1 Café
+</div>
 
-    <div class="subtitulo">
-        Plataforma de clases y recursos con IA para docentes
-    </div>
+<div class="subtitulo">
+Plataforma de clases y recursos con IA para docentes
+</div>
 
-    <div class="login-box">
+<div class="login-box">
 
-        <!-- EMAIL -->
+<input
+type="email"
+id="email"
+placeholder="Tu email">
 
-        <input type="email"
-               id="email"
-               placeholder="Tu email">
+<div class="input-container">
 
-        <!-- PASSWORD CON OJITO -->
+<input
+type="password"
+id="password"
+placeholder="Tu contraseña">
 
-        <div class="input-container">
+<span
+class="toggle-pass"
+onclick="togglePassword()">
+👁
+</span>
 
-            <input type="password"
-                   id="password"
-                   placeholder="Tu contraseña">
+</div>
 
-            <span class="toggle-pass"
-                  onclick="togglePassword()">
+<button onclick="login()">
+Ingresar
+</button>
 
-                  👁
+<a
+class="link"
+onclick="resetPassword()">
+¿Olvidaste tu contraseña?
+</a>
 
-            </span>
+<div class="membresia">
 
-        </div>
+<p style="color:#ccc;">
+¿Aún no tienes acceso?
+</p>
 
-        <!-- BOTON LOGIN -->
+<a href="membresia.html">
 
-        <button onclick="login()">
-            Ingresar
-        </button>
+<button>
+Ver membresía
+</button>
 
-        <!-- RECUPERAR CONTRASEÑA -->
+</a>
 
-        <a class="link"
-           onclick="resetPassword()">
+</div>
 
-           ¿Olvidaste tu contraseña?
-
-        </a>
-
-        <!-- MEMBRESIA -->
-
-        <div class="membresia">
-
-            <p style="color:#ccc;">
-                ¿Aún no tienes acceso?
-            </p>
-
-            <a href="membresia.html">
-
-                <button>
-                    Ver membresía
-                </button>
-
-            </a>
-
-        </div>
-
-    </div>
+</div>
 
 </div>
 
@@ -241,21 +231,15 @@ getAuth,
 signInWithEmailAndPassword,
 sendPasswordResetEmail
 }
-
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
 
 apiKey: "AIzaSyBFJH3LRuaS8yc6iDsXXcwACzpddA8lr5c",
-
 authDomain: "habilidadx1cafe.firebaseapp.com",
-
 projectId: "habilidadx1cafe",
-
 storageBucket: "habilidadx1cafe.firebasestorage.app",
-
 messagingSenderId: "113035104487",
-
 appId: "1:113035104487:web:1427b58f5263136d321242"
 
 };
@@ -263,95 +247,105 @@ appId: "1:113035104487:web:1427b58f5263136d321242"
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+/* ---------- API GOOGLE SHEET ---------- */
+
+const API_URL =
+"https://script.google.com/macros/s/AKfycbxF4RaGhBRA_H7eRuBiCzGv7goLFsj3XZIbivWTCSth-DwGPzAVD7OPstGAP1b9mFJY/exec";
+
 /* ---------- LOGIN ---------- */
 
-window.login = function(){
+window.login = async function(){
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
 
-    signInWithEmailAndPassword(auth,email,password)
+try{
 
-    .then(() => {
+const res = await fetch(API_URL,{
+method:"POST",
+body:JSON.stringify({email:email})
+});
 
-        window.location.href="clases.html"
+const data = await res.json();
 
-    })
+/* NO REGISTRADO */
 
-    .catch((error) => {
+if(data.estado === "no_registrado"){
 
-        /* CONTRASEÑA INCORRECTA */
-
-        if(error.code === "auth/wrong-password"){
-
-            alert("Contraseña incorrecta.");
-
-        }
-
-        /* USUARIO NO ENCONTRADO */
-
-        else if(error.code === "auth/user-not-found"){
-
-            alert("Este email no está registrado.");
-
-        }
-
-        /* USUARIO INACTIVO (NO PAGO) */
-
-        else{
-
-            alert(
-            "Tu acceso aún no fue activado.\n\n" +
-            "El pago puede tardar hasta 12 horas en verificarse.\n\n" +
-            "Si crees que hay un error envía tu comprobante por WhatsApp."
-            );
-
-        }
-
-    });
+alert("Este email no está registrado. Primero debes adquirir la membresía.");
+return;
 
 }
 
-/* ---------- MOSTRAR / OCULTAR PASSWORD ---------- */
+/* PAGO PENDIENTE */
+
+if(data.estado === "pendiente"){
+
+alert(
+"Aún no se registró el pago.\n\n"+
+"El proceso puede demorar hasta 12 horas.\n\n"+
+"Si ya pagaste envía el comprobante por WhatsApp."
+);
+
+return;
+
+}
+
+/* USUARIO ACTIVO */
+
+if(data.estado === "activo"){
+
+await signInWithEmailAndPassword(auth,email,password);
+
+window.location.href="clases.html";
+
+}
+
+}
+
+catch(error){
+
+alert("Error al iniciar sesión.");
+
+}
+
+}
+
+/* ---------- MOSTRAR PASSWORD ---------- */
 
 window.togglePassword = function(){
 
-    const pass = document.getElementById("password");
+const pass = document.getElementById("password");
 
-    if(pass.type === "password"){
-
-        pass.type = "text";
-
-    }
-
-    else{
-
-        pass.type = "password";
-
-    }
+if(pass.type === "password"){
+pass.type="text";
+}
+else{
+pass.type="password";
+}
 
 }
 
-/* ---------- RECUPERAR PASSWORD ---------- */
+/* ---------- RESET PASSWORD ---------- */
 
 window.resetPassword = function(){
 
-    const email = document.getElementById("email").value;
+const email = document.getElementById("email").value;
 
-    if(email===""){
+if(email===""){
 
-        alert("Escribe tu email primero");
-        return;
+alert("Escribe tu email primero");
+return;
 
-    }
+}
 
-    sendPasswordResetEmail(auth,email)
+sendPasswordResetEmail(auth,email)
 
-    .then(()=>{
+.then(()=>{
 
-        alert("Te enviamos un email para recuperar tu contraseña");
+alert("Te enviamos un email para recuperar tu contraseña");
 
-    });
+});
 
 }
 
