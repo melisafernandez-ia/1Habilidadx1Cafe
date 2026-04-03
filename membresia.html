@@ -194,7 +194,7 @@ transform:scale(1.03);
 </div>
 <div class="tarjeta">
 <h3>Membresía mensual</h3>
-<div class="precio">$18000</div>
+<div class="precio">$15000</div>
 </div>
 </div>
 </div>
@@ -284,19 +284,20 @@ document.getElementById("crearCuenta").addEventListener("click", function(){
   .then(()=>{
     // ✅ Guardar email en Google Sheet
     fetch("https://script.google.com/macros/s/AKfycbwkm04yFGkhgn3skh33f5wdoR6j8WxOptz648CJ9iDMPAPUtn7ST58WI3OGT8EZwWem/exec", {
-      method: "POST",
-      headers: {"Content-Type":"application/x-www-form-urlencoded"},
-      body: `email=${encodeURIComponent(email)}`
-    })
-    .then(res=>res.json())
-    .then(data=>console.log("Sheet:", data))
-    .catch(err=>console.log(err));
-
-    mensaje.innerText = "Cuenta creada. Ahora envía el comprobante.";
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    email: email
   })
-  .catch(error=>{
-    mensaje.innerText = error.message;
-  });
+})
+.then(res => res.json())
+.then(data => {
+  console.log("Respuesta Sheet:", data);
+})
+.catch(err => {
+  console.error("Error:", err);
 });
 </script>
 
