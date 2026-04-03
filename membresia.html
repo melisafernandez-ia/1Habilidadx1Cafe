@@ -178,7 +178,7 @@ Crear cuenta
 <p>
 
 Alias: melisa.f<br>
-Titular: Melisa Fernández
+Titular: Melisa Fernández<br>
 wsp: (+)
 </p>
 
@@ -216,6 +216,7 @@ Ingresar a la plataforma
 </div>
 
 </div>
+
 
 
 <script type="module">
@@ -282,18 +283,21 @@ createUserWithEmailAndPassword(auth,email,password)
 
 .then(()=>{
 
-const formData = new FormData();
-formData.append("email",email);
-
-
 fetch("https://script.google.com/macros/s/AKfycbwkm04yFGkhgn3skh33f5wdoR6j8WxOptz648CJ9iDMPAPUtn7ST58WI3OGT8EZwWem/exec",{
 
 method:"POST",
-body:formData
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+email:email
+})
 
 })
-.then(res=>res.text())
-.then(data=>console.log(data))
+.then(res=>res.json())
+.then(data=>console.log("Sheet:",data))
 .catch(err=>console.log(err));
 
 
@@ -310,6 +314,7 @@ mensaje.innerText=error.message;
 });
 
 </script>
+
 
 </body>
 </html>
