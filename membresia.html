@@ -2,13 +2,10 @@
 <html>
 
 <head>
-
 <title>Membresía</title>
 
 <style>
-
 /* ----------- ESTILO GENERAL ----------- */
-
 body{
 margin:0;
 font-family:Arial;
@@ -18,7 +15,6 @@ text-align:center;
 }
 
 /* ----------- HERO ----------- */
-
 .hero{
 background-image:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c");
 background-size:cover;
@@ -58,13 +54,11 @@ cursor:pointer;
 }
 
 /* ----------- SECCIONES ----------- */
-
 .seccion{
 padding:60px 20px;
 }
 
 /* ----------- PRECIOS ----------- */
-
 .precios{
 display:flex;
 justify-content:center;
@@ -85,7 +79,6 @@ color:#8ab4f8;
 }
 
 /* ----------- PASOS ----------- */
-
 .pasos{
 display:flex;
 justify-content:center;
@@ -117,7 +110,6 @@ color:white;
 }
 
 /* ----------- BOTONES ----------- */
-
 .verpass{
 width:95%;
 padding:8px;
@@ -145,7 +137,6 @@ color:#121212;
 }
 
 /* ----------- PASO 4 DESTACADO ----------- */
-
 .paso-login{
 border:2px solid ;
 background:transparent;
@@ -178,7 +169,6 @@ transition:0.3s;
 background:#14b8a6;
 transform:scale(1.03);
 }
-
 </style>
 
 </head>
@@ -186,208 +176,127 @@ transform:scale(1.03);
 <body>
 
 <!-- HERO -->
-
 <div class="hero">
-
 <div class="hero-content">
-
 <h1>1 Habilidad x 1 Café</h1>
-
 <p>Clases y recursos de IA para docentes</p>
-
-<a href="login.html">
-<button>Ingresar a la plataforma</button>
-</a>
-
+<a href="login.html"><button>Ingresar a la plataforma</button></a>
 </div>
-
 </div>
 
 <!-- PLANES -->
-
 <div class="seccion">
-
 <h2>Planes de acceso</h2>
-
 <div class="precios">
-
 <div class="tarjeta">
 <h3>Clase en vivo</h3>
 <div class="precio">$5000</div>
 </div>
-
 <div class="tarjeta">
 <h3>Membresía mensual</h3>
 <div class="precio">$18000</div>
 </div>
-
 </div>
-
 </div>
 
 <!-- PASOS -->
-
 <div class="seccion">
-
 <div class="pasos">
 
 <!-- PASO 1 -->
-
 <div class="paso">
-
 <h3>1 Crear cuenta</h3>
-
 <input type="email" id="email" placeholder="Tu correo">
-
 <input type="password" id="password" placeholder="Contraseña">
-
-<button class="verpass" id="verpass">
-Mostrar contraseña
-</button>
-
-<button id="crearCuenta">
-Crear cuenta
-</button>
-
+<button class="verpass" id="verpass">Mostrar contraseña</button>
+<button id="crearCuenta">Crear cuenta</button>
 <p id="mensaje"></p>
-
 </div>
 
 <!-- PASO 2 -->
-
 <div class="paso">
-
 <h3>2 Realizar pago</h3>
-
 <p>
 Alias: melisa.f.<br>
 Titular: Melisa Fernández
 </p>
-
 </div>
 
 <!-- PASO 3 -->
-
 <div class="paso">
-
 <h3>3 Enviar comprobante</h3>
-
-<button class="whatsapp"
-onclick="window.open('https://wa.me/543435508780')">
-
-Enviar comprobante
-
-</button>
-
+<button class="whatsapp" onclick="window.open('https://wa.me/543435508780')">Enviar comprobante</button>
 </div>
 
 <!-- PASO 4 -->
-
 <div class="paso-login">
-
 <h3>4 Acceder</h3>
-
-<a href="login.html">
-<button>Ingresar a la plataforma</button>
-</a>
-
+<a href="login.html"><button>Ingresar a la plataforma</button></a>
 </div>
 
 </div>
-
 </div>
 
 <script type="module">
 
 /* ----------- FIREBASE ----------- */
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-getAuth,
-createUserWithEmailAndPassword
-}
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
-
 apiKey:"AIzaSyBFJH3LRuaS8yc6iDsXXcwACzpddA8lr5c",
 authDomain:"habilidadx1cafe.firebaseapp.com",
 projectId:"habilidadx1cafe",
 storageBucket:"habilidadx1cafe.firebasestorage.app",
 messagingSenderId:"113035104487",
 appId:"1:113035104487:web:1427b58f5263136d321242"
-
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 /* ----------- ELEMENTOS ----------- */
-
 const emailInput = document.getElementById("email");
 const passInput = document.getElementById("password");
 const mensaje = document.getElementById("mensaje");
 
 /* ----------- MOSTRAR PASSWORD ----------- */
-
-document.getElementById("verpass").addEventListener("click",function(){
-
-if(passInput.type==="password"){
-passInput.type="text";
-}
-else{
-passInput.type="password";
-}
-
+document.getElementById("verpass").addEventListener("click", function(){
+  passInput.type = (passInput.type === "password") ? "text" : "password";
 });
 
 /* ----------- CREAR CUENTA ----------- */
+document.getElementById("crearCuenta").addEventListener("click", function(){
+  let email = emailInput.value;
+  let password = passInput.value;
 
-document.getElementById("crearCuenta").addEventListener("click",function(){
+  if(!email || !password){
+    mensaje.innerText = "Completa email y contraseña";
+    return;
+  }
+  if(password.length < 6){
+    mensaje.innerText = "La contraseña debe tener mínimo 6 caracteres";
+    return;
+  }
 
-let email=emailInput.value;
-let password=passInput.value;
+  createUserWithEmailAndPassword(auth,email,password)
+  .then(()=>{
+    // ✅ Guardar email en Google Sheet
+    fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec", {
+      method: "POST",
+      headers: {"Content-Type":"application/x-www-form-urlencoded"},
+      body: `email=${encodeURIComponent(email)}`
+    })
+    .then(res=>res.json())
+    .then(data=>console.log("Sheet:", data))
+    .catch(err=>console.log(err));
 
-if(email==="" || password===""){
-
-mensaje.innerText="Completa email y contraseña";
-return;
-
-}
-
-if(password.length<6){
-
-mensaje.innerText="La contraseña debe tener mínimo 6 caracteres";
-return;
-
-}
-
-createUserWithEmailAndPassword(auth,email,password)
-
-.then(()=>{
-
-/* ENVIA EMAIL A GOOGLE SHEET */
-
-fetch("https://script.google.com/macros/s/AKfycbwMYN0wLqtyEtwbC7z-nj414_m4S5vLanYBo52TbjEn4nCiud3dboOAoQ5ix3z7RNF0/exec",{
-
-method:"POST",
-body:JSON.stringify({email:email})
-
+    mensaje.innerText = "Cuenta creada. Ahora envía el comprobante.";
+  })
+  .catch(error=>{
+    mensaje.innerText = error.message;
+  });
 });
-
-mensaje.innerText="Cuenta creada. Ahora envía el comprobante.";
-
-})
-
-.catch(error=>{
-
-mensaje.innerText=error.message;
-
-});
-
-});
-
 </script>
 
 </body>
