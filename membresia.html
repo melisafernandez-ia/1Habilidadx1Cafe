@@ -225,7 +225,7 @@ wsp: 3435508780
 
 <!-- PASO 3 -->
 <div class="paso">
-<h3>3 Enviar comprobante</h3>
+<h3>3 Enviar comprobante por wsp</h3>
 <button class="whatsapp" onclick="window.open('https://wa.me/543435508780')">Enviar comprobante</button>
 </div>
 
@@ -280,23 +280,30 @@ document.getElementById("crearCuenta").addEventListener("click", function(){
     return;
   }
 
-  createUserWithEmailAndPassword(auth,email,password)
-  .then(()=>{
-    // ✅ Guardar email en Google Sheet
-    fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec", {
-      method: "POST",
-      headers: {"Content-Type":"application/x-www-form-urlencoded"},
-      body: `email=${encodeURIComponent(email)}`
-    })
-    .then(res=>res.json())
-    .then(data=>console.log("Sheet:", data))
-    .catch(err=>console.log(err));
+ createUserWithEmailAndPassword(auth, email, password)
+.then(() => {
 
-    mensaje.innerText = "Cuenta creada. Ahora envía el comprobante.";
+  // Enviar email a Google Sheet
+  fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email: email })
   })
-  .catch(error=>{
-    mensaje.innerText = error.message;
+  .then(res => res.json())
+  .then(data => {
+    if (data.estado) {
+      mensaje.innerText = "Cuenta creada. Estado en Sheet: " + data.estado;
+    } else if (data.error) {
+      mensaje.innerText = "Error Sheet: " + data.error;
+    }
+  })
+  .catch(err => {
+    mensaje.innerText = "Error al registrar en Sheet: " + err;
   });
+
+})
+.catch(error => {
+  mensaje.innerText = error.message;
 });
 </script>
 
