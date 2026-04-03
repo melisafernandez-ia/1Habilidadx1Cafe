@@ -8,103 +8,103 @@
 <style>
 
 body{
-  margin:0;
-  font-family:Arial;
-  color:white;
-  background:#0f0f0f;
-  text-align:center;
+margin:0;
+font-family:Arial;
+color:white;
+background:#0f0f0f;
+text-align:center;
 }
 
 .hero{
-  background:#121212;
-  padding:80px 20px;
+background:#121212;
+padding:80px 20px;
 }
 
 .hero h1{
-  font-size:48px;
-  color:#00d4ff;
+font-size:48px;
+color:#00d4ff;
 }
 
 .hero p{
-  font-size:20px;
+font-size:20px;
 }
 
 .seccion{
-  padding:60px 20px;
+padding:60px 20px;
 }
 
 .precios{
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  flex-wrap:wrap;
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
 }
 
 .tarjeta{
-  background:#1f1f1f;
-  padding:30px;
-  border-radius:12px;
-  width:260px;
+background:#1f1f1f;
+padding:30px;
+border-radius:12px;
+width:260px;
 }
 
 .precio{
-  font-size:32px;
-  color:#00d4ff;
-  margin-top:10px;
+font-size:32px;
+color:#00d4ff;
+margin-top:10px;
 }
 
 .pasos{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  flex-wrap:wrap;
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
 }
 
 .paso{
-  background:#1a1a1a;
-  padding:25px;
-  border-radius:12px;
-  width:250px;
+background:#1a1a1a;
+padding:25px;
+border-radius:12px;
+width:250px;
 }
 
 .paso h3{
-  color:#00d4ff;
+color:#00d4ff;
 }
 
 input{
-  width:90%;
-  padding:10px;
-  margin-bottom:10px;
-  border:none;
-  border-radius:6px;
+width:90%;
+padding:10px;
+margin-bottom:10px;
+border:none;
+border-radius:6px;
 }
 
 button{
-  padding:12px 20px;
-  border:none;
-  border-radius:8px;
-  background:#00d4ff;
-  cursor:pointer;
-  font-weight:bold;
+padding:12px 20px;
+border:none;
+border-radius:8px;
+background:#00d4ff;
+cursor:pointer;
+font-weight:bold;
 }
 
 button:hover{
-  opacity:0.9;
+opacity:0.9;
 }
 
 .verpass{
-  background:#444;
-  color:white;
-  margin-bottom:10px;
+background:#444;
+color:white;
+margin-bottom:10px;
 }
 
 .whatsapp{
-  background:#25D366;
-  color:white;
+background:#25D366;
+color:white;
 }
 
 .paso-login{
-  border:2px solid #00d4ff;
+border:2px solid #00d4ff;
 }
 
 </style>
@@ -114,11 +114,8 @@ button:hover{
 <body>
 
 <div class="hero">
-
 <h1>1 Habilidad x 1 Café</h1>
-
 <p>Aprende Inteligencia Artificial aplicada a la docencia</p>
-
 </div>
 
 
@@ -139,7 +136,6 @@ button:hover{
 </div>
 
 </div>
-
 </div>
 
 
@@ -176,10 +172,9 @@ Crear cuenta
 <h3>2 Realizar pago</h3>
 
 <p>
-
 Alias: melisa.f<br>
 Titular: Melisa Fernández<br>
-wsp: (+54) 343 55
+wsp: (+54) 343 5508
 </p>
 
 </div>
@@ -191,9 +186,7 @@ wsp: (+54) 343 55
 
 <button type="button" class="whatsapp"
 onclick="window.open('https://wa.me/543435508780')">
-
 Enviar comprobante
-
 </button>
 
 </div>
@@ -204,20 +197,15 @@ Enviar comprobante
 <h3>4 Acceder</h3>
 
 <a href="login.html">
-
 <button type="button">
 Ingresar a la plataforma
 </button>
-
 </a>
 
 </div>
 
 </div>
-
 </div>
-
-
 
 
 <script type="module">
@@ -246,7 +234,6 @@ appId:"1:113035104487:web:1427b58f5263136d321242"
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
 
 const emailInput = document.getElementById("email");
 const passInput = document.getElementById("password");
@@ -279,35 +266,48 @@ mensaje.innerText="La contraseña debe tener mínimo 6 caracteres";
 return;
 }
 
-
 createUserWithEmailAndPassword(auth,email,password)
 
 .then(()=>{
 
-/* REGISTRAR EN GOOGLE SHEET SIN CORS */
-
-const img = new Image();
-
-img.src = "https://script.google.com/macros/s/AKfycbyy7hP5mj8jlDQIMjMZNQv7wPdKQg69T6u_abOWSKCWPRzdE9qFfkN7psYpPhFTvcI7/exec?email=" 
-+ encodeURIComponent(email) 
-+ "&t=" + new Date().getTime();
-
+guardarUsuario(email);
 
 mensaje.innerText="Cuenta creada. Ahora envía el comprobante.";
 
 })
 
 .catch(error=>{
-
 mensaje.innerText=error.message;
-
 });
 
 });
+
+
+function guardarUsuario(email){
+
+fetch("https://sheetdb.io/api/v1/i8l8o8fhonpzj", {
+method: "POST",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify({
+data: [{
+email: email,
+fecha_creacion: new Date().toISOString(),
+vence: "",
+estado: "pendiente"
+}]
+})
+})
+.then(res => res.json())
+.then(data => console.log("Guardado en Sheet:", data))
+.catch(err => console.log("Error:", err));
+
+}
 
 </script>
 
-
-
 </body>
 </html>
+
+
