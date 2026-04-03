@@ -174,7 +174,7 @@ Crear cuenta
 <p>
 Alias: melisa.f<br>
 Titular: Melisa Fernández<br>
-wsp: (+54) 343 5508
+wsp: (+54) 343 5508780
 </p>
 
 </div>
@@ -293,7 +293,7 @@ headers: {
 body: JSON.stringify({
 data: [{
 email: email,
-fecha_creacion: new Date().toISOString(),
+fecha_creacion: new Date().toLocaleDateString(),
 vence: "",
 estado: "pendiente"
 }]
@@ -304,6 +304,7 @@ estado: "pendiente"
 .catch(err => console.log("Error:", err));
 
 }
+
 
 </script>
 
