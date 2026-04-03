@@ -218,7 +218,8 @@ transform:scale(1.03);
 <h3>2 Realizar pago</h3>
 <p>
 Alias: melisa.f.<br>
-Titular: Melisa Fernández
+Titular: Melisa Fernández<br>
+wsp: (+54) 343 5508780
 </p>
 </div>
 
@@ -282,7 +283,7 @@ document.getElementById("crearCuenta").addEventListener("click", function(){
   createUserWithEmailAndPassword(auth,email,password)
   .then(()=>{
     // ✅ Guardar email en Google Sheet
-    fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbwkm04yFGkhgn3skh33f5wdoR6j8WxOptz648CJ9iDMPAPUtn7ST58WI3OGT8EZwWem/exec", {
       method: "POST",
       headers: {"Content-Type":"application/x-www-form-urlencoded"},
       body: `email=${encodeURIComponent(email)}`
