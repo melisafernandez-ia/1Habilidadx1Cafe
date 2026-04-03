@@ -97,8 +97,6 @@ text-decoration:underline;
 
 <script type="module">
 
-/* FIREBASE */
-
 import { initializeApp }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
@@ -117,20 +115,24 @@ appId:"1:113035104487:web:1427b58f5263136d321242"
 
 };
 
-
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 
-/* VERIFICAR USUARIO */
+let verificado = false;
 
 onAuthStateChanged(auth, async (user)=>{
 
-if(!user){
+if(!user && verificado){
 
 window.location.href="login.html";
 return;
 
+}
+
+if(!user){
+verificado = true;
+return;
 }
 
 const email = user.email;
@@ -141,9 +143,7 @@ const email = user.email;
 const url = "https://sheetdb.io/api/v1/i8l8o8fhonpzj/search?email="+email;
 
 const res = await fetch(url);
-
 const data = await res.json();
-
 
 if(data.length===0){
 
@@ -156,7 +156,7 @@ return;
 }
 
 
-/* SI EXISTE EN SHEET → CARGAR VIDEO */
+/* CARGAR VIDEO */
 
 const videoID = "n8tCQgPfixM";
 
@@ -166,14 +166,9 @@ document.getElementById("video").innerHTML =
 });
 
 
-/* BLOQUEAR CLICK DERECHO */
-
 document.addEventListener("contextmenu",function(e){
 e.preventDefault();
 });
-
-
-/* BLOQUEAR SELECCIÓN TEXTO */
 
 document.addEventListener("selectstart",function(e){
 e.preventDefault();
@@ -182,5 +177,4 @@ e.preventDefault();
 </script>
 
 </body>
-
 </html>
