@@ -1,181 +1,111 @@
+```html
 <!DOCTYPE html>
 <html>
 
 <head>
+
 <title>Membresía</title>
 
 <style>
 
-/* ----------- ESTILO GENERAL ----------- */
-
 body{
-margin:0;
-font-family:Arial;
-background:#0d0d0d;
-color:#e5e5e5;
-text-align:center;
+  margin:0;
+  font-family:Arial;
+  color:white;
+  background:#0f0f0f;
+  text-align:center;
 }
-
-/* ----------- HERO ----------- */
 
 .hero{
-background-image:url("https://images.unsplash.com/photo-1519389950473-47ba0277781c");
-background-size:cover;
-background-position:center;
-padding:120px 20px;
-position:relative;
-}
-
-.hero::after{
-content:"";
-position:absolute;
-top:0;
-left:0;
-right:0;
-bottom:0;
-background:rgba(0,0,0,0.7);
-}
-
-.hero-content{
-position:relative;
-z-index:2;
+  background:#121212;
+  padding:80px 20px;
 }
 
 .hero h1{
-font-size:48px;
-color:#8ab4f8;
+  font-size:48px;
+  color:#00d4ff;
 }
 
-.hero button{
-padding:14px 30px;
-font-size:18px;
-background:#4f46e5;
-border:none;
-border-radius:8px;
-color:white;
-cursor:pointer;
+.hero p{
+  font-size:20px;
 }
-
-/* ----------- SECCIONES ----------- */
 
 .seccion{
-padding:60px 20px;
+  padding:60px 20px;
 }
 
-/* ----------- PRECIOS ----------- */
-
 .precios{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
 }
 
 .tarjeta{
-background:#1a1a2e;
-padding:30px;
-border-radius:12px;
-width:260px;
+  background:#1f1f1f;
+  padding:30px;
+  border-radius:12px;
+  width:260px;
 }
 
 .precio{
-font-size:30px;
-color:#8ab4f8;
+  font-size:32px;
+  color:#00d4ff;
+  margin-top:10px;
 }
 
-/* ----------- PASOS ----------- */
-
 .pasos{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
 }
 
 .paso{
-background:#1a1a2e;
-padding:22px;
-border-radius:12px;
-width:240px;
-text-align:left;
+  background:#1a1a1a;
+  padding:25px;
+  border-radius:12px;
+  width:250px;
 }
 
 .paso h3{
-color:#00d4ff;
+  color:#00d4ff;
 }
 
-.paso input{
-width:90%;
-padding:10px;
-margin-bottom:10px;
-border:none;
-border-radius:6px;
-background:#2b2b3e;
-color:white;
+input{
+  width:90%;
+  padding:10px;
+  margin-bottom:10px;
+  border:none;
+  border-radius:6px;
 }
 
-/* ----------- BOTONES ----------- */
+button{
+  padding:12px 20px;
+  border:none;
+  border-radius:8px;
+  background:#00d4ff;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+button:hover{
+  opacity:0.9;
+}
 
 .verpass{
-width:95%;
-padding:8px;
-margin-bottom:10px;
-background:#444;
-border:none;
-border-radius:6px;
-color:white;
-cursor:pointer;
-}
-
-.paso button{
-width:95%;
-padding:12px;
-background:#4f46e5;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
+  background:#444;
+  color:white;
+  margin-bottom:10px;
 }
 
 .whatsapp{
-background:#00d4ff;
-color:#121212;
+  background:#25D366;
+  color:white;
 }
-
-/* ----------- PASO 4 DESTACADO ----------- */
 
 .paso-login{
-border:2px solid;
-background:transparent;
-padding:30px;
-border-radius:12px;
-text-align:center;
-width:260px;
-color:white;
-}
-
-.paso-login h3{
-color:#00d4ff;
-margin-bottom:20px;
-}
-
-.paso-login button{
-width:100%;
-padding:18px;
-font-size:20px;
-background:#4f46e5;
-color:white;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-weight:bold;
-transition:0.3s;
-}
-
-.paso-login button:hover{
-background:#14b8a6;
-transform:scale(1.03);
+  border:2px solid #00d4ff;
 }
 
 </style>
@@ -184,29 +114,18 @@ transform:scale(1.03);
 
 <body>
 
-<!-- HERO -->
-
 <div class="hero">
-
-<div class="hero-content">
 
 <h1>1 Habilidad x 1 Café</h1>
 
-<p>Clases y recursos de IA para docentes</p>
-
-<a href="login.html">
-<button type="button">Ingresar a la plataforma</button>
-</a>
+<p>Aprende Inteligencia Artificial aplicada a la docencia</p>
 
 </div>
 
-</div>
-
-<!-- PLANES -->
 
 <div class="seccion">
 
-<h2>Planes de acceso</h2>
+<h2>Planes</h2>
 
 <div class="precios">
 
@@ -224,21 +143,21 @@ transform:scale(1.03);
 
 </div>
 
-<!-- PASOS -->
 
 <div class="seccion">
 
+<h2>Cómo acceder</h2>
+
 <div class="pasos">
 
-<!-- PASO 1 -->
 
 <div class="paso">
 
 <h3>1 Crear cuenta</h3>
 
-<input type="email" id="email" placeholder="Tu correo">
+<input id="email" type="email" placeholder="Tu email">
 
-<input type="password" id="password" placeholder="Contraseña">
+<input id="password" type="password" placeholder="Contraseña">
 
 <button type="button" class="verpass" id="verpass">
 Mostrar contraseña
@@ -252,20 +171,20 @@ Crear cuenta
 
 </div>
 
-<!-- PASO 2 -->
 
 <div class="paso">
 
 <h3>2 Realizar pago</h3>
 
 <p>
-Alias: melisa.f.<br>
+
+Alias: melisa.f<br>
 Titular: Melisa Fernández
+wsp: (+)
 </p>
 
 </div>
 
-<!-- PASO 3 -->
 
 <div class="paso">
 
@@ -280,14 +199,17 @@ Enviar comprobante
 
 </div>
 
-<!-- PASO 4 -->
 
-<div class="paso-login">
+<div class="paso paso-login">
 
 <h3>4 Acceder</h3>
 
 <a href="login.html">
-<button type="button">Ingresar a la plataforma</button>
+
+<button type="button">
+Ingresar a la plataforma
+</button>
+
 </a>
 
 </div>
@@ -296,15 +218,18 @@ Enviar comprobante
 
 </div>
 
+
 <script type="module">
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
 getAuth,
 createUserWithEmailAndPassword
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
 
 const firebaseConfig = {
 
@@ -317,27 +242,26 @@ appId:"1:113035104487:web:1427b58f5263136d321242"
 
 };
 
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+
 
 const emailInput = document.getElementById("email");
 const passInput = document.getElementById("password");
 const mensaje = document.getElementById("mensaje");
 
-/* MOSTRAR PASSWORD */
 
 document.getElementById("verpass").addEventListener("click",function(){
 
 if(passInput.type==="password"){
 passInput.type="text";
-}
-else{
+}else{
 passInput.type="password";
 }
 
 });
 
-/* CREAR CUENTA */
 
 document.getElementById("crearCuenta").addEventListener("click",function(){
 
@@ -345,40 +269,34 @@ let email=emailInput.value;
 let password=passInput.value;
 
 if(email==="" || password===""){
-
 mensaje.innerText="Completa email y contraseña";
 return;
-
 }
 
 if(password.length<6){
-
 mensaje.innerText="La contraseña debe tener mínimo 6 caracteres";
 return;
-
 }
+
 
 createUserWithEmailAndPassword(auth,email,password)
 
 .then(()=>{
 
+const formData = new FormData();
+formData.append("email",email);
+
+
 fetch("https://script.google.com/macros/s/AKfycbwkm04yFGkhgn3skh33f5wdoR6j8WxOptz648CJ9iDMPAPUtn7ST58WI3OGT8EZwWem/exec",{
 
 method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
-
-body:JSON.stringify({
-email:email
-})
+body:formData
 
 })
-
-.then(res=>res.json())
-.then(data=>console.log("Sheet:",data))
+.then(res=>res.text())
+.then(data=>console.log(data))
 .catch(err=>console.log(err));
+
 
 mensaje.innerText="Cuenta creada. Ahora envía el comprobante.";
 
@@ -396,3 +314,4 @@ mensaje.innerText=error.message;
 
 </body>
 </html>
+```
