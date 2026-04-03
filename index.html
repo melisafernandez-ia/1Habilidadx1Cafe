@@ -384,21 +384,42 @@ setInterval(actualizarContador,1000);
 
 function enviarSugerencia(){
 
-let texto=document.getElementById("sugerencia").value;
+let texto = document.getElementById("sugerencia").value;
 
 if(texto===""){
 alert("Escribe una sugerencia");
 return;
 }
 
-fetch("https://script.google.com/macros/s/AKfycbwMYN0wLqtyEtwbC7z-nj414_m4S5vLanYBo52TbjEn4nCiud3dboOAoQ5ix3z7RNF0/exec",{
+fetch("https://sheetdb.io/api/v1/380mce8arpjln",{
 method:"POST",
-body:JSON.stringify({sugerencia:texto})
-});
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+data:[
+{
+sugerencia:texto,
+fecha:new Date().toLocaleDateString()
+}
+]
+})
+})
+
+.then(res=>res.json())
+.then(data=>{
 
 document.getElementById("mensaje-buzon").innerText="¡Gracias por tu sugerencia!";
 
 document.getElementById("sugerencia").value="";
+
+})
+
+.catch(error=>{
+
+alert("Error al enviar sugerencia");
+
+});
 
 }
 
