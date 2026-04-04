@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -119,6 +120,15 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 
+/* EVITAR QUE LA PAGINA SE CARGUE DENTRO DE OTRA WEB */
+
+if (window.top !== window.self) {
+document.body.innerHTML = "";
+}
+
+
+/* VERIFICAR USUARIO */
+
 let verificado = false;
 
 onAuthStateChanged(auth, async (user)=>{
@@ -156,26 +166,52 @@ return;
 }
 
 
-/* CARGAR VIDEO */
+/* CARGAR VIDEO SOLO SI EL USUARIO ESTA HABILITADO */
 
 const videoID = "-qxdmDxD8TA";
 
 document.getElementById("video").innerHTML =
-'<iframe width="900" height="500" src="https://www.youtube-nocookie.com/embed/'+videoID+'?modestbranding=1&rel=0&controls=1&disablekb=1" frameborder="0" allowfullscreen></iframe>';
+'<iframe width="900" height="500" src="https://www.youtube-nocookie.com/embed/'+videoID+'?modestbranding=1&rel=0&controls=1&disablekb=1&fs=0" frameborder="0" allowfullscreen></iframe>';
 
 });
 
+
+/* BLOQUEAR CLICK DERECHO */
 
 document.addEventListener("contextmenu",function(e){
 e.preventDefault();
 });
 
+
+/* BLOQUEAR SELECCION DE TEXTO */
+
 document.addEventListener("selectstart",function(e){
 e.preventDefault();
+});
+
+
+/* BLOQUEAR INSPECCION BASICA */
+
+document.addEventListener("keydown", function(e){
+
+if(e.key === "F12"){
+e.preventDefault();
+}
+
+if(e.ctrlKey && e.shiftKey && e.key === "I"){
+e.preventDefault();
+}
+
+if(e.ctrlKey && e.key === "U"){
+e.preventDefault();
+}
+
 });
 
 </script>
 
 </body>
 </html>
+
+
 
