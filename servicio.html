@@ -74,7 +74,7 @@ color:#555;
 }
 
 .hero img{
-width:380px;
+width:400px;
 border-radius:16px;
 box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
@@ -189,7 +189,7 @@ background:#f8f9ff;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
-max-width:700px;
+max-width:800px;
 margin:auto;
 }
 
@@ -236,7 +236,7 @@ border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:28px;
+font-size:26px;
 text-decoration:none;
 box-shadow:0 5px 15px rgba(0,0,0,0.3);
 z-index:1000;
@@ -254,15 +254,13 @@ border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:26px;
+font-size:24px;
 text-decoration:none;
 box-shadow:0 5px 15px rgba(0,0,0,0.3);
 z-index:1000;
 }
 
-/* ============================= */
-/* DISEÑO PARA CELULAR */
-/* ============================= */
+/* RESPONSIVE */
 
 @media (max-width:768px){
 
@@ -271,10 +269,6 @@ flex-direction:column;
 gap:10px;
 padding:20px;
 text-align:center;
-}
-
-nav a{
-margin:0 10px;
 }
 
 .hero{
@@ -287,17 +281,8 @@ padding:40px 20px;
 font-size:32px;
 }
 
-.hero p{
-font-size:16px;
-}
-
 .hero img{
-width:220px;
-margin-top:10px;
-}
-
-.container{
-padding:20px 15px;
+width:240px;
 }
 
 .grid{
@@ -309,30 +294,8 @@ flex-direction:column;
 gap:25px;
 }
 
-.stat{
-font-size:22px;
-}
-
-.servicio-card{
-padding:25px;
-}
-
 .contact-grid{
 grid-template-columns:1fr;
-}
-
-h2{
-font-size:24px;
-}
-
-.boton{
-padding:12px 20px;
-font-size:15px;
-}
-
-footer{
-font-size:13px;
-padding:20px;
 }
 
 }
@@ -354,8 +317,6 @@ padding:20px;
 
 </header>
 
-<!-- HERO -->
-
 <section class="hero container">
 
 <div class="hero-text">
@@ -370,11 +331,9 @@ Ayudo a docentes a utilizar inteligencia artificial para ahorrar horas de trabaj
 
 </div>
 
-<img src="foto1.jpeg" alt="Melisa Fernández">
+<img src="foto1.jpeg">
 
 </section>
-
-<!-- LO QUE PUEDES CREAR -->
 
 <section class="container">
 
@@ -382,40 +341,36 @@ Ayudo a docentes a utilizar inteligencia artificial para ahorrar horas de trabaj
 
 <div class="grid">
 
-<div class="card"><span>🧠</span><p>Planificaciones automáticas en minutos</p></div>
-<div class="card"><span>📝</span><p>Actividades y evaluaciones para cualquier tema</p></div>
-<div class="card"><span>📊</span><p>Devoluciones automáticas para estudiantes</p></div>
-<div class="card"><span>📚</span><p>Infografías y materiales educativos visuales</p></div>
-<div class="card"><span>🎧</span><p>Audioclases y contenidos narrados</p></div>
-<div class="card"><span>🎬</span><p>Videos educativos creados con IA</p></div>
-<div class="card"><span>🤖</span><p>Creación de asistentes personales docentes</p></div>
-<div class="card"><span>⏱️</span><p>Herramientas de organización y gestión del tiempo</p></div>
+<div class="card"><span>🧠</span>Planificaciones automáticas</div>
+<div class="card"><span>📝</span>Actividades educativas</div>
+<div class="card"><span>📊</span>Evaluaciones</div>
+<div class="card"><span>📚</span>Material visual</div>
+<div class="card"><span>🎧</span>Audioclases</div>
+<div class="card"><span>🎬</span>Videos educativos</div>
+<div class="card"><span>🤖</span>Asistentes personales</div>
+<div class="card"><span>⏱️</span>Organización del tiempo</div>
 
 </div>
 
 </section>
-
-<!-- AUTORIDAD -->
 
 <section class="autoridad">
 
 <h3>Docencia + Inteligencia Artificial</h3>
 
 <p>
-Mi trabajo se centra en ayudar a docentes a integrar inteligencia artificial en su práctica educativa de forma real y útil.
+Mi trabajo se centra en ayudar a docentes a integrar inteligencia artificial de forma práctica y útil.
 </p>
 
 <div class="stats">
 
-<div class="stat">+8<p>herramientas docentes con IA</p></div>
-<div class="stat">+15<p>soluciones posibles para docentes</p></div>
-<div class="stat">∞<p>actividades que puedes generar</p></div>
+<div class="stat">+8<p>herramientas docentes</p></div>
+<div class="stat">+15<p>soluciones educativas</p></div>
+<div class="stat">∞<p>actividades posibles</p></div>
 
 </div>
 
 </section>
-
-<!-- SERVICIOS -->
 
 <section class="servicios">
 
@@ -426,39 +381,21 @@ Mi trabajo se centra en ayudar a docentes a integrar inteligencia artificial en 
 <div class="grid">
 
 <div class="servicio-card">
-
 <h3>Curso de IA para docentes</h3>
-
-<p>
-Aprende paso a paso a utilizar inteligencia artificial para planificar clases, crear materiales y optimizar tu trabajo docente.
-</p>
-
+<p>Aprende paso a paso a integrar IA en tus clases.</p>
 <a class="boton" href="index.html">Ver curso</a>
-
 </div>
 
 <div class="servicio-card">
-
 <h3>Mentoría 1 a 1</h3>
-
-<p>
-Sesiones personalizadas donde trabajamos juntos para implementar herramientas de IA en tu práctica docente.
-</p>
-
+<p>Implementa herramientas de IA adaptadas a tu trabajo docente.</p>
 <a class="boton" href="#contacto">Contactar</a>
-
 </div>
 
 <div class="servicio-card">
-
 <h3>Soluciones personalizadas</h3>
-
-<p>
-Diseño asistentes y herramientas de inteligencia artificial adaptadas a docentes o instituciones educativas.
-</p>
-
+<p>Diseño asistentes y automatizaciones para docentes.</p>
 <a class="boton" href="#contacto">Consultar</a>
-
 </div>
 
 </div>
@@ -467,8 +404,6 @@ Diseño asistentes y herramientas de inteligencia artificial adaptadas a docente
 
 </section>
 
-<!-- CONTACTO -->
-
 <section id="contacto" class="contacto">
 
 <h2>Contacto</h2>
@@ -476,15 +411,19 @@ Diseño asistentes y herramientas de inteligencia artificial adaptadas a docente
 <div class="contact-grid">
 
 <div class="contact-card">
-<span>📷</span>
-<p>Instagram</p>
-<a href="https://instagram.com/">@tuusuario</a>
+<span>💬</span>
+<p>WhatsApp</p>
+<a href="https://wa.me/5493435508780" target="_blank">
+Enviar mensaje
+</a>
 </div>
 
 <div class="contact-card">
 <span>✉️</span>
 <p>Email</p>
-<a href="mailto:melfernandez@educ.ar">melfernandez@educ.ar</a>
+<a href="mailto:melfernandez@educ.ar?subject=Consulta%20sobre%20IA%20para%20docentes">
+melfernandez@educ.ar
+</a>
 </div>
 
 </div>
@@ -501,7 +440,7 @@ Diseño asistentes y herramientas de inteligencia artificial adaptadas a docente
 
 <a class="whatsapp" href="https://wa.me/5493435508780" target="_blank">💬</a>
 
-<a class="email" href="mailto:melfernandez@educ.ar">✉️</a>
+<a class="email" href="mailto:melfernandez@educ.ar?subject=Consulta%20sobre%20IA%20para%20docentes">✉️</a>
 
 </body>
 </html>
