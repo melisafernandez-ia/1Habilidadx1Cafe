@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -69,7 +70,6 @@ text-align:center;
 
 box-shadow:0 0 25px rgba(0,0,0,0.7);
 
-animation:fadeIn 0.7s ease;
 }
 
 /* ---------- INPUTS ---------- */
@@ -180,19 +180,6 @@ color:#aaa;
 text-align:center;
 }
 
-/* ---------- ANIMACION ---------- */
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
 /* ---------- CELULAR ---------- */
 
 @media(max-width:600px){
@@ -290,6 +277,8 @@ Ver membresía
 
 <script type="module">
 
+/* ---------- FIREBASE ---------- */
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
@@ -313,12 +302,16 @@ appId: "1:113035104487:web:1427b58f5263136d321242"
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+/* ---------- API GOOGLE SHEET ---------- */
+
 const API_URL =
 "https://script.google.com/macros/s/AKfycbybDXMPiZyDtzkYmvotmf1RUeWsG_XIz7ba6EVq8GYnbLDOE9WcdaI-HLSgNvrrKK5k/exec";
 
+/* ---------- LOGIN ---------- */
+
 window.login = async function(){
 
-const email = document.getElementById("email").value;
+const email = document.getElementById("email").value.trim();
 const password = document.getElementById("password").value;
 const btn = document.getElementById("btnLogin");
 
@@ -334,13 +327,12 @@ try{
 
 const res = await fetch(API_URL,{
 method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
 body:JSON.stringify({email:email})
 });
 
 const data = await res.json();
+
+/* NO REGISTRADO */
 
 if(data.estado === "no_registrado"){
 alert("Este email no está registrado. Primero debes adquirir la membresía.");
@@ -349,12 +341,20 @@ btn.disabled=false;
 return;
 }
 
+/* PAGO PENDIENTE */
+
 if(data.estado === "pendiente"){
-alert("Aún no se registró el pago. Si ya pagaste envía el comprobante por WhatsApp.");
+alert(
+"Aún no se registró el pago.\n\n"+
+"El proceso puede demorar hasta 12 horas.\n\n"+
+"Si ya pagaste envía el comprobante por WhatsApp."
+);
 btn.innerText="Ingresar";
 btn.disabled=false;
 return;
 }
+
+/* USUARIO ACTIVO */
 
 if(data.estado === "activo"){
 
@@ -368,6 +368,8 @@ window.location.href="clases.html";
 
 catch(error){
 
+console.error(error);
+
 alert("Error al iniciar sesión.");
 
 btn.innerText="Ingresar";
@@ -376,6 +378,8 @@ btn.disabled=false;
 }
 
 }
+
+/* ---------- MOSTRAR PASSWORD ---------- */
 
 window.togglePassword = function(){
 
@@ -390,9 +394,11 @@ pass.type="password";
 
 }
 
+/* ---------- RESET PASSWORD ---------- */
+
 window.resetPassword = function(){
 
-const email = document.getElementById("email").value;
+const email = document.getElementById("email").value.trim();
 
 if(email===""){
 alert("Escribe tu email primero");
@@ -411,3 +417,4 @@ alert("Te enviamos un email para recuperar tu contraseña");
 
 </body>
 </html>
+
