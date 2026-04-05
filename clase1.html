@@ -16,6 +16,8 @@ text-align:center;
 padding:40px;
 }
 
+/* BOTON VOLVER */
+
 .volver{
 position:absolute;
 top:20px;
@@ -35,15 +37,41 @@ cursor:pointer;
 background:#666;
 }
 
+
+/* VIDEO */
+
 .video{
+position:relative;
+width:900px;
+max-width:100%;
+margin:auto;
+overflow:hidden;
+border-radius:12px;
 margin-top:40px;
 }
 
-iframe{
+.video iframe{
+width:100%;
+height:500px;
+border:none;
 border-radius:12px;
 box-shadow:0 0 25px rgba(0,0,0,0.8);
-max-width:100%;
 }
+
+/* TAPA SUPERIOR YOUTUBE */
+
+.video::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:40px;
+background:#0f0f0f;
+}
+
+
+/* MATERIALES */
 
 .materiales{
 margin-top:40px;
@@ -127,6 +155,17 @@ document.body.innerHTML = "";
 }
 
 
+/* VIDEO ID OFUSCADO */
+
+const v1 = "-qxd";
+const v2 = "mDxD";
+const v3 = "8TA";
+
+function obtenerVideo(){
+return v1 + v2 + v3;
+}
+
+
 /* VERIFICAR USUARIO */
 
 let verificado = false;
@@ -166,12 +205,12 @@ return;
 }
 
 
-/* CARGAR VIDEO SOLO SI EL USUARIO ESTA HABILITADO */
+/* GENERAR VIDEO SOLO SI ESTA HABILITADO */
 
-const videoID = "-qxdmDxD8TA";
+const videoID = obtenerVideo();
 
 document.getElementById("video").innerHTML =
-'<iframe width="900" height="500" src="https://www.youtube-nocookie.com/embed/'+videoID+'?modestbranding=1&rel=0&controls=0&disablekb=1&fs=0&iv_load_policy=3&playsinline=1" frameborder="0" allowfullscreen></iframe>';
+'<iframe src="https://www.youtube-nocookie.com/embed/'+videoID+'?modestbranding=1&rel=0&controls=0&disablekb=1&fs=0&iv_load_policy=3&playsinline=1" allowfullscreen></iframe>';
 
 });
 
@@ -212,6 +251,5 @@ e.preventDefault();
 
 </body>
 </html>
-
 
 
