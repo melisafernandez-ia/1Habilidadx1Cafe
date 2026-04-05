@@ -17,6 +17,8 @@ background:white;
 color:#222;
 }
 
+/* HEADER */
+
 header{
 display:flex;
 justify-content:space-between;
@@ -35,6 +37,8 @@ text-decoration:none;
 color:#333;
 font-weight:bold;
 }
+
+/* CONTENEDOR */
 
 .container{
 max-width:1100px;
@@ -209,11 +213,128 @@ color:#0066ff;
 font-weight:bold;
 }
 
+/* FOOTER */
+
 footer{
 text-align:center;
 padding:30px;
 color:#777;
 font-size:14px;
+}
+
+/* BOTONES FLOTANTES */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+width:55px;
+height:55px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+z-index:1000;
+}
+
+.email{
+position:fixed;
+bottom:85px;
+right:20px;
+background:#0066ff;
+color:white;
+width:55px;
+height:55px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:26px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+z-index:1000;
+}
+
+/* ============================= */
+/* DISEÑO PARA CELULAR */
+/* ============================= */
+
+@media (max-width:768px){
+
+header{
+flex-direction:column;
+gap:10px;
+padding:20px;
+text-align:center;
+}
+
+nav a{
+margin:0 10px;
+}
+
+.hero{
+flex-direction:column;
+text-align:center;
+padding:40px 20px;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.hero img{
+width:220px;
+margin-top:10px;
+}
+
+.container{
+padding:20px 15px;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.stats{
+flex-direction:column;
+gap:25px;
+}
+
+.stat{
+font-size:22px;
+}
+
+.servicio-card{
+padding:25px;
+}
+
+.contact-grid{
+grid-template-columns:1fr;
+}
+
+h2{
+font-size:24px;
+}
+
+.boton{
+padding:12px 20px;
+font-size:15px;
+}
+
+footer{
+font-size:13px;
+padding:20px;
+}
+
 }
 
 </style>
@@ -261,45 +382,14 @@ Ayudo a docentes a utilizar inteligencia artificial para ahorrar horas de trabaj
 
 <div class="grid">
 
-<div class="card">
-<span>🧠</span>
-<p>Planificaciones automáticas en minutos</p>
-</div>
-
-<div class="card">
-<span>📝</span>
-<p>Actividades y evaluaciones para cualquier tema</p>
-</div>
-
-<div class="card">
-<span>📊</span>
-<p>Devoluciones automáticas para estudiantes</p>
-</div>
-
-<div class="card">
-<span>📚</span>
-<p>Infografías y materiales educativos visuales</p>
-</div>
-
-<div class="card">
-<span>🎧</span>
-<p>Audioclases y contenidos narrados</p>
-</div>
-
-<div class="card">
-<span>🎬</span>
-<p>Videos educativos creados con IA</p>
-</div>
-
-<div class="card">
-<span>🤖</span>
-<p>Creación de asistentes personales docentes</p>
-</div>
-
-<div class="card">
-<span>⏱️</span>
-<p>Herramientas de organización y gestión del tiempo</p>
-</div>
+<div class="card"><span>🧠</span><p>Planificaciones automáticas en minutos</p></div>
+<div class="card"><span>📝</span><p>Actividades y evaluaciones para cualquier tema</p></div>
+<div class="card"><span>📊</span><p>Devoluciones automáticas para estudiantes</p></div>
+<div class="card"><span>📚</span><p>Infografías y materiales educativos visuales</p></div>
+<div class="card"><span>🎧</span><p>Audioclases y contenidos narrados</p></div>
+<div class="card"><span>🎬</span><p>Videos educativos creados con IA</p></div>
+<div class="card"><span>🤖</span><p>Creación de asistentes personales docentes</p></div>
+<div class="card"><span>⏱️</span><p>Herramientas de organización y gestión del tiempo</p></div>
 
 </div>
 
@@ -317,20 +407,9 @@ Mi trabajo se centra en ayudar a docentes a integrar inteligencia artificial en 
 
 <div class="stats">
 
-<div class="stat">
-+8
-<p>herramientas docentes con IA</p>
-</div>
-
-<div class="stat">
-+15
-<p>soluciones posibles para docentes</p>
-</div>
-
-<div class="stat">
-∞
-<p>actividades que puedes generar</p>
-</div>
+<div class="stat">+8<p>herramientas docentes con IA</p></div>
+<div class="stat">+15<p>soluciones posibles para docentes</p></div>
+<div class="stat">∞<p>actividades que puedes generar</p></div>
 
 </div>
 
@@ -405,7 +484,7 @@ Diseño asistentes y herramientas de inteligencia artificial adaptadas a docente
 <div class="contact-card">
 <span>✉️</span>
 <p>Email</p>
-<a href="mailto:tucorreo@gmail.com">tucorreo@gmail.com</a>
+<a href="mailto:melfernandez@educ.ar">melfernandez@educ.ar</a>
 </div>
 
 </div>
@@ -417,6 +496,12 @@ Diseño asistentes y herramientas de inteligencia artificial adaptadas a docente
 © 2026 Melisa Fernández — IA para docentes
 
 </footer>
+
+<!-- BOTONES FLOTANTES -->
+
+<a class="whatsapp" href="https://wa.me/5493435508780" target="_blank">💬</a>
+
+<a class="email" href="mailto:melfernandez@educ.ar">✉️</a>
 
 </body>
 </html>
