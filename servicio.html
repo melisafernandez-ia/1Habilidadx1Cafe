@@ -42,17 +42,22 @@ margin:auto;
 padding:40px 20px;
 }
 
+
+/* HERO */
+
 .hero{
 display:flex;
 align-items:center;
 justify-content:space-between;
 gap:50px;
-padding:80px 20px;
+padding:90px 20px;
 flex-wrap:wrap;
+background:#eef3ff;
+border-bottom:1px solid #e5e5e5;
 }
 
 .hero-text{
-max-width:550px;
+max-width:520px;
 }
 
 .hero h1{
@@ -71,6 +76,9 @@ border-radius:16px;
 box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
 
+
+/* BOTONES */
+
 .boton{
 display:inline-block;
 margin-top:20px;
@@ -86,10 +94,16 @@ font-weight:bold;
 background:#004fcc;
 }
 
+
+/* TITULOS */
+
 h2{
 text-align:center;
 margin-bottom:40px;
 }
+
+
+/* GRID */
 
 .grid{
 display:grid;
@@ -97,11 +111,19 @@ grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:30px;
 }
 
+
+/* TARJETAS */
+
 .card{
 background:#f5f5f5;
 padding:25px;
 border-radius:12px;
 text-align:center;
+transition:0.2s;
+}
+
+.card:hover{
+transform:translateY(-4px);
 }
 
 .card span{
@@ -110,19 +132,8 @@ display:block;
 margin-bottom:10px;
 }
 
-.servicios{
-background:#fafafa;
-padding:70px 20px;
-margin-top:40px;
-}
 
-.servicio-card{
-background:white;
-padding:30px;
-border-radius:12px;
-box-shadow:0 6px 25px rgba(0,0,0,0.08);
-text-align:center;
-}
+/* AUTORIDAD */
 
 .autoridad{
 text-align:center;
@@ -153,9 +164,57 @@ color:#666;
 margin:5px 0 0 0;
 }
 
-.contacto{
+
+/* SERVICIOS */
+
+.servicios{
+background:#fafafa;
+padding:70px 20px;
+margin-top:40px;
+}
+
+.servicio-card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 6px 25px rgba(0,0,0,0.08);
 text-align:center;
+}
+
+
+/* CONTACTO */
+
+.contacto{
 padding:80px 20px;
+background:#f8f9ff;
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+max-width:700px;
+margin:auto;
+}
+
+.contact-card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+text-align:center;
+}
+
+.contact-card span{
+font-size:34px;
+display:block;
+margin-bottom:10px;
+}
+
+.contact-card a{
+text-decoration:none;
+color:#0066ff;
+font-weight:bold;
 }
 
 footer{
@@ -171,6 +230,7 @@ font-size:14px;
 
 <body>
 
+
 <header>
 
 <h3>Melisa Fernández</h3>
@@ -185,7 +245,7 @@ font-size:14px;
 
 <!-- HERO -->
 
-<section class="container hero">
+<section class="hero container">
 
 <div class="hero-text">
 
@@ -240,6 +300,16 @@ Ayudo a docentes a utilizar inteligencia artificial para ahorrar horas de trabaj
 <div class="card">
 <span>🎬</span>
 <p>Videos educativos creados con IA</p>
+</div>
+
+<div class="card">
+<span>🤖</span>
+<p>Creación de asistentes personales docentes</p>
+</div>
+
+<div class="card">
+<span>⏱️</span>
+<p>Herramientas de organización y gestión del tiempo</p>
 </div>
 
 </div>
@@ -340,23 +410,21 @@ Diseño asistentes y herramientas de inteligencia artificial adaptadas a docente
 
 <h2>Contacto</h2>
 
-<p>Si quieres trabajar conmigo puedes escribirme:</p>
+<div class="contact-grid">
 
-<p>
-
-Instagram  
-<br>
+<div class="contact-card">
+<span>📷</span>
+<p>Instagram</p>
 <a href="https://instagram.com/">@tuusuario</a>
+</div>
 
-</p>
-
-<p>
-
-Email  
-<br>
+<div class="contact-card">
+<span>✉️</span>
+<p>Email</p>
 <a href="mailto:tucorreo@gmail.com">tucorreo@gmail.com</a>
+</div>
 
-</p>
+</div>
 
 </section>
 
