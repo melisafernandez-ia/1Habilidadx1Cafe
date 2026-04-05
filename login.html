@@ -4,7 +4,9 @@
 <head>
 
 <title>Ingreso a la plataforma</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 
 /* ---------- ESTILO GENERAL ---------- */
@@ -57,6 +59,8 @@ padding:40px;
 border-radius:14px;
 
 width:340px;
+max-width:92%;
+
 text-align:center;
 
 box-shadow:0 0 25px rgba(0,0,0,0.7);
@@ -72,7 +76,7 @@ position:relative;
 
 input{
 
-width:90%;
+width:100%;
 padding:14px;
 margin:10px 0;
 
@@ -81,7 +85,7 @@ border-radius:8px;
 
 background:#2b2b2b;
 color:white;
-font-size:15px;
+font-size:16px;
 }
 
 input::placeholder{
@@ -93,7 +97,7 @@ color:#aaa;
 .toggle-pass{
 
 position:absolute;
-right:25px;
+right:15px;
 top:50%;
 transform:translateY(-50%);
 
@@ -188,15 +192,29 @@ transform:translateY(0);
 
 /* ---------- CELULAR ---------- */
 
-@media(max-width:500px){
+@media(max-width:600px){
 
 .login-box{
-width:85%;
-padding:30px;
+width:92%;
+padding:28px;
+}
+
+input{
+width:100%;
+font-size:16px;
+}
+
+button{
+font-size:17px;
+padding:14px;
 }
 
 .titulo{
-font-size:30px;
+font-size:32px;
+}
+
+.subtitulo{
+font-size:16px;
 }
 
 }
@@ -279,8 +297,6 @@ Ver membresía
 
 <script type="module">
 
-/* ---------- FIREBASE ---------- */
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
@@ -304,12 +320,8 @@ appId: "1:113035104487:web:1427b58f5263136d321242"
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-/* ---------- API GOOGLE SHEET ---------- */
-
 const API_URL =
 "https://script.google.com/macros/s/AKfycbybDXMPiZyDtzkYmvotmf1RUeWsG_XIz7ba6EVq8GYnbLDOE9WcdaI-HLSgNvrrKK5k/exec";
-
-/* ---------- LOGIN ---------- */
 
 window.login = async function(){
 
@@ -318,10 +330,8 @@ const password = document.getElementById("password").value;
 const btn = document.getElementById("btnLogin");
 
 if(email === "" || password === ""){
-
 alert("Completa email y contraseña");
 return;
-
 }
 
 btn.innerText="Ingresando...";
@@ -339,37 +349,19 @@ body:JSON.stringify({email:email})
 
 const data = await res.json();
 
-/* NO REGISTRADO */
-
 if(data.estado === "no_registrado"){
-
 alert("Este email no está registrado. Primero debes adquirir la membresía.");
-
 btn.innerText="Ingresar";
 btn.disabled=false;
-
 return;
-
 }
-
-/* PAGO PENDIENTE */
 
 if(data.estado === "pendiente"){
-
-alert(
-"Aún no se registró el pago.\n\n"+
-"El proceso puede demorar hasta 12 horas.\n\n"+
-"Si ya pagaste envía el comprobante por WhatsApp."
-);
-
+alert("Aún no se registró el pago. Si ya pagaste envía el comprobante por WhatsApp.");
 btn.innerText="Ingresar";
 btn.disabled=false;
-
 return;
-
 }
-
-/* USUARIO ACTIVO */
 
 if(data.estado === "activo"){
 
@@ -392,8 +384,6 @@ btn.disabled=false;
 
 }
 
-/* ---------- MOSTRAR PASSWORD ---------- */
-
 window.togglePassword = function(){
 
 const pass = document.getElementById("password");
@@ -407,25 +397,19 @@ pass.type="password";
 
 }
 
-/* ---------- RESET PASSWORD ---------- */
-
 window.resetPassword = function(){
 
 const email = document.getElementById("email").value;
 
 if(email===""){
-
 alert("Escribe tu email primero");
 return;
-
 }
 
 sendPasswordResetEmail(auth,email)
 
 .then(()=>{
-
 alert("Te enviamos un email para recuperar tu contraseña");
-
 });
 
 }
