@@ -4,6 +4,8 @@
 <head>
 <title>1 Habilidad x 1 Café</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 
 /* ESTILO GENERAL */
@@ -29,6 +31,7 @@ justify-content:center;
 align-items:center;
 color:white;
 text-shadow:0 2px 10px rgba(0,0,0,0.7);
+padding:20px;
 }
 
 .hero h1{
@@ -98,16 +101,16 @@ border-top:1px solid #ddd;
 border-bottom:1px solid #ddd;
 }
 
-.video-temario .video-container{
+.video-container{
 flex:1;
 display:flex;
 justify-content:center;
-align-items:stretch;
 }
 
-.video-temario .video-container iframe{
+.video-container iframe{
 width:100%;
-height:500px;
+max-width:700px;
+height:420px;
 border-radius:12px;
 box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
@@ -134,10 +137,9 @@ width:100%;
 }
 
 .temario li{
-position:relative;
 background:#f9f9f9;
 margin-bottom:12px;
-padding:12px;
+padding:14px;
 border-radius:8px;
 cursor:pointer;
 transition:0.3s;
@@ -200,13 +202,85 @@ color:green;
 font-weight:bold;
 }
 
+footer{
+padding:30px;
+background:#222;
+color:white;
+font-size:14px;
+}
+
+/* ===================== */
+/* OPTIMIZACION CELULAR */
+/* ===================== */
+
+@media (max-width:768px){
+
+.hero{
+height:300px;
+padding:20px;
+}
+
+.hero h1{
+font-size:34px;
+}
+
+.hero p{
+font-size:17px;
+padding:0 10px;
+}
+
+.contador{
+font-size:18px;
+}
+
+.contador span{
+font-size:20px;
+}
+
+.boton-clases-container button{
+font-size:16px;
+padding:14px 22px;
+}
+
+.info{
+padding:25px 15px;
+}
+
+.video-temario{
+flex-direction:column;
+padding:30px 15px;
+gap:30px;
+}
+
+.video-container iframe{
+height:220px;
+}
+
+.temario li{
+font-size:15px;
+padding:12px;
+}
+
+.temario li .descripcion{
+font-size:14px;
+}
+
+.buzon textarea{
+width:95%;
+}
+
+.buzon button{
+font-size:16px;
+padding:14px 22px;
+}
+
+}
+
 </style>
 
 </head>
 
 <body>
-
-<!-- HERO -->
 
 <div class="hero">
 
@@ -218,21 +292,15 @@ Aprende herramientas de Inteligencia Artificial útiles para docentes
 
 </div>
 
-<!-- CONTADOR -->
-
 <div class="contador">
 ⏳ Faltan <span id="contador"></span> para comenzar
 </div>
-
-<!-- BOTON -->
 
 <div class="boton-clases-container">
 <a href="membresia.html">
 <button>Entrar a las clases</button>
 </a>
 </div>
-
-<!-- INFO -->
 
 <div class="info">
 
@@ -247,8 +315,6 @@ Prompts, evaluaciones y recursos listos para usar.
 </p>
 
 </div>
-
-<!-- VIDEO + TEMARIO -->
 
 <div class="video-temario">
 
@@ -272,56 +338,56 @@ allowfullscreen></iframe>
 <li>
 <span class="nombre">Clase 1: IA para docentes — lo que realmente te va a ahorrar horas de trabajo</span>
 <span class="descripcion">
-Descubrirás cómo funciona la inteligencia artificial aplicada al trabajo docente y aprenderás a usarla para generar actividades, explicaciones, consignas y materiales en segundos. Saldrás de la clase con una guía de prompts diseñada específicamente para docentes.
+Descubrirás cómo funciona la inteligencia artificial aplicada al trabajo docente y aprenderás a usarla para generar actividades, explicaciones, consignas y materiales en segundos.
 </span>
 </li>
 
 <li>
 <span class="nombre">Clase 2: Tu asistente personal docente con IA</span>
 <span class="descripcion">
-Crearás un asistente que te permitirá organizar tu trabajo diario enviando simples audios. Podrás registrar tareas, pendientes, recordatorios y organizar tu agenda docente sin perder nada importante.
+Crearás un asistente que te permitirá organizar tu trabajo diario enviando simples audios.
 </span>
 </li>
 
 <li>
 <span class="nombre">Clase 3: Crear planificaciones completas en minutos</span>
 <span class="descripcion">
-Construirás un asistente de planificación que generará automáticamente objetivos, contenidos, actividades y evaluaciones siguiendo el formato que exige tu institución o tu provincia. Ideal para ahorrar horas de trabajo administrativo.
+Construirás un asistente de planificación que generará automáticamente objetivos, contenidos, actividades y evaluaciones.
 </span>
 </li>
 
 <li>
 <span class="nombre">Clase 4: Digitalizar y mejorar todo tu material docente</span>
 <span class="descripcion">
-Aprenderás a transformar fotocopias, apuntes y materiales impresos en documentos digitales editables. También descubrirás cómo mejorar explicaciones, actualizar consignas y modernizar recursos que ya utilizas en tus clases.
+Aprenderás a transformar fotocopias y apuntes en documentos digitales editables.
 </span>
 </li>
 
 <li>
-<span class="nombre">Clase 5: Crear materiales visuales increíbles para tus clases</span>
+<span class="nombre">Clase 5: Crear materiales visuales increíbles</span>
 <span class="descripcion">
-Aprenderás a generar infografías, fichas de estudio, carteles y presentaciones profesionales en minutos utilizando inteligencia artificial. Ideal para crear materiales más claros, visuales y atractivos para los estudiantes.
+Generarás infografías, fichas de estudio y presentaciones profesionales.
 </span>
 </li>
 
 <li>
-<span class="nombre">Clase 6: Crear un banco infinito de actividades y evaluaciones</span>
+<span class="nombre">Clase 6: Crear banco infinito de actividades</span>
 <span class="descripcion">
-Construirás un banco reutilizable de actividades, ejercicios y evaluaciones para cada tema que enseñes. Aprenderás a generar múltiples propuestas didácticas y evaluaciones adaptadas a distintos niveles de dificultad.
+Construirás un repositorio reutilizable de actividades y evaluaciones.
 </span>
 </li>
 
 <li>
-<span class="nombre">Clase 7: Generar devoluciones automáticas para evaluaciones</span>
+<span class="nombre">Clase 7: Generar devoluciones automáticas</span>
 <span class="descripcion">
-Aprenderás a crear un sistema que redacte automáticamente devoluciones personalizadas para cada estudiante según la nota obtenida y los criterios de evaluación. Ideal para ahorrar tiempo y mejorar la retroalimentación.
+Aprenderás a redactar devoluciones personalizadas automáticamente.
 </span>
 </li>
 
 <li>
-<span class="nombre">Clase 8: Crear videos, audios y recursos multimedia educativos</span>
+<span class="nombre">Clase 8: Crear videos y recursos multimedia</span>
 <span class="descripcion">
-Descubrirás cómo transformar contenidos en videos educativos, audiolibros, resúmenes visuales y otros recursos multimedia. También aprenderás a descargar y analizar videos educativos para generar nuevas actividades a partir de ellos.
+Descubrirás cómo crear videos, audios y recursos educativos con IA.
 </span>
 </li>
 
@@ -332,8 +398,6 @@ Descubrirás cómo transformar contenidos en videos educativos, audiolibros, res
 </div>
 
 </div>
-
-<!-- BUZON -->
 
 <div class="buzon">
 
@@ -347,17 +411,13 @@ Puedes sugerir herramientas de IA o problemas del aula que te gustaría que abor
 
 <br>
 
-<button onclick="enviarSugerencia()">
-Enviar sugerencia
-</button>
+<button onclick="enviarSugerencia()">Enviar sugerencia</button>
 
 <p id="mensaje-buzon"></p>
 
 </div>
 
 <script>
-
-/* CONTADOR */
 
 function actualizarContador(){
 
@@ -378,9 +438,6 @@ dias+" días "+horas+" horas "+minutos+" min "+segundos+" seg";
 }
 
 setInterval(actualizarContador,1000);
-
-
-/* SUGERENCIAS */
 
 function enviarSugerencia(){
 
@@ -410,7 +467,6 @@ fecha:new Date().toLocaleDateString()
 .then(data=>{
 
 document.getElementById("mensaje-buzon").innerText="¡Gracias por tu sugerencia!";
-
 document.getElementById("sugerencia").value="";
 
 })
@@ -430,5 +486,6 @@ alert("Error al enviar sugerencia");
 © 2026 Melisa Fernández — IA para docentes
 
 </footer>
+
 </body>
 </html>
