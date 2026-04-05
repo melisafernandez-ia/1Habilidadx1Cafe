@@ -239,7 +239,7 @@ onclick="togglePassword()">
 
 </div>
 
-<button onclick="login()">
+<button id="btnLogin" onclick="login()">
 Ingresar
 </button>
 
@@ -315,11 +315,25 @@ window.login = async function(){
 
 const email = document.getElementById("email").value;
 const password = document.getElementById("password").value;
+const btn = document.getElementById("btnLogin");
+
+if(email === "" || password === ""){
+
+alert("Completa email y contraseña");
+return;
+
+}
+
+btn.innerText="Ingresando...";
+btn.disabled=true;
 
 try{
 
 const res = await fetch(API_URL,{
 method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
 body:JSON.stringify({email:email})
 });
 
@@ -330,6 +344,10 @@ const data = await res.json();
 if(data.estado === "no_registrado"){
 
 alert("Este email no está registrado. Primero debes adquirir la membresía.");
+
+btn.innerText="Ingresar";
+btn.disabled=false;
+
 return;
 
 }
@@ -343,6 +361,9 @@ alert(
 "El proceso puede demorar hasta 12 horas.\n\n"+
 "Si ya pagaste envía el comprobante por WhatsApp."
 );
+
+btn.innerText="Ingresar";
+btn.disabled=false;
 
 return;
 
@@ -363,6 +384,9 @@ window.location.href="clases.html";
 catch(error){
 
 alert("Error al iniciar sesión. Verifica tu email o contraseña.");
+
+btn.innerText="Ingresar";
+btn.disabled=false;
 
 }
 
