@@ -35,7 +35,8 @@ align-items:center;
 background:#1c1c1c;
 padding:15px 25px;
 border-radius:10px;
-margin-bottom:30px;
+margin-bottom:25px;
+flex-wrap:wrap;
 }
 
 .barra-usuario span{
@@ -59,10 +60,11 @@ background:#ff2a00;
 /* ---------- HERO ---------- */
 
 .hero{
-height:220px;
+position:relative;
+height:230px;
 border-radius:15px;
 overflow:hidden;
-margin-bottom:50px;
+margin-bottom:40px;
 box-shadow:0 0 25px rgba(0,0,0,0.7);
 }
 
@@ -71,6 +73,25 @@ width:100%;
 height:100%;
 object-fit:cover;
 display:block;
+filter:brightness(0.6);
+}
+
+.hero-texto{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+}
+
+.hero-texto h1{
+margin:0;
+font-size:34px;
+}
+
+.hero-texto p{
+margin-top:8px;
+color:#ddd;
 }
 
 /* ---------- TITULO ---------- */
@@ -100,7 +121,8 @@ transition:0.3s;
 }
 
 .clase:hover{
-transform:translateY(-5px);
+transform:translateY(-6px);
+box-shadow:0 0 20px rgba(0,0,0,0.8);
 }
 
 .clase img{
@@ -108,7 +130,16 @@ width:100%;
 height:170px;
 object-fit:cover;
 border-radius:10px;
-margin-bottom:10px;
+margin-bottom:12px;
+}
+
+.clase h3{
+margin-bottom:5px;
+}
+
+.clase p{
+color:#ccc;
+font-size:14px;
 }
 
 /* ---------- BOTONES ---------- */
@@ -128,6 +159,14 @@ button:hover{
 background:#ff2a00;
 }
 
+/* ---------- FOOTER ---------- */
+
+footer{
+margin-top:50px;
+color:#aaa;
+font-size:14px;
+}
+
 /* ---------- RESPONSIVE ---------- */
 
 @media (max-width:768px){
@@ -142,7 +181,11 @@ width:90%;
 }
 
 .hero{
-height:160px;
+height:170px;
+}
+
+.hero-texto h1{
+font-size:24px;
 }
 
 }
@@ -173,9 +216,14 @@ Cerrar sesión
 
 <img src="portada3.jpeg">
 
+<div class="hero-texto">
+<h1>Biblioteca de Clases</h1>
+<p>Aprende a integrar Inteligencia Artificial en tu práctica docente</p>
 </div>
 
-<h2>Biblioteca de Clases</h2>
+</div>
+
+<h2>Tus clases disponibles</h2>
 
 <!-- CLASES -->
 
@@ -210,6 +258,10 @@ Cerrar sesión
 </div>
 
 </div>
+
+<footer>
+© 2026 Melisa Fernández — IA para docentes
+</footer>
 
 </div>
 
@@ -314,11 +366,5 @@ window.location.href="login.html";
 
 </script>
 
-<footer>
-
-© 2026 Melisa Fernández — IA para docentes
-
-</footer>
 </body>
-
 </html>
