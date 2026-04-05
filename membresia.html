@@ -5,6 +5,8 @@
 
 <title>Membresía</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 
 body{
@@ -37,6 +39,7 @@ top:50%;
 left:50%;
 transform:translate(-50%,-50%);
 text-align:center;
+width:90%;
 }
 
 .hero-texto h1{
@@ -108,10 +111,11 @@ color:#00d4ff;
 
 input{
 width:90%;
-padding:10px;
+padding:12px;
 margin-bottom:10px;
 border:none;
 border-radius:6px;
+font-size:16px;
 }
 
 /* BOTONES */
@@ -124,6 +128,7 @@ background:#00d4ff;
 cursor:pointer;
 font-weight:bold;
 margin-top:10px;
+font-size:16px;
 }
 
 button:hover{
@@ -146,12 +151,83 @@ background:#666;
 color:white;
 }
 
+/* FOOTER */
+
+footer{
+padding:30px;
+background:#000;
+font-size:14px;
+}
+
+/* ======================= */
+/* OPTIMIZACIÓN CELULAR */
+/* ======================= */
+
+@media (max-width:768px){
+
+.hero{
+height:260px;
+}
+
+.hero-texto h1{
+font-size:30px;
+}
+
+.hero-texto p{
+font-size:16px;
+}
+
+.seccion{
+padding:40px 15px;
+}
+
+.precios{
+flex-direction:column;
+align-items:center;
+gap:25px;
+}
+
+.tarjeta{
+width:90%;
+max-width:360px;
+}
+
+.tarjeta p{
+font-size:15px;
+}
+
+.precio{
+font-size:28px;
+}
+
+.pasos{
+flex-direction:column;
+align-items:center;
+gap:20px;
+}
+
+.paso{
+width:90%;
+max-width:360px;
+padding:20px;
+}
+
+input{
+width:100%;
+}
+
+button{
+width:100%;
+padding:14px;
+}
+
+}
+
 </style>
 
 </head>
 
 <body>
-
 
 <!-- PORTADA -->
 
@@ -165,8 +241,6 @@ color:white;
 </div>
 
 </div>
-
-
 
 <!-- PLANES -->
 
@@ -205,7 +279,6 @@ Ideal para probar el programa.
 
 </div>
 
-
 <div class="tarjeta">
 
 <h3>🚀 Membresía mensual</h3>
@@ -241,8 +314,6 @@ Ideal para integrar IA en tu práctica docente.
 
 </div>
 
-
-
 <!-- PASOS -->
 
 <div class="seccion">
@@ -250,7 +321,6 @@ Ideal para integrar IA en tu práctica docente.
 <h2>Cómo acceder</h2>
 
 <div class="pasos">
-
 
 <div class="paso">
 
@@ -272,7 +342,6 @@ Crear cuenta
 
 </div>
 
-
 <div class="paso">
 
 <h3>2 Realizar pago</h3>
@@ -285,7 +354,6 @@ wsp: (+54) 343 5508780
 
 </div>
 
-
 <div class="paso">
 
 <h3>3 Enviar comprobante</h3>
@@ -296,7 +364,6 @@ Enviar comprobante
 </button>
 
 </div>
-
 
 <div class="paso">
 
@@ -310,11 +377,8 @@ Ingresar a la plataforma
 
 </div>
 
-
 </div>
 </div>
-
-
 
 <script type="module">
 
@@ -327,7 +391,6 @@ createUserWithEmailAndPassword
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-
 const firebaseConfig = {
 
 apiKey:"AIzaSyBFJH3LRuaS8yc6iDsXXcwACzpddA8lr5c",
@@ -339,14 +402,12 @@ appId:"1:113035104487:web:1427b58f5263136d321242"
 
 };
 
-
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 const emailInput = document.getElementById("email");
 const passInput = document.getElementById("password");
 const mensaje = document.getElementById("mensaje");
-
 
 document.getElementById("verpass").addEventListener("click",function(){
 
@@ -357,7 +418,6 @@ passInput.type="password";
 }
 
 });
-
 
 document.getElementById("crearCuenta").addEventListener("click",function(){
 
@@ -390,7 +450,6 @@ mensaje.innerText=error.message;
 
 });
 
-
 function guardarUsuario(email){
 
 fetch("https://sheetdb.io/api/v1/i8l8o8fhonpzj", {
@@ -408,21 +467,17 @@ estado: "pendiente"
 })
 })
 .then(res => res.json())
-.then(data => console.log("Guardado en Sheet:", data))
-.catch(err => console.log("Error:", err));
+.catch(err => console.log(err));
 
 }
 
 </script>
 
-</body>
-</html>
-
 <footer>
 
 © 2026 Melisa Fernández — IA para docentes
+
 </footer>
+
 </body>
 </html>
-
-
