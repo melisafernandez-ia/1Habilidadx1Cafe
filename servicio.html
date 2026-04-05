@@ -6,16 +6,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>IA para Docentes | Melisa Fernández</title>
+<title>Melisa Fernández | IA para docentes</title>
 
 <style>
 
 body{
 margin:0;
 font-family:Arial;
-background:#0f0f0f;
-color:white;
-line-height:1.6;
+background:white;
+color:#222;
 }
 
 .container{
@@ -24,82 +23,92 @@ margin:auto;
 padding:40px 20px;
 }
 
-h1,h2,h3{
-margin-bottom:15px;
+h1{
+font-size:46px;
+margin-bottom:10px;
+}
+
+h2{
+text-align:center;
+margin-bottom:40px;
 }
 
 p{
-color:#cccccc;
+color:#555;
 }
 
 .hero{
-text-align:center;
+display:flex;
+align-items:center;
+justify-content:space-between;
 padding:80px 20px;
-background:linear-gradient(135deg,#1a1a1a,#000);
+gap:40px;
 }
 
-.hero h1{
-font-size:42px;
+.hero img{
+width:300px;
+border-radius:12px;
 }
 
-.hero p{
-font-size:20px;
-max-width:700px;
-margin:auto;
+.hero-text{
+max-width:550px;
 }
 
 .boton{
 display:inline-block;
-margin-top:25px;
-padding:15px 30px;
-background:#00c2ff;
-color:black;
-font-weight:bold;
+margin-top:20px;
+padding:14px 26px;
+background:#0066ff;
+color:white;
 text-decoration:none;
 border-radius:8px;
+font-weight:bold;
 }
 
 .boton:hover{
-background:#00a4d6;
-}
-
-.section{
-padding:70px 20px;
+background:#004fcc;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:30px;
-margin-top:40px;
 }
 
 .card{
-background:#1a1a1a;
+background:#f5f5f5;
 padding:25px;
-border-radius:10px;
+border-radius:12px;
+text-align:center;
 }
 
-.card h3{
-color:#00c2ff;
+.card span{
+font-size:40px;
+display:block;
+margin-bottom:10px;
+}
+
+.servicios{
+background:#fafafa;
+padding:70px 20px;
+}
+
+.servicio-card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+text-align:center;
 }
 
 .contacto{
 text-align:center;
-background:#111;
-padding:70px 20px;
-}
-
-.contacto a{
-color:#00c2ff;
-font-weight:bold;
-text-decoration:none;
+padding:80px 20px;
 }
 
 footer{
 text-align:center;
 padding:30px;
-font-size:14px;
 color:#777;
 }
 
@@ -109,86 +118,65 @@ color:#777;
 
 <body>
 
+
 <!-- HERO -->
 
-<section class="hero">
+<section class="container hero">
 
-<h1>Inteligencia Artificial para Docentes</h1>
+<div class="hero-text">
+
+<h1>IA para docentes</h1>
 
 <p>
-Ayudo a docentes a ahorrar horas de trabajo utilizando inteligencia artificial para planificar clases, crear materiales, diseñar evaluaciones y automatizar tareas.
+Soy Melisa Fernández y ayudo a docentes a utilizar inteligencia artificial para ahorrar tiempo, mejorar sus clases y crear materiales educativos de forma mucho más rápida.
 </p>
 
-<a class="boton" href="#contacto">Trabajar conmigo</a>
+<a class="boton" href="index.html">Ver curso de IA para docentes</a>
+
+</div>
+
+<img src="foto.jpg">
 
 </section>
 
 
-<!-- QUIEN SOY -->
 
-<section class="section container">
+<!-- QUE PUEDES HACER CON IA -->
 
-<h2>Hola, soy Melisa Fernández</h2>
+<section class="container">
 
-<p>
-Trabajo con docentes que quieren incorporar inteligencia artificial en su práctica educativa de forma real y útil.
-</p>
-
-<p>
-Mi objetivo es ayudarte a transformar tu trabajo docente mediante herramientas que te permitan:
-</p>
-
-<ul>
-
-<li>ahorrar tiempo en tareas administrativas</li>
-
-<li>crear materiales educativos en minutos</li>
-
-<li>generar evaluaciones y actividades automáticamente</li>
-
-<li>adaptar actividades para distintos estudiantes</li>
-
-<li>digitalizar y mejorar tus recursos educativos</li>
-
-</ul>
-
-</section>
-
-
-<!-- PROBLEMAS QUE RESUELVO -->
-
-<section class="section container">
-
-<h2>Problemas que ayudo a resolver</h2>
+<h2>Lo que puedes crear con inteligencia artificial</h2>
 
 <div class="grid">
 
 <div class="card">
-<h3>Demasiadas tareas</h3>
-<p>
-Te ayudo a crear asistentes con inteligencia artificial para organizar tareas, recordatorios y pendientes docentes.
-</p>
+<span>🧠</span>
+<p>Planificaciones automáticas en minutos</p>
 </div>
 
 <div class="card">
-<h3>Planificaciones que llevan horas</h3>
-<p>
-Creamos sistemas que generan planificaciones completas en minutos siguiendo el formato requerido por tu institución.
-</p>
+<span>📝</span>
+<p>Actividades y evaluaciones para cualquier tema</p>
 </div>
 
 <div class="card">
-<h3>Materiales desactualizados</h3>
-<p>
-Digitalizamos y mejoramos materiales existentes para convertirlos en recursos modernos y atractivos.
-</p>
+<span>📊</span>
+<p>Devoluciones automáticas para estudiantes</p>
 </div>
 
 <div class="card">
-<h3>Evaluaciones y devoluciones</h3>
-<p>
-Diseñamos bancos de evaluaciones y sistemas que generan devoluciones automáticas para cada estudiante.
-</p>
+<span>📚</span>
+<p>Materiales visuales e infografías educativas</p>
+</div>
+
+<div class="card">
+<span>🎧</span>
+<p>Audioclases y explicaciones narradas</p>
+</div>
+
+<div class="card">
+<span>🎬</span>
+<p>Videos educativos creados con IA</p>
 </div>
 
 </div>
@@ -196,113 +184,91 @@ Diseñamos bancos de evaluaciones y sistemas que generan devoluciones automátic
 </section>
 
 
-<!-- COMO PUEDO AYUDAR -->
 
-<section class="section container">
+<!-- SERVICIOS -->
+
+<section class="servicios">
+
+<div class="container">
 
 <h2>Cómo puedo ayudarte</h2>
 
 <div class="grid">
 
-<div class="card">
+<div class="servicio-card">
 
 <h3>Curso de IA para docentes</h3>
 
 <p>
-Un programa paso a paso donde aprenderás a utilizar herramientas de inteligencia artificial para planificar clases, crear materiales y optimizar tu trabajo docente.
+Un programa paso a paso donde aprenderás a utilizar inteligencia artificial para planificar clases, crear materiales y optimizar tu trabajo docente.
 </p>
+
+<a class="boton" href="index.html">Ver curso</a>
 
 </div>
 
 
-<div class="card">
+<div class="servicio-card">
 
 <h3>Mentoría 1 a 1</h3>
 
 <p>
-Sesiones personalizadas donde trabajamos juntos para resolver problemas específicos de tu práctica docente utilizando inteligencia artificial.
+Sesiones personalizadas para ayudarte a implementar herramientas de inteligencia artificial en tu práctica docente.
 </p>
+
+<a class="boton" href="#contacto">Contactar</a>
 
 </div>
 
 
-<div class="card">
+<div class="servicio-card">
 
 <h3>Soluciones personalizadas</h3>
 
 <p>
-Desarrollo herramientas y asistentes de IA diseñados específicamente para las necesidades de docentes, instituciones educativas o equipos docentes.
+Diseño asistentes y herramientas de inteligencia artificial adaptadas a las necesidades específicas de docentes o instituciones educativas.
 </p>
 
+<a class="boton" href="#contacto">Consultar</a>
+
+</div>
+
 </div>
 
 </div>
 
 </section>
 
-
-<!-- QUE PUEDES CREAR -->
-
-<section class="section container">
-
-<h2>Lo que puedes crear con IA</h2>
-
-<div class="grid">
-
-<div class="card">
-<p>✔ asistentes de planificación automática</p>
-</div>
-
-<div class="card">
-<p>✔ bancos de actividades y evaluaciones</p>
-</div>
-
-<div class="card">
-<p>✔ generadores de devoluciones para estudiantes</p>
-</div>
-
-<div class="card">
-<p>✔ materiales visuales e infografías educativas</p>
-</div>
-
-<div class="card">
-<p>✔ audioclases y videos educativos</p>
-</div>
-
-<div class="card">
-<p>✔ adaptadores de actividades para inclusión</p>
-</div>
-
-</div>
-
-</section>
 
 
 <!-- CONTACTO -->
 
 <section id="contacto" class="contacto">
 
-<h2>Trabajemos juntos</h2>
+<h2>Contacto</h2>
 
 <p>
-Si quieres aprender a usar inteligencia artificial en tu práctica docente o necesitas ayuda para resolver un problema específico, puedes contactarme.
+Si quieres trabajar conmigo o tienes alguna consulta puedes escribirme.
 </p>
 
 <p>
 
-Instagram:  
+Instagram  
+<br>
 <a href="https://instagram.com/">@tuusuario</a>
 
 </p>
 
 <p>
 
-Email:  
+Email  
+<br>
 <a href="mailto:tucorreo@gmail.com">tucorreo@gmail.com</a>
 
 </p>
 
 </section>
+
 
 
 <footer>
