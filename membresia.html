@@ -15,10 +15,12 @@ background:#0f0f0f;
 text-align:center;
 }
 
+/* PORTADA */
+
 .hero{
 position:relative;
 width:100%;
-height:350px;
+height:380px;
 overflow:hidden;
 }
 
@@ -26,7 +28,7 @@ overflow:hidden;
 width:100%;
 height:100%;
 object-fit:cover;
-filter:brightness(0.4);
+filter:brightness(0.55);
 }
 
 .hero-texto{
@@ -39,7 +41,6 @@ text-align:center;
 
 .hero-texto h1{
 font-size:48px;
-color:#00d4ff;
 margin:0;
 }
 
@@ -48,9 +49,13 @@ font-size:22px;
 margin-top:10px;
 }
 
+/* SECCIONES */
+
 .seccion{
 padding:60px 20px;
 }
+
+/* PLANES */
 
 .precios{
 display:flex;
@@ -63,15 +68,22 @@ flex-wrap:wrap;
 background:#1f1f1f;
 padding:30px;
 border-radius:12px;
-width:260px;
+width:300px;
 border:2px solid #00d4ff;
+}
+
+.tarjeta p{
+text-align:left;
+line-height:1.6;
 }
 
 .precio{
 font-size:32px;
 color:#00d4ff;
-margin-top:10px;
+margin:15px 0;
 }
+
+/* PASOS */
 
 .pasos{
 display:flex;
@@ -92,6 +104,8 @@ border:2px solid #00d4ff;
 color:#00d4ff;
 }
 
+/* INPUTS */
+
 input{
 width:90%;
 padding:10px;
@@ -100,6 +114,8 @@ border:none;
 border-radius:6px;
 }
 
+/* BOTONES */
+
 button{
 padding:12px 20px;
 border:none;
@@ -107,6 +123,7 @@ border-radius:8px;
 background:#00d4ff;
 cursor:pointer;
 font-weight:bold;
+margin-top:10px;
 }
 
 button:hover{
@@ -124,6 +141,11 @@ background:#444;
 color:white;
 }
 
+.temario{
+background:#666;
+color:white;
+}
+
 </style>
 
 </head>
@@ -131,9 +153,11 @@ color:white;
 <body>
 
 
+<!-- PORTADA -->
+
 <div class="hero">
 
-<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+<img src="portada6.png">
 
 <div class="hero-texto">
 <h1>1 Habilidad x 1 Café</h1>
@@ -143,6 +167,9 @@ color:white;
 </div>
 
 
+
+<!-- PLANES -->
+
 <div class="seccion">
 
 <h2>Planes</h2>
@@ -150,18 +177,73 @@ color:white;
 <div class="precios">
 
 <div class="tarjeta">
-<h3>Clase en vivo</h3>
+
+<h3>☕ Clase en vivo</h3>
+
 <div class="precio">$5000</div>
+
+<p>
+
+Participa en la próxima clase en vivo del programa.
+
+<br><br>
+
+✔ Acceso a la próxima clase en vivo  
+<br>
+✔ Materiales utilizados en la clase  
+<br>
+✔ Ejemplos prácticos de IA para docentes  
+<br><br>
+
+Ideal para probar el programa.
+
+</p>
+
+<a href="index.html">
+<button class="temario">Ver temario</button>
+</a>
+
 </div>
+
 
 <div class="tarjeta">
-<h3>Membresía mensual</h3>
+
+<h3>🚀 Membresía mensual</h3>
+
 <div class="precio">$15000</div>
+
+<p>
+
+Acceso completo durante 30 días.
+
+<br><br>
+
+✔ Todas las clases en vivo del mes  
+<br>
+✔ Grabaciones de las clases  
+<br>
+✔ Descarga de materiales  
+<br>
+✔ Consultas puntuales  
+<br><br>
+
+Ideal para integrar IA en tu práctica docente.
+
+</p>
+
+<a href="index.html">
+<button class="temario">Ver temario</button>
+</a>
+
 </div>
 
 </div>
+
 </div>
 
+
+
+<!-- PASOS -->
 
 <div class="seccion">
 
@@ -221,15 +303,17 @@ Enviar comprobante
 <h3>4 Acceder</h3>
 
 <a href="login.html">
-<button type="button">
+<button>
 Ingresar a la plataforma
 </button>
 </a>
 
 </div>
 
+
 </div>
 </div>
+
 
 
 <script type="module">
@@ -330,6 +414,11 @@ estado: "pendiente"
 }
 
 </script>
+
+</body>
+</html>
+
+
 
 </body>
 </html>
