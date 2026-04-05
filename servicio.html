@@ -12,9 +12,28 @@
 
 body{
 margin:0;
-font-family:Arial;
+font-family:Arial, Helvetica, sans-serif;
 background:white;
 color:#222;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+border-bottom:1px solid #eee;
+}
+
+header h3{
+margin:0;
+}
+
+nav a{
+margin-left:20px;
+text-decoration:none;
+color:#333;
+font-weight:bold;
 }
 
 .container{
@@ -23,41 +42,39 @@ margin:auto;
 padding:40px 20px;
 }
 
-h1{
-font-size:46px;
-margin-bottom:10px;
-}
-
-h2{
-text-align:center;
-margin-bottom:40px;
-}
-
-p{
-color:#555;
-}
-
 .hero{
 display:flex;
 align-items:center;
 justify-content:space-between;
+gap:50px;
 padding:80px 20px;
-gap:40px;
-}
-
-.hero img{
-width:300px;
-border-radius:12px;
+flex-wrap:wrap;
 }
 
 .hero-text{
 max-width:550px;
 }
 
+.hero h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+color:#555;
+}
+
+.hero img{
+width:320px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
 .boton{
 display:inline-block;
 margin-top:20px;
-padding:14px 26px;
+padding:14px 28px;
 background:#0066ff;
 color:white;
 text-decoration:none;
@@ -69,9 +86,14 @@ font-weight:bold;
 background:#004fcc;
 }
 
+h2{
+text-align:center;
+margin-bottom:40px;
+}
+
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:30px;
 }
 
@@ -83,7 +105,7 @@ text-align:center;
 }
 
 .card span{
-font-size:40px;
+font-size:42px;
 display:block;
 margin-bottom:10px;
 }
@@ -91,14 +113,44 @@ margin-bottom:10px;
 .servicios{
 background:#fafafa;
 padding:70px 20px;
+margin-top:40px;
 }
 
 .servicio-card{
 background:white;
 padding:30px;
 border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
+box-shadow:0 6px 25px rgba(0,0,0,0.08);
 text-align:center;
+}
+
+.autoridad{
+text-align:center;
+padding:70px 20px;
+background:#f8f9ff;
+}
+
+.autoridad h3{
+font-size:30px;
+}
+
+.stats{
+display:flex;
+justify-content:center;
+gap:60px;
+margin-top:30px;
+flex-wrap:wrap;
+}
+
+.stat{
+font-size:26px;
+font-weight:bold;
+}
+
+.stat p{
+font-size:14px;
+color:#666;
+margin:5px 0 0 0;
 }
 
 .contacto{
@@ -110,6 +162,7 @@ footer{
 text-align:center;
 padding:30px;
 color:#777;
+font-size:14px;
 }
 
 </style>
@@ -118,6 +171,17 @@ color:#777;
 
 <body>
 
+<header>
+
+<h3>Melisa Fernández</h3>
+
+<nav>
+<a href="index.html">Curso</a>
+<a href="#contacto">Contacto</a>
+</nav>
+
+</header>
+
 
 <!-- HERO -->
 
@@ -125,27 +189,26 @@ color:#777;
 
 <div class="hero-text">
 
-<h1>IA para docentes</h1>
+<h1>Inteligencia Artificial para Docentes</h1>
 
 <p>
-Soy Melisa Fernández y ayudo a docentes a utilizar inteligencia artificial para ahorrar tiempo, mejorar sus clases y crear materiales educativos de forma mucho más rápida.
+Ayudo a docentes a utilizar inteligencia artificial para ahorrar horas de trabajo, mejorar sus clases y crear materiales educativos mucho más rápido.
 </p>
 
 <a class="boton" href="index.html">Ver curso de IA para docentes</a>
 
 </div>
 
-<img src="foto.jpg">
+<img src="foto1.jpeg" alt="Melisa Fernández">
 
 </section>
 
 
-
-<!-- QUE PUEDES HACER CON IA -->
+<!-- QUE PUEDES CREAR -->
 
 <section class="container">
 
-<h2>Lo que puedes crear con inteligencia artificial</h2>
+<h2>Lo que puedes crear con IA</h2>
 
 <div class="grid">
 
@@ -166,12 +229,12 @@ Soy Melisa Fernández y ayudo a docentes a utilizar inteligencia artificial para
 
 <div class="card">
 <span>📚</span>
-<p>Materiales visuales e infografías educativas</p>
+<p>Infografías y materiales educativos visuales</p>
 </div>
 
 <div class="card">
 <span>🎧</span>
-<p>Audioclases y explicaciones narradas</p>
+<p>Audioclases y contenidos narrados</p>
 </div>
 
 <div class="card">
@@ -183,6 +246,37 @@ Soy Melisa Fernández y ayudo a docentes a utilizar inteligencia artificial para
 
 </section>
 
+
+<!-- AUTORIDAD -->
+
+<section class="autoridad">
+
+<h3>Docencia + Inteligencia Artificial</h3>
+
+<p>
+Mi trabajo se centra en ayudar a docentes a integrar inteligencia artificial en su práctica educativa de forma real y útil.
+</p>
+
+<div class="stats">
+
+<div class="stat">
++8
+<p>herramientas docentes con IA</p>
+</div>
+
+<div class="stat">
++15
+<p>soluciones posibles para docentes</p>
+</div>
+
+<div class="stat">
+∞
+<p>actividades que puedes generar</p>
+</div>
+
+</div>
+
+</section>
 
 
 <!-- SERVICIOS -->
@@ -200,7 +294,7 @@ Soy Melisa Fernández y ayudo a docentes a utilizar inteligencia artificial para
 <h3>Curso de IA para docentes</h3>
 
 <p>
-Un programa paso a paso donde aprenderás a utilizar inteligencia artificial para planificar clases, crear materiales y optimizar tu trabajo docente.
+Aprende paso a paso a utilizar inteligencia artificial para planificar clases, crear materiales y optimizar tu trabajo docente.
 </p>
 
 <a class="boton" href="index.html">Ver curso</a>
@@ -213,7 +307,7 @@ Un programa paso a paso donde aprenderás a utilizar inteligencia artificial par
 <h3>Mentoría 1 a 1</h3>
 
 <p>
-Sesiones personalizadas para ayudarte a implementar herramientas de inteligencia artificial en tu práctica docente.
+Sesiones personalizadas donde trabajamos juntos para implementar herramientas de IA en tu práctica docente.
 </p>
 
 <a class="boton" href="#contacto">Contactar</a>
@@ -226,7 +320,7 @@ Sesiones personalizadas para ayudarte a implementar herramientas de inteligencia
 <h3>Soluciones personalizadas</h3>
 
 <p>
-Diseño asistentes y herramientas de inteligencia artificial adaptadas a las necesidades específicas de docentes o instituciones educativas.
+Diseño asistentes y herramientas de inteligencia artificial adaptadas a docentes o instituciones educativas.
 </p>
 
 <a class="boton" href="#contacto">Consultar</a>
@@ -240,16 +334,13 @@ Diseño asistentes y herramientas de inteligencia artificial adaptadas a las nec
 </section>
 
 
-
 <!-- CONTACTO -->
 
 <section id="contacto" class="contacto">
 
 <h2>Contacto</h2>
 
-<p>
-Si quieres trabajar conmigo o tienes alguna consulta puedes escribirme.
-</p>
+<p>Si quieres trabajar conmigo puedes escribirme:</p>
 
 <p>
 
@@ -268,7 +359,6 @@ Email
 </p>
 
 </section>
-
 
 
 <footer>
