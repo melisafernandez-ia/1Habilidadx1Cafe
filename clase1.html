@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -37,8 +36,7 @@ cursor:pointer;
 background:#666;
 }
 
-
-/* VIDEO */
+/* PORTADA */
 
 .video{
 position:relative;
@@ -48,28 +46,66 @@ margin:auto;
 overflow:hidden;
 border-radius:12px;
 margin-top:40px;
-}
-
-.video iframe{
-width:100%;
-height:500px;
-border:none;
-border-radius:12px;
 box-shadow:0 0 25px rgba(0,0,0,0.8);
 }
 
-/* TAPA SUPERIOR YOUTUBE */
-
-.video::after{
-content:"";
-position:absolute;
-top:0;
-left:0;
+.video img{
 width:100%;
-height:40px;
-background:#0f0f0f;
+height:500px;
+object-fit:cover;
+filter:brightness(0.5);
 }
 
+/* OVERLAY */
+
+.overlay{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+}
+
+.overlay h2{
+font-size:30px;
+margin:0;
+}
+
+.overlay p{
+margin-top:10px;
+font-size:18px;
+color:#ddd;
+}
+
+/* HORARIOS */
+
+.horarios{
+margin-top:15px;
+font-size:16px;
+line-height:1.6;
+}
+
+/* BOTON MEET */
+
+.meet{
+margin-top:15px;
+}
+
+.meet a{
+display:inline-block;
+padding:12px 20px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+background:#555;
+color:white;
+}
+
+/* PROMPTS */
+
+.prompts{
+margin-top:50px;
+}
 
 /* MATERIALES */
 
@@ -110,19 +146,67 @@ text-decoration:underline;
 </div>
 
 <h1>Clase 1</h1>
-<h2>Introducción a IA para docentes</h2>
+<h2>Cero ruido mental — la IA trabaja para vos</h2>
 
-<div class="video" id="video"></div>
+<!-- PORTADA -->
+
+<div class="video">
+
+<img src="PORTADA_CLASE1.webp">
+
+<div class="overlay">
+
+<h2>Próximamente clase en vivo</h2>
+
+<p>📅 9 de mayo — 10:30 hs (Argentina)</p>
+
+<div class="horarios">
+🇦🇷 Argentina: 10:30<br>
+🇨🇱 Chile: 10:30<br>
+🇺🇾 Uruguay: 10:30<br>
+🇵🇾 Paraguay: 10:30<br>
+🇧🇴 Bolivia: 09:30<br>
+🇵🇪 Perú: 08:30<br>
+🇨🇴 Colombia: 08:30<br>
+🇲🇽 México: 07:30<br>
+🇪🇸 España: 15:30
+</div>
+
+<div class="meet">
+<a id="botonMeet" href="#" target="_blank">
+Clase no disponible aún
+</a>
+</div>
+
+</div>
+
+</div>
+
+<!-- PROMPTS -->
+
+<div class="prompts">
+
+<h2>Prompts de la clase</h2>
+
+<iframe src="https://gamma.app/embed/b9qnkyftrj301y9"
+style="width: 700px; max-width: 100%; height: 450px"
+allow="fullscreen"
+title="PROMP PARA ZAPIA">
+</iframe>
+
+</div>
+
+<!-- MATERIALES -->
 
 <div class="materiales">
 
 <h3>Materiales</h3>
 
-<a href="#">Descargar prompts</a>
-<a href="#">Descargar ejemplos</a>
+<a href="https://drive.google.com/file/d/1cUrI2WQE_3rKtlRw8B4r26zia0FrchLj/view?usp=sharing" target="_blank">
+📄 Descargar materiales de la clase
+</a>
 
 </div>
-
 
 <script type="module">
 
@@ -131,7 +215,6 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import { getAuth, onAuthStateChanged }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
 
 const firebaseConfig = {
 
@@ -147,47 +230,16 @@ appId:"1:113035104487:web:1427b58f5263136d321242"
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-
-/* EVITAR QUE LA PAGINA SE CARGUE DENTRO DE OTRA WEB */
-
-if (window.top !== window.self) {
-document.body.innerHTML = "";
-}
-
-
-/* VIDEO ID OFUSCADO */
-
-const v1 = "-qxd";
-const v2 = "mDxD";
-const v3 = "8TA";
-
-function obtenerVideo(){
-return v1 + v2 + v3;
-}
-
-
 /* VERIFICAR USUARIO */
-
-let verificado = false;
 
 onAuthStateChanged(auth, async (user)=>{
 
-if(!user && verificado){
-
-window.location.href="login.html";
-return;
-
-}
-
 if(!user){
-verificado = true;
+window.location.href="login.html";
 return;
 }
 
 const email = user.email;
-
-
-/* BUSCAR EN SHEET */
 
 const url = "https://sheetdb.io/api/v1/i8l8o8fhonpzj/search?email="+email;
 
@@ -195,57 +247,45 @@ const res = await fetch(url);
 const data = await res.json();
 
 if(data.length===0){
-
 alert("Tu cuenta aún no está habilitada");
-
 window.location.href="membresia.html";
-
 return;
-
-}
-
-
-/* GENERAR VIDEO SOLO SI ESTA HABILITADO */
-
-const videoID = obtenerVideo();
-
-document.getElementById("video").innerHTML =
-'<iframe src="https://www.youtube-nocookie.com/embed/'+videoID+'?modestbranding=1&rel=0&controls=0&disablekb=1&fs=0&iv_load_policy=3&playsinline=1" allowfullscreen></iframe>';
-
-});
-
-
-/* BLOQUEAR CLICK DERECHO */
-
-document.addEventListener("contextmenu",function(e){
-e.preventDefault();
-});
-
-
-/* BLOQUEAR SELECCION DE TEXTO */
-
-document.addEventListener("selectstart",function(e){
-e.preventDefault();
-});
-
-
-/* BLOQUEAR INSPECCION BASICA */
-
-document.addEventListener("keydown", function(e){
-
-if(e.key === "F12"){
-e.preventDefault();
-}
-
-if(e.ctrlKey && e.shiftKey && e.key === "I"){
-e.preventDefault();
-}
-
-if(e.ctrlKey && e.key === "U"){
-e.preventDefault();
 }
 
 });
+
+/* CONTROL BOTON MEET */
+
+function controlarMeet(){
+
+let fechaClase = new Date("May 9, 2026 10:30:00 GMT-0300").getTime();
+let ahora = new Date().getTime();
+
+let boton = document.getElementById("botonMeet");
+
+if(ahora >= fechaClase){
+
+boton.href = "https://meet.google.com/bsv-cqgf-phw";
+boton.innerText = "Unirse a la clase (Google Meet)";
+boton.style.background = "#00c853";
+
+}else{
+
+boton.href = "#";
+boton.innerText = "Disponible el 9 de mayo 10:30 (ARG)";
+boton.style.background = "#555";
+boton.style.cursor = "not-allowed";
+
+}
+
+}
+
+controlarMeet();
+
+/* BLOQUEOS */
+
+document.addEventListener("contextmenu",e=>e.preventDefault());
+document.addEventListener("selectstart",e=>e.preventDefault());
 
 </script>
 
@@ -254,6 +294,7 @@ e.preventDefault();
 © 2026 Melisa Fernández — IA para docentes
 
 </footer>
+
 </body>
 </html>
 
