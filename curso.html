@@ -8,6 +8,8 @@
 
 <style>
 
+/* ESTILO GENERAL */
+
 body{
 font-family:Arial,sans-serif;
 margin:0;
@@ -20,30 +22,28 @@ color:#333;
 
 .volver{
 position:fixed;
-top:20px;
-left:20px;
-z-index:1000;
+top:15px;
+left:15px;
+z-index:999;
 }
 
 .volver button{
-background:#333;
+padding:10px 18px;
+background:#444;
 color:white;
 border:none;
-padding:10px 18px;
 border-radius:8px;
 cursor:pointer;
-font-size:14px;
-box-shadow:0 3px 10px rgba(0,0,0,0.2);
 }
 
 .volver button:hover{
-background:#000;
+background:#666;
 }
 
 /* HERO */
 
 .hero{
-background-image:url("portada5.png");
+background-image:url("PORTADA_CLASE1.webp");
 background-size:cover;
 background-position:center;
 height:420px;
@@ -57,7 +57,7 @@ padding:20px;
 }
 
 .hero h1{
-font-size:55px;
+font-size:52px;
 margin-bottom:10px;
 }
 
@@ -72,18 +72,18 @@ max-width:700px;
 background:#222;
 color:white;
 padding:18px;
-font-size:22px;
+font-size:20px;
 font-weight:bold;
 }
 
 .contador span{
 color:#ff4b2b;
-font-size:26px;
+font-size:24px;
 }
 
 .fecha-inicio{
 margin-top:10px;
-font-size:16px;
+font-size:15px;
 color:#ccc;
 line-height:1.6;
 }
@@ -105,6 +105,10 @@ border-radius:8px;
 cursor:pointer;
 }
 
+.boton-clases-container button:hover{
+background:#ff2a00;
+}
+
 /* INFO */
 
 .info{
@@ -116,25 +120,40 @@ padding:30px 20px;
 .video-temario{
 display:flex;
 justify-content:center;
-gap:50px;
+gap:30px;
 align-items:flex-start;
 padding:60px 20px;
 flex-wrap:wrap;
 background:#fff;
 }
 
-.video-container iframe{
-width:100%;
-max-width:700px;
-height:420px;
-border-radius:12px;
+/* VIDEO GRANDE FIJO */
+
+.video-container{
+flex:1;
+min-width:350px;
+max-width:800px;
 }
 
-.temario-container{
-flex:1;
+.video-container iframe{
+width:100%;
+height:460px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
 /* TEMARIO */
+
+.temario-container{
+flex:1;
+min-width:320px;
+text-align:left;
+}
+
+.temario h3{
+color:#ff4b2b;
+margin-bottom:15px;
+}
 
 .temario ul{
 list-style:none;
@@ -146,9 +165,8 @@ background:#f9f9f9;
 margin-bottom:12px;
 padding:14px;
 border-radius:8px;
-text-align:left;
-transition:0.3s;
 cursor:pointer;
+transition:0.3s;
 }
 
 .temario li:hover{
@@ -156,9 +174,13 @@ background:#ff4b2b;
 color:white;
 }
 
-.descripcion{
+.temario li .descripcion{
 display:none;
 margin-top:8px;
+padding:10px;
+border-radius:6px;
+background:#ff4b2b;
+color:white;
 }
 
 .temario li:hover .descripcion{
@@ -172,31 +194,46 @@ background:white;
 padding:40px 20px;
 }
 
-textarea{
+.buzon textarea{
 width:80%;
+max-width:600px;
 height:120px;
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
 }
 
-/* FOOTER */
+.buzon button{
+margin-top:15px;
+padding:12px 25px;
+background:#ff4b2b;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
 
 footer{
 padding:30px;
 background:#222;
 color:white;
+font-size:14px;
 }
 
 /* RESPONSIVE */
 
 @media (max-width:768px){
 
-.hero{height:300px;}
+.hero{
+height:300px;
+}
 
-.video-temario{
-flex-direction:column;
+.hero h1{
+font-size:34px;
 }
 
 .video-container iframe{
-height:220px;
+height:260px;
 }
 
 }
@@ -207,117 +244,124 @@ height:220px;
 
 <body>
 
-<!-- VOLVER -->
+<!-- BOTON VOLVER -->
 <div class="volver">
 <a href="index.html">
-<button>⬅ Volver al inicio</button>
+<button>⬅ Volver</button>
 </a>
 </div>
 
-<!-- HERO -->
 <div class="hero">
+
 <h1>1 Habilidad x 1 Café</h1>
-<p>Aprende herramientas de Inteligencia Artificial útiles para docentes</p>
+
+<p>
+Aprende herramientas de Inteligencia Artificial útiles para docentes
+</p>
+
 </div>
 
-<!-- CONTADOR -->
 <div class="contador">
 ⏳ Faltan <span id="contador"></span> para comenzar
 
 <div class="fecha-inicio">
-📅 Inicio: <strong>Sábado 9 de mayo</strong><br>
-🇦🇷 Argentina: 10:30 hs<br>
-🇨🇱 Chile: 10:30 hs<br>
-🇺🇾 Uruguay: 10:30 hs<br>
-🇵🇾 Paraguay: 10:30 hs<br>
-🇧🇴 Bolivia: 09:30 hs<br>
-🇵🇪 Perú: 08:30 hs<br>
-🇨🇴 Colombia: 08:30 hs<br>
-🇲🇽 México: 07:30 hs<br>
-🇪🇸 España: 15:30 hs
+📅 Inicio: <strong>Sábado 9 de mayo - 10:30 hs (Argentina)</strong><br>
+🇦🇷 🇨🇱 🇺🇾 🇵🇾 10:30 hs<br>
+🇧🇴 09:30 hs | 🇵🇪 🇨🇴 08:30 hs | 🇲🇽 07:30 hs | 🇪🇸 15:30 hs
 </div>
 
 </div>
 
-<!-- BOTON -->
 <div class="boton-clases-container">
 <a href="membresia.html">
 <button>Entrar a las clases</button>
 </a>
 </div>
 
-<!-- INFO -->
 <div class="info">
+
 <h2>Clases prácticas de IA que te servirán para ahorrar tiempo</h2>
-<p>Aprende herramientas reales para aplicar en el aula.</p>
+
+<p>
+Cada semana aprenderás una herramienta nueva de Inteligencia Artificial aplicada a la educación.
+</p>
+
+<p>
+Prompts, evaluaciones y recursos listos para usar.
+</p>
+
 </div>
 
-<!-- VIDEO + TEMARIO -->
 <div class="video-temario">
 
 <div class="video-container">
-<iframe src="https://www.youtube.com/embed/1umqS76Hlm0"></iframe>
+
+<iframe src="https://www.youtube.com/embed/1umqS76Hlm0"
+allowfullscreen></iframe>
+
 </div>
 
 <div class="temario-container">
 
 <div class="temario">
 
+<h3>Lo que vas a aprender (paso a paso)</h3>
+
 <ul>
 
 <li>
-Clase 1: Cero ruido mental — la IA trabaja para vos
+<strong>Clase 1: Cero ruido mental — la IA trabaja para vos</strong>
 <div class="descripcion">
-Sistema completo de organización con IA usando Google Keep, Zapia, Notion Calendar y Perplexity.
+Sistema completo de organización con IA usando Google Keep, Zapia, Notion Calendar y Perplexity para eliminar el ruido mental y automatizar tu día.
 </div>
 </li>
 
 <li>
-Clase 2: Tu asistente personal docente
+<strong>Clase 2: Asistente personal docente</strong>
 <div class="descripcion">
-Organiza tu trabajo diario con IA usando audios.
+Crearás un sistema que organiza tu trabajo automáticamente con IA.
 </div>
 </li>
 
 <li>
-Clase 3: Planificaciones automáticas
+<strong>Clase 3: Planificaciones en minutos</strong>
 <div class="descripcion">
-Genera planificaciones completas en minutos.
+Generación automática de planificaciones completas.
 </div>
 </li>
 
 <li>
-Clase 4: Digitalizar material
+<strong>Clase 4: Digitalización de material</strong>
 <div class="descripcion">
-Convierte apuntes en recursos digitales editables.
+Convertir apuntes y fotocopias en material editable.
 </div>
 </li>
 
 <li>
-Clase 5: Material visual
+<strong>Clase 5: Material visual profesional</strong>
 <div class="descripcion">
-Crea infografías y presentaciones.
+Infografías, fichas y presentaciones con IA.
 </div>
 </li>
 
 <li>
-Clase 6: Banco de actividades
+<strong>Clase 6: Banco de actividades</strong>
 <div class="descripcion">
-Genera actividades reutilizables infinitas.
+Repositorio reutilizable de ejercicios.
 </div>
 </li>
 
 <li>
-Clase 7: Devoluciones automáticas
+<strong>Clase 7: Devoluciones automáticas</strong>
 <div class="descripcion">
-Corrección y feedback con IA.
+Feedback personalizado automático.
 </div>
 </li>
 
 <li>
-Clase 8: Multimedia
+<strong>Clase 8: Videos educativos</strong>
 <div class="descripcion">
-Videos, audios y recursos educativos.
+Creación de contenido multimedia con IA.
 </div>
 </li>
 
@@ -329,12 +373,14 @@ Videos, audios y recursos educativos.
 
 </div>
 
-<!-- BUZON -->
 <div class="buzon">
+
 <h2>¿Qué te gustaría aprender?</h2>
-<textarea id="sugerencia"></textarea><br>
-<button onclick="enviarSugerencia()">Enviar</button>
-<p id="mensaje-buzon"></p>
+
+<textarea id="sugerencia"></textarea>
+<br>
+<button onclick="enviarSugerencia()">Enviar sugerencia</button>
+
 </div>
 
 <script>
@@ -345,26 +391,21 @@ let fechaInicio = new Date("May 9, 2026 10:30:00 GMT-0300").getTime();
 let ahora = new Date().getTime();
 let dif = fechaInicio - ahora;
 
-let d=Math.floor(dif/(1000*60*60*24));
-let h=Math.floor((dif%(1000*60*60*24))/(1000*60*60));
-let m=Math.floor((dif%(1000*60*60))/(1000*60));
-let s=Math.floor((dif%(1000*60))/1000);
-
 document.getElementById("contador").innerHTML =
-d+"d "+h+"h "+m+"m "+s+"s";
+Math.floor(dif/(1000*60*60*24))+" días "+Math.floor((dif/3600000)%24)+" hs "+Math.floor((dif/60000)%60)+" min "+Math.floor((dif/1000)%60)+" seg";
 
 }
 
 setInterval(actualizarContador,1000);
 
 function enviarSugerencia(){
-document.getElementById("mensaje-buzon").innerText="Gracias!";
+alert("Gracias por tu sugerencia");
 }
 
 </script>
 
 <footer>
-© 2026 Melisa Fernández
+© 2026 Melisa Fernández — IA para docentes
 </footer>
 
 </body>
