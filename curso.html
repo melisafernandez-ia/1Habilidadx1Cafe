@@ -60,9 +60,10 @@ font-size:26px;
 }
 
 .fecha-inicio{
-margin-top:5px;
+margin-top:10px;
 font-size:16px;
 color:#ccc;
+line-height:1.6;
 }
 
 /* BOTON */
@@ -283,9 +284,20 @@ Aprende herramientas de Inteligencia Artificial útiles para docentes
 
 <div class="contador">
 ⏳ Faltan <span id="contador"></span> para comenzar
+
 <div class="fecha-inicio">
-Inicio: 9 de mayo — 10:30 hs (Argentina)
+📅 Inicio: <strong>Sábado 9 de mayo</strong><br>
+🇦🇷 Argentina: 10:30 hs<br>
+🇨🇱 Chile: 10:30 hs<br>
+🇺🇾 Uruguay: 10:30 hs<br>
+🇵🇾 Paraguay: 10:30 hs<br>
+🇧🇴 Bolivia: 09:30 hs<br>
+🇵🇪 Perú: 08:30 hs<br>
+🇨🇴 Colombia: 08:30 hs<br>
+🇲🇽 México: 07:30 hs<br>
+🇪🇸 España: 15:30 hs
 </div>
+
 </div>
 
 <div class="boton-clases-container">
@@ -323,31 +335,65 @@ allowfullscreen></iframe>
 
 <div class="temario">
 
-<h3>Temario de las clases</h3>
+<h3>Lo que vas a aprender (paso a paso)</h3>
 
 <ul>
 
 <li>
-Clase 1: Cero ruido mental — la IA trabaja para vos
+<span class="nombre">Clase 1: Cero ruido mental — la IA trabaja para vos</span>
 <span class="descripcion">
-Aprenderás a crear un sistema completo de organización personal con IA utilizando herramientas como Google Keep, Zapia, Notion Calendar y Perplexity.
+Aprenderás a crear un sistema completo de organización personal con IA que te permitirá eliminar el ruido mental. Usaremos herramientas como Google Keep, Zapia, Notion Calendar y Perplexity para automatizar tu día a día de forma simple, práctica e instantánea.
 </span>
 </li>
 
 <li>
-Clase 2: Tu asistente personal docente
+<span class="nombre">Clase 2: Tu asistente personal docente con IA</span>
 <span class="descripcion">
-Crearás un asistente que organizará tu trabajo diario mediante audios y automatizaciones.
+Crearás un asistente que te permitirá organizar tu trabajo diario enviando simples audios.
 </span>
 </li>
 
 <li>
-Clase 3: Crear planificaciones completas en minutos</li>
-<li>Clase 4: Digitalizar material docente</li>
-<li>Clase 5: Crear materiales visuales</li>
-<li>Clase 6: Banco de actividades</li>
-<li>Clase 7: Devoluciones automáticas</li>
-<li>Clase 8: Videos y recursos multimedia</li>
+<span class="nombre">Clase 3: Crear planificaciones completas en minutos</span>
+<span class="descripcion">
+Construirás un asistente de planificación que generará automáticamente objetivos, contenidos, actividades y evaluaciones.
+</span>
+</li>
+
+<li>
+<span class="nombre">Clase 4: Digitalizar y mejorar todo tu material docente</span>
+<span class="descripcion">
+Aprenderás a transformar fotocopias y apuntes en documentos digitales editables.
+</span>
+</li>
+
+<li>
+<span class="nombre">Clase 5: Crear materiales visuales increíbles</span>
+<span class="descripcion">
+Generarás infografías, fichas de estudio y presentaciones profesionales.
+</span>
+</li>
+
+<li>
+<span class="nombre">Clase 6: Crear banco infinito de actividades</span>
+<span class="descripcion">
+Construirás un repositorio reutilizable de actividades y evaluaciones.
+</span>
+</li>
+
+<li>
+<span class="nombre">Clase 7: Generar devoluciones automáticas</span>
+<span class="descripcion">
+Aprenderás a redactar devoluciones personalizadas automáticamente.
+</span>
+</li>
+
+<li>
+<span class="nombre">Clase 8: Crear videos y recursos multimedia</span>
+<span class="descripcion">
+Descubrirás cómo crear videos, audios y recursos educativos con IA.
+</span>
+</li>
 
 </ul>
 
@@ -361,7 +407,7 @@ Clase 3: Crear planificaciones completas en minutos</li>
 
 <h2>¿Qué te gustaría aprender?</h2>
 
-<textarea id="sugerencia"></textarea>
+<textarea id="sugerencia" placeholder="Escribe tu sugerencia aquí"></textarea>
 
 <br>
 
@@ -376,9 +422,7 @@ Clase 3: Crear planificaciones completas en minutos</li>
 function actualizarContador(){
 
 let fechaInicio = new Date("May 9, 2026 10:30:00 GMT-0300").getTime();
-
 let ahora = new Date().getTime();
-
 let diferencia = fechaInicio - ahora;
 
 let dias = Math.floor(diferencia/(1000*60*60*24));
