@@ -2,210 +2,266 @@
 <html>
 
 <head>
+<title>1 Habilidad x 1 Café</title>
 
-<title>Biblioteca de Clases</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
-/* ---------- ESTILO GENERAL ---------- */
+/* ESTILO GENERAL */
 
 body{
-font-family:Arial;
-background:#0f0f0f;
-color:white;
-text-align:center;
+font-family:Arial,sans-serif;
 margin:0;
-padding:0;
+background:#f4f4f4;
+text-align:center;
+color:#333;
 }
 
-/* ---------- CONTENEDOR GENERAL ---------- */
+/* HERO */
 
-.contenido{
-max-width:1200px;
-margin:auto;
-padding:30px;
-}
-
-/* ---------- BARRA USUARIO ---------- */
-
-.barra-usuario{
+.hero{
+background-image:url("portada5.png");
+background-size:cover;
+background-position:center;
+height:420px;
 display:flex;
-justify-content:space-between;
+flex-direction:column;
+justify-content:center;
 align-items:center;
-background:#1c1c1c;
-padding:15px 25px;
-border-radius:10px;
-margin-bottom:25px;
-flex-wrap:wrap;
+color:white;
+text-shadow:0 2px 10px rgba(0,0,0,0.7);
+padding:20px;
 }
 
-.barra-usuario span{
-color:#ddd;
+.hero h1{
+font-size:55px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:22px;
+max-width:700px;
+}
+
+/* CONTADOR */
+
+.contador{
+background:#222;
+color:white;
+padding:18px;
+font-size:22px;
+font-weight:bold;
+}
+
+.contador span{
+color:#ff4b2b;
+font-size:26px;
+}
+
+.fecha-inicio{
+margin-top:10px;
 font-size:16px;
+color:#ccc;
+line-height:1.6;
 }
 
-.barra-usuario button{
+/* BOTON */
+
+.boton-clases-container{
+margin-top:40px;
+margin-bottom:20px;
+}
+
+.boton-clases-container button{
+padding:15px 30px;
+font-size:18px;
 background:#ff4b2b;
 color:white;
 border:none;
-padding:10px 20px;
-border-radius:6px;
+border-radius:8px;
 cursor:pointer;
+transition:0.3s;
 }
 
-.barra-usuario button:hover{
+.boton-clases-container button:hover{
 background:#ff2a00;
 }
 
-/* ---------- HERO ---------- */
+/* INFO */
 
-.hero{
-position:relative;
-height:230px;
-border-radius:15px;
-overflow:hidden;
-margin-bottom:40px;
-box-shadow:0 0 25px rgba(0,0,0,0.7);
+.info{
+padding:30px 20px;
 }
 
-.hero img{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-filter:brightness(0.6);
-}
+/* VIDEO + TEMARIO */
 
-.hero-texto{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-text-align:center;
-}
-
-.hero-texto h1{
-margin:0;
-font-size:34px;
-}
-
-.hero-texto p{
-margin-top:8px;
-color:#ddd;
-}
-
-/* ---------- TITULO ---------- */
-
-h2{
-margin-bottom:30px;
-}
-
-/* ---------- CONTENEDOR CLASES ---------- */
-
-.contenedor{
+.video-temario{
 display:flex;
 justify-content:center;
+gap:50px;
+align-items:flex-start;
+padding:60px 20px;
 flex-wrap:wrap;
-gap:30px;
+background:#fff;
+border-top:1px solid #ddd;
+border-bottom:1px solid #ddd;
 }
 
-/* ---------- TARJETAS ---------- */
-
-.clase{
-background:#1c1c1c;
-width:300px;
-padding:20px;
-border-radius:12px;
-box-shadow:0 0 15px rgba(0,0,0,0.6);
-transition:0.3s;
-position:relative;
+.video-container{
+flex:1;
+display:flex;
+justify-content:center;
 }
 
-.clase:hover{
-transform:translateY(-6px);
-box-shadow:0 0 20px rgba(0,0,0,0.8);
-}
-
-.clase img{
+.video-container iframe{
 width:100%;
-height:170px;
-object-fit:cover;
-object-position:top;
-border-radius:10px;
+max-width:700px;
+height:420px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.temario-container{
+flex:1;
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+}
+
+/* TEMARIO */
+
+.temario h3{
+color:#ff4b2b;
+margin-bottom:15px;
+}
+
+.temario ul{
+list-style:none;
+padding-left:0;
+margin:0;
+width:100%;
+}
+
+.temario li{
+background:#f9f9f9;
 margin-bottom:12px;
-}
-
-.clase h3{
-margin-bottom:5px;
-}
-
-.clase p{
-color:#ccc;
-font-size:14px;
-}
-
-/* ---------- DESCRIPCION HOVER ---------- */
-
-.clase .descripcion{
-display:none;
-margin-top:10px;
-background:#ff4b2b;
-color:white;
-padding:12px;
+padding:14px;
 border-radius:8px;
-font-size:13px;
-line-height:1.5;
+cursor:pointer;
+transition:0.3s;
 text-align:left;
 }
 
-.clase:hover .descripcion{
+.temario li:hover{
+background:#ff4b2b;
+color:white;
+}
+
+.temario li .descripcion{
+display:none;
+margin-top:8px;
+background:#ff4b2b;
+color:white;
+padding:10px;
+border-radius:6px;
+}
+
+.temario li:hover .descripcion{
 display:block;
 }
 
-/* ---------- BOTONES ---------- */
+/* BUZON */
 
-button{
-padding:12px 25px;
+.buzon{
+background:white;
+padding:40px 20px;
+}
+
+.buzon h2{
+color:#ff4b2b;
+}
+
+.buzon textarea{
+width:80%;
+max-width:600px;
+height:120px;
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
 font-size:16px;
+resize:none;
+}
+
+.buzon button{
+margin-top:15px;
+padding:12px 25px;
 background:#ff4b2b;
 color:white;
 border:none;
 border-radius:8px;
 cursor:pointer;
+}
+
+#mensaje-buzon{
 margin-top:10px;
+color:green;
+font-weight:bold;
 }
-
-button:hover{
-background:#ff2a00;
-}
-
-/* ---------- FOOTER ---------- */
 
 footer{
-margin-top:50px;
-color:#aaa;
+padding:30px;
+background:#222;
+color:white;
 font-size:14px;
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* RESPONSIVE */
 
 @media (max-width:768px){
 
-.barra-usuario{
-flex-direction:column;
-gap:10px;
-}
-
-.clase{
-width:90%;
-}
-
 .hero{
-height:170px;
+height:300px;
 }
 
-.hero-texto h1{
-font-size:24px;
+.hero h1{
+font-size:34px;
+}
+
+.hero p{
+font-size:17px;
+padding:0 10px;
+}
+
+.contador{
+font-size:18px;
+}
+
+.contador span{
+font-size:20px;
+}
+
+.boton-clases-container button{
+font-size:16px;
+padding:14px 22px;
+}
+
+.video-temario{
+flex-direction:column;
+padding:30px 15px;
+gap:30px;
+}
+
+.video-container iframe{
+height:220px;
+}
+
+.temario li{
+font-size:15px;
+}
+
+.buzon textarea{
+width:95%;
 }
 
 }
@@ -216,168 +272,209 @@ font-size:24px;
 
 <body>
 
-<div class="contenido">
-
-<!-- BARRA USUARIO -->
-
-<div class="barra-usuario">
-
-<span id="usuario"></span>
-
-<button onclick="logout()">
-Cerrar sesión
-</button>
-
-</div>
-
-<!-- HERO -->
-
 <div class="hero">
 
-<img src="portada3.jpeg">
+<h1>1 Habilidad x 1 Café</h1>
 
-<div class="hero-texto">
-<h1>Biblioteca de Clases</h1>
-<p>Aprende a integrar Inteligencia Artificial en tu práctica docente</p>
+<p>
+Aprende herramientas de Inteligencia Artificial útiles para docentes
+</p>
+
+</div>
+
+<div class="contador">
+⏳ Faltan <span id="contador"></span> para comenzar
+
+<div class="fecha-inicio">
+📅 Inicio: <strong>Sábado 9 de mayo</strong><br>
+🇦🇷 Argentina: 10:30 hs<br>
+🇨🇱 Chile: 10:30 hs<br>
+🇺🇾 Uruguay: 10:30 hs<br>
+🇵🇾 Paraguay: 10:30 hs<br>
+🇧🇴 Bolivia: 09:30 hs<br>
+🇵🇪 Perú: 08:30 hs<br>
+🇨🇴 Colombia: 08:30 hs<br>
+🇲🇽 México: 07:30 hs<br>
+🇪🇸 España: 15:30 hs
 </div>
 
 </div>
 
-<h2>Tus clases disponibles</h2>
-
-<!-- CLASES -->
-
-<div class="contenedor">
-
-<!-- CLASE 1 -->
-
-<div class="clase">
-
-<img src="PORTADA_CLASE1.webp">
-
-<h3>Clase 1: Cero ruido mental</h3>
-
-<p>La IA trabaja para vos</p>
-
-<div class="descripcion">
-✔ Crearás un sistema de organización personal con IA<br><br>
-✔ Usarás herramientas como Google Keep, Zapia, Notion Calendar y Perplexity<br><br>
-✔ Automatizarás tareas diarias y tu agenda<br><br>
-✔ Reducirás el estrés y el “ruido mental” en tu trabajo docente
-</div>
-
-<a href="clase1.html">
-<button>Ver clase</button>
+<div class="boton-clases-container">
+<a href="membresia.html">
+<button>Entrar a las clases</button>
 </a>
+</div>
+
+<div class="info">
+
+<h2>Clases prácticas de IA que te servirán para ahorrar tiempo</h2>
+
+<p>
+Cada semana aprenderás una herramienta nueva de Inteligencia Artificial aplicada a la educación.
+</p>
+
+<p>
+Prompts, evaluaciones y recursos listos para usar.
+</p>
 
 </div>
 
-<!-- CLASE 2 -->
+<div class="video-temario">
 
-<div class="clase">
+<div class="video-container">
 
-<img src="clase2.jpeg">
+<iframe src="https://www.youtube.com/embed/1umqS76Hlm0"
+title="Video explicativo del curso"
+frameborder="0"
+allowfullscreen></iframe>
 
-<h3>Clase 2</h3>
+</div>
 
-<p>Crear evaluaciones con IA</p>
+<div class="temario-container">
 
-<a href="clase2.html">
-<button>Ver clase</button>
-</a>
+<div class="temario">
+
+<h3>Lo que vas a aprender (paso a paso)</h3>
+
+<ul>
+
+<li>
+<span class="nombre">Clase 1: Cero ruido mental — la IA trabaja para vos</span>
+<span class="descripcion">
+Aprenderás a crear un sistema completo de organización personal con IA que te permitirá eliminar el ruido mental. Usaremos herramientas como Google Keep, Zapia, Notion Calendar y Perplexity para automatizar tu día a día de forma simple, práctica e instantánea.
+</span>
+</li>
+
+<li>
+<span class="nombre">Clase 2: Tu asistente personal docente con IA</span>
+<span class="descripcion">
+Crearás un asistente que te permitirá organizar tu trabajo diario enviando simples audios.
+</span>
+</li>
+
+<li>
+<span class="nombre">Clase 3: Crear planificaciones completas en minutos</span>
+<span class="descripcion">
+Construirás un asistente de planificación que generará automáticamente objetivos, contenidos, actividades y evaluaciones.
+</span>
+</li>
+
+<li>
+<span class="nombre">Clase 4: Digitalizar y mejorar todo tu material docente</span>
+<span class="descripcion">
+Aprenderás a transformar fotocopias y apuntes en documentos digitales editables.
+</span>
+</li>
+
+<li>
+<span class="nombre">Clase 5: Crear materiales visuales increíbles</span>
+<span class="descripcion">
+Generarás infografías, fichas de estudio y presentaciones profesionales.
+</span>
+</li>
+
+<li>
+<span class="nombre">Clase 6: Crear banco infinito de actividades</span>
+<span class="descripcion">
+Construirás un repositorio reutilizable de actividades y evaluaciones.
+</span>
+</li>
+
+<li>
+<span class="nombre">Clase 7: Generar devoluciones automáticas</span>
+<span class="descripcion">
+Aprenderás a redactar devoluciones personalizadas automáticamente.
+</span>
+</li>
+
+<li>
+<span class="nombre">Clase 8: Crear videos y recursos multimedia</span>
+<span class="descripcion">
+Descubrirás cómo crear videos, audios y recursos educativos con IA.
+</span>
+</li>
+
+</ul>
 
 </div>
 
 </div>
 
-<footer>
-© 2026 Melisa Fernández — IA para docentes
-</footer>
+</div>
+
+<div class="buzon">
+
+<h2>¿Qué te gustaría aprender?</h2>
+
+<textarea id="sugerencia" placeholder="Escribe tu sugerencia aquí"></textarea>
+
+<br>
+
+<button onclick="enviarSugerencia()">Enviar sugerencia</button>
+
+<p id="mensaje-buzon"></p>
 
 </div>
 
-<!-- FIREBASE + VERIFICACION -->
+<script>
 
-<script type="module">
+function actualizarContador(){
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+let fechaInicio = new Date("May 9, 2026 10:30:00 GMT-0300").getTime();
+let ahora = new Date().getTime();
+let diferencia = fechaInicio - ahora;
 
-import {
-getAuth,
-onAuthStateChanged,
-signOut
+let dias = Math.floor(diferencia/(1000*60*60*24));
+let horas = Math.floor((diferencia%(1000*60*60*24))/(1000*60*60));
+let minutos = Math.floor((diferencia%(1000*60*60))/(1000*60));
+let segundos = Math.floor((diferencia%(1000*60))/1000);
+
+document.getElementById("contador").innerHTML =
+dias+" días "+horas+" horas "+minutos+" min "+segundos+" seg";
+
 }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-const firebaseConfig = {
+setInterval(actualizarContador,1000);
 
-apiKey: "AIzaSyBFJH3LRuaS8yc6iDsXXcwACzpddA8lr5c",
-authDomain: "habilidadx1cafe.firebaseapp.com",
-projectId: "habilidadx1cafe",
-storageBucket: "habilidadx1cafe.firebasestorage.app",
-messagingSenderId: "113035104487",
-appId: "1:113035104487:web:1427b58f5263136d321242"
+function enviarSugerencia(){
 
-};
+let texto = document.getElementById("sugerencia").value;
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-const API_URL =
-"https://script.google.com/macros/s/AKfycbybDXMPiZyDtzkYmvotmf1RUeWsG_XIz7ba6EVq8GYnbLDOE9WcdaI-HLSgNvrrKK5k/exec";
-
-onAuthStateChanged(auth, async (user)=>{
-
-if(!user){
-window.location.href="login.html";
+if(texto===""){
+alert("Escribe una sugerencia");
 return;
 }
 
-document.getElementById("usuario").innerText =
-"Bienvenido: " + user.email;
-
-try{
-
-const res = await fetch(API_URL,{
+fetch("https://sheetdb.io/api/v1/380mce8arpjln",{
 method:"POST",
-body:JSON.stringify({email:user.email})
-});
-
-const data = await res.json();
-
-if(data.estado !== "activo"){
-
-alert("Tu membresía no está activa o ya venció.");
-
-signOut(auth);
-
-window.location.href="membresia.html";
-
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+data:[
+{
+sugerencia:texto,
+fecha:new Date().toLocaleDateString()
 }
+]
+})
+})
 
-}
-
-catch(error){
-
-alert("Error verificando membresía");
-
-signOut(auth);
-
-window.location.href="login.html";
-
-}
-
-});
-
-window.logout = function(){
-
-signOut(auth).then(()=>{
-window.location.href="login.html";
+.then(()=>{
+document.getElementById("mensaje-buzon").innerText="¡Gracias por tu sugerencia!";
+document.getElementById("sugerencia").value="";
 });
 
 }
 
 </script>
+
+<footer>
+
+© 2026 Melisa Fernández — IA para docentes
+
+</footer>
 
 </body>
 </html>
