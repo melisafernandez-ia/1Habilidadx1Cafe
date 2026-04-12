@@ -2,13 +2,13 @@
 <html>
 
 <head>
-<title>Curso IA para docentes</title>
+<title>1 Habilidad x 1 Café</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
-/* TODO TU CSS ORIGINAL SIN CAMBIOS */
+/* ESTILO GENERAL */
 
 body{
 font-family:Arial,sans-serif;
@@ -17,6 +17,8 @@ background:#f4f4f4;
 text-align:center;
 color:#333;
 }
+
+/* HERO */
 
 .hero{
 background-image:url("portada5.png");
@@ -42,6 +44,8 @@ font-size:22px;
 max-width:700px;
 }
 
+/* CONTADOR */
+
 .contador{
 background:#222;
 color:white;
@@ -54,6 +58,14 @@ font-weight:bold;
 color:#ff4b2b;
 font-size:26px;
 }
+
+.fecha-inicio{
+margin-top:5px;
+font-size:16px;
+color:#ccc;
+}
+
+/* BOTON */
 
 .boton-clases-container{
 margin-top:40px;
@@ -75,9 +87,13 @@ transition:0.3s;
 background:#ff2a00;
 }
 
+/* INFO */
+
 .info{
 padding:30px 20px;
 }
+
+/* VIDEO + TEMARIO */
 
 .video-temario{
 display:flex;
@@ -111,6 +127,8 @@ display:flex;
 flex-direction:column;
 align-items:flex-start;
 }
+
+/* TEMARIO */
 
 .temario h3{
 color:#ff4b2b;
@@ -151,6 +169,8 @@ border-radius:6px;
 .temario li:hover .descripcion{
 display:block;
 }
+
+/* BUZON */
 
 .buzon{
 background:white;
@@ -195,6 +215,56 @@ color:white;
 font-size:14px;
 }
 
+/* RESPONSIVE */
+
+@media (max-width:768px){
+
+.hero{
+height:300px;
+}
+
+.hero h1{
+font-size:34px;
+}
+
+.hero p{
+font-size:17px;
+padding:0 10px;
+}
+
+.contador{
+font-size:18px;
+}
+
+.contador span{
+font-size:20px;
+}
+
+.boton-clases-container button{
+font-size:16px;
+padding:14px 22px;
+}
+
+.video-temario{
+flex-direction:column;
+padding:30px 15px;
+gap:30px;
+}
+
+.video-container iframe{
+height:220px;
+}
+
+.temario li{
+font-size:15px;
+}
+
+.buzon textarea{
+width:95%;
+}
+
+}
+
 </style>
 
 </head>
@@ -213,11 +283,14 @@ Aprende herramientas de Inteligencia Artificial útiles para docentes
 
 <div class="contador">
 ⏳ Faltan <span id="contador"></span> para comenzar
+<div class="fecha-inicio">
+Inicio: 9 de mayo — 10:30 hs (Argentina)
+</div>
 </div>
 
 <div class="boton-clases-container">
 <a href="membresia.html">
-<button>Ver planes y acceder</button>
+<button>Entrar a las clases</button>
 </a>
 </div>
 
@@ -255,60 +328,26 @@ allowfullscreen></iframe>
 <ul>
 
 <li>
-<span class="nombre">Clase 1: Cero ruido mental — la IA trabaja para vos</span>
+Clase 1: Cero ruido mental — la IA trabaja para vos
 <span class="descripcion">
-Aprenderás a crear tu sistema de organización personal con IA para dejar de acumular tareas y liberar tu mente. Trabajaremos con herramientas como Google Keep, Zapia, Notion Calendar y Perplexity para construir un flujo simple, práctico e instantáneo que te permita capturar ideas, organizarte y ejecutar sin esfuerzo.
+Aprenderás a crear un sistema completo de organización personal con IA utilizando herramientas como Google Keep, Zapia, Notion Calendar y Perplexity.
 </span>
 </li>
 
 <li>
-<span class="nombre">Clase 2: Tu asistente personal docente con IA</span>
+Clase 2: Tu asistente personal docente
 <span class="descripcion">
-Crearás un asistente que te permitirá organizar tu trabajo diario enviando simples audios.
+Crearás un asistente que organizará tu trabajo diario mediante audios y automatizaciones.
 </span>
 </li>
 
 <li>
-<span class="nombre">Clase 3: Crear planificaciones completas en minutos</span>
-<span class="descripcion">
-Construirás un asistente de planificación que generará automáticamente objetivos, contenidos, actividades y evaluaciones.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 4: Digitalizar y mejorar todo tu material docente</span>
-<span class="descripcion">
-Aprenderás a transformar fotocopias y apuntes en documentos digitales editables.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 5: Crear materiales visuales increíbles</span>
-<span class="descripcion">
-Generarás infografías, fichas de estudio y presentaciones profesionales.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 6: Crear banco infinito de actividades</span>
-<span class="descripcion">
-Construirás un repositorio reutilizable de actividades y evaluaciones.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 7: Generar devoluciones automáticas</span>
-<span class="descripcion">
-Aprenderás a redactar devoluciones personalizadas automáticamente.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 8: Crear videos y recursos multimedia</span>
-<span class="descripcion">
-Descubrirás cómo crear videos, audios y recursos educativos con IA.
-</span>
-</li>
+Clase 3: Crear planificaciones completas en minutos</li>
+<li>Clase 4: Digitalizar material docente</li>
+<li>Clase 5: Crear materiales visuales</li>
+<li>Clase 6: Banco de actividades</li>
+<li>Clase 7: Devoluciones automáticas</li>
+<li>Clase 8: Videos y recursos multimedia</li>
 
 </ul>
 
@@ -322,11 +361,7 @@ Descubrirás cómo crear videos, audios y recursos educativos con IA.
 
 <h2>¿Qué te gustaría aprender?</h2>
 
-<p>
-Puedes sugerir herramientas de IA o problemas del aula que te gustaría que abordemos.
-</p>
-
-<textarea id="sugerencia" placeholder="Escribe tu sugerencia aquí"></textarea>
+<textarea id="sugerencia"></textarea>
 
 <br>
 
@@ -340,18 +375,18 @@ Puedes sugerir herramientas de IA o problemas del aula que te gustaría que abor
 
 function actualizarContador(){
 
-let fechaInicio=new Date("May 2, 2026 10:00:00").getTime();
+let fechaInicio = new Date("May 9, 2026 10:30:00 GMT-0300").getTime();
 
-let ahora=new Date().getTime();
+let ahora = new Date().getTime();
 
-let diferencia=fechaInicio-ahora;
+let diferencia = fechaInicio - ahora;
 
-let dias=Math.floor(diferencia/(1000*60*60*24));
-let horas=Math.floor((diferencia%(1000*60*60*24))/(1000*60*60));
-let minutos=Math.floor((diferencia%(1000*60*60))/(1000*60));
-let segundos=Math.floor((diferencia%(1000*60))/1000);
+let dias = Math.floor(diferencia/(1000*60*60*24));
+let horas = Math.floor((diferencia%(1000*60*60*24))/(1000*60*60));
+let minutos = Math.floor((diferencia%(1000*60*60))/(1000*60));
+let segundos = Math.floor((diferencia%(1000*60))/1000);
 
-document.getElementById("contador").innerHTML=
+document.getElementById("contador").innerHTML =
 dias+" días "+horas+" horas "+minutos+" min "+segundos+" seg";
 
 }
@@ -382,13 +417,9 @@ fecha:new Date().toLocaleDateString()
 })
 })
 
-.then(res=>res.json())
-.then(data=>{
+.then(()=>{
 document.getElementById("mensaje-buzon").innerText="¡Gracias por tu sugerencia!";
 document.getElementById("sugerencia").value="";
-})
-.catch(error=>{
-alert("Error al enviar sugerencia");
 });
 
 }
