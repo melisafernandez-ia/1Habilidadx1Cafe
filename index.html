@@ -1,279 +1,249 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-<title>1 Habilidad x 1 Café</title>
 
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Melisa Fernández | IA para docentes</title>
+
+<meta property="og:title" content="1 Habilidad x 1 Café — IA para docentes">
+<meta property="og:description" content="Aprende a usar Inteligencia Artificial en el aula con herramientas prácticas y clases paso a paso.">
+<meta property="og:image" content="https://melisafernandez-ia.github.io/1Habilidadx1Cafe/foto3.jpeg">
+<meta property="og:url" content="https://melisafernandez-ia.github.io/1Habilidadx1Cafe/index.html">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
 
 <style>
 
-/* ESTILO GENERAL */
+/* TODO TU CSS ORIGINAL SIN CAMBIOS */
 
 body{
-font-family:Arial,sans-serif;
 margin:0;
-background:#f4f4f4;
-text-align:center;
-color:#333;
+font-family:Arial, Helvetica, sans-serif;
+background:white;
+color:#222;
 }
 
-/* HERO */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+border-bottom:1px solid #eee;
+}
+
+header h3{
+margin:0;
+}
+
+nav a{
+margin-left:20px;
+text-decoration:none;
+color:#333;
+font-weight:bold;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:25px 20px;
+}
 
 .hero{
-background-image:url("portada5.png");
-background-size:cover;
-background-position:center;
-height:420px;
 display:flex;
-flex-direction:column;
-justify-content:center;
 align-items:center;
-color:white;
-text-shadow:0 2px 10px rgba(0,0,0,0.7);
-padding:20px;
+justify-content:center;
+gap:30px;
+padding:70px 20px;
+flex-wrap:wrap;
+background:linear-gradient(135deg,#eef3ff,#ffffff);
+border-bottom:1px solid #e5e5e5;
+}
+
+.hero-text{
+max-width:520px;
 }
 
 .hero h1{
-font-size:55px;
+font-size:46px;
 margin-bottom:10px;
 }
 
 .hero p{
-font-size:22px;
-max-width:700px;
+font-size:18px;
+color:#555;
 }
 
-/* CONTADOR */
+.hero img{
+width:400px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
 
-.contador{
-background:#222;
+.boton{
+display:inline-block;
+margin-top:20px;
+padding:14px 28px;
+background:#0066ff;
 color:white;
-padding:18px;
-font-size:22px;
+text-decoration:none;
+border-radius:8px;
 font-weight:bold;
 }
 
-.contador span{
-color:#ff4b2b;
-font-size:26px;
+.boton:hover{
+background:#004fcc;
 }
 
-/* BOTON */
-
-.boton-clases-container{
-margin-top:40px;
-margin-bottom:20px;
+h2{
+text-align:center;
+margin-bottom:30px;
 }
 
-.boton-clases-container button{
-padding:15px 30px;
-font-size:18px;
-background:#ff4b2b;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-transition:0.3s;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
 }
 
-.boton-clases-container button:hover{
-background:#ff2a00;
-}
-
-/* INFO */
-
-.info{
-padding:30px 20px;
-}
-
-/* VIDEO + TEMARIO */
-
-.video-temario{
-display:flex;
-justify-content:center;
-gap:50px;
-align-items:flex-start;
-padding:60px 20px;
-flex-wrap:wrap;
-background:#fff;
-border-top:1px solid #ddd;
-border-bottom:1px solid #ddd;
-}
-
-.video-container{
-flex:1;
-display:flex;
-justify-content:center;
-}
-
-.video-container iframe{
-width:100%;
-max-width:700px;
-height:420px;
+.card{
+background:#f5f5f5;
+padding:25px;
 border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,0.2);
+text-align:center;
+transition:0.2s;
 }
 
-.temario-container{
-flex:1;
-display:flex;
-flex-direction:column;
-align-items:flex-start;
+.card:hover{
+transform:translateY(-4px);
 }
 
-/* TEMARIO */
-
-.temario h3{
-color:#ff4b2b;
-margin-bottom:15px;
-}
-
-.temario ul{
-list-style:none;
-padding-left:0;
-margin:0;
-width:100%;
-}
-
-.temario li{
-background:#f9f9f9;
-margin-bottom:12px;
-padding:14px;
-border-radius:8px;
-cursor:pointer;
-transition:0.3s;
-text-align:left;
-}
-
-.temario li:hover{
-background:#ff4b2b;
-color:white;
-}
-
-.temario li .descripcion{
-display:none;
-margin-top:8px;
-background:#ff4b2b;
-color:white;
-padding:10px;
-border-radius:6px;
-}
-
-.temario li:hover .descripcion{
+.card span{
+font-size:40px;
 display:block;
+margin-bottom:10px;
 }
 
-/* BUZON */
+.autoridad{
+text-align:center;
+padding:45px 20px;
+background:#f8f9ff;
+}
 
-.buzon{
+.autoridad h3{
+font-size:30px;
+}
+
+.stats{
+display:flex;
+justify-content:center;
+gap:60px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.stat{
+font-size:26px;
+font-weight:bold;
+}
+
+.stat p{
+font-size:14px;
+color:#666;
+margin:5px 0 0 0;
+}
+
+.servicios{
+background:#fafafa;
+padding:50px 20px;
+margin-top:20px;
+}
+
+.servicio-card{
 background:white;
-padding:40px 20px;
+padding:30px;
+border-radius:12px;
+box-shadow:0 6px 25px rgba(0,0,0,0.08);
+text-align:center;
 }
 
-.buzon h2{
-color:#ff4b2b;
+.contacto{
+padding:50px 20px;
+background:#f8f9ff;
 }
 
-.buzon textarea{
-width:80%;
-max-width:600px;
-height:120px;
-padding:12px;
-border-radius:8px;
-border:1px solid #ccc;
-font-size:16px;
-resize:none;
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+max-width:800px;
+margin:auto;
 }
 
-.buzon button{
-margin-top:15px;
-padding:12px 25px;
-background:#ff4b2b;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
+.contact-card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+text-align:center;
 }
 
-#mensaje-buzon{
-margin-top:10px;
-color:green;
+.contact-card span{
+font-size:34px;
+display:block;
+margin-bottom:10px;
+}
+
+.contact-card a{
+text-decoration:none;
+color:#0066ff;
 font-weight:bold;
 }
 
 footer{
+text-align:center;
 padding:30px;
-background:#222;
+color:#777;
+font-size:14px;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
 color:white;
-font-size:14px;
+width:55px;
+height:55px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:26px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+z-index:1000;
 }
 
-/* ===================== */
-/* OPTIMIZACION CELULAR */
-/* ===================== */
-
-@media (max-width:768px){
-
-.hero{
-height:300px;
-padding:20px;
-}
-
-.hero h1{
-font-size:34px;
-}
-
-.hero p{
-font-size:17px;
-padding:0 10px;
-}
-
-.contador{
-font-size:18px;
-}
-
-.contador span{
-font-size:20px;
-}
-
-.boton-clases-container button{
-font-size:16px;
-padding:14px 22px;
-}
-
-.info{
-padding:25px 15px;
-}
-
-.video-temario{
-flex-direction:column;
-padding:30px 15px;
-gap:30px;
-}
-
-.video-container iframe{
-height:220px;
-}
-
-.temario li{
-font-size:15px;
-padding:12px;
-}
-
-.temario li .descripcion{
-font-size:14px;
-}
-
-.buzon textarea{
-width:95%;
-}
-
-.buzon button{
-font-size:16px;
-padding:14px 22px;
-}
-
+.email{
+position:fixed;
+bottom:85px;
+right:20px;
+background:#0066ff;
+color:white;
+width:55px;
+height:55px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+z-index:1000;
 }
 
 </style>
@@ -282,210 +252,139 @@ padding:14px 22px;
 
 <body>
 
-<div class="hero">
+<header>
 
-<h1>1 Habilidad x 1 Café</h1>
+<h3>Melisa Fernández</h3>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="curso.html">Curso</a>
+<a href="#contacto">Contacto</a>
+</nav>
+
+</header>
+
+<section class="hero container">
+
+<div class="hero-text">
+
+<h1>Inteligencia Artificial para Docentes</h1>
 
 <p>
-Aprende herramientas de Inteligencia Artificial útiles para docentes
+Ayudo a docentes a utilizar inteligencia artificial para ahorrar horas de trabajo, mejorar sus clases y crear materiales educativos mucho más rápido.
 </p>
 
+<a class="boton" href="curso.html">Ver curso de IA para docentes</a>
+
 </div>
 
-<div class="contador">
-⏳ Faltan <span id="contador"></span> para comenzar
+<img src="foto1.jpeg">
+
+</section>
+
+<section class="container">
+
+<h2>Lo que puedes crear con IA</h2>
+
+<div class="grid">
+
+<div class="card"><span>🧠</span>Planificaciones automáticas</div>
+<div class="card"><span>📝</span>Actividades educativas</div>
+<div class="card"><span>📊</span>Evaluaciones</div>
+<div class="card"><span>📚</span>Material visual</div>
+<div class="card"><span>🎧</span>Audioclases</div>
+<div class="card"><span>🎬</span>Videos educativos</div>
+<div class="card"><span>🤖</span>Asistentes personales</div>
+<div class="card"><span>⏱️</span>Organización del tiempo</div>
+
 </div>
 
-<div class="boton-clases-container">
-<a href="membresia.html">
-<button>Entrar a las clases</button>
+</section>
+
+<section class="autoridad">
+
+<h3>Docencia + Inteligencia Artificial</h3>
+
+<p>
+Mi trabajo se centra en ayudar a docentes a integrar inteligencia artificial de forma práctica y útil.
+</p>
+
+<div class="stats">
+
+<div class="stat">+8<p>herramientas docentes</p></div>
+<div class="stat">+15<p>soluciones educativas</p></div>
+<div class="stat">∞<p>actividades posibles</p></div>
+
+</div>
+
+</section>
+
+<section class="servicios">
+
+<div class="container">
+
+<h2>Cómo puedo ayudarte</h2>
+
+<div class="grid">
+
+<div class="servicio-card">
+<h3>Curso de IA para docentes</h3>
+<p>Aprende paso a paso a integrar IA en tus clases.</p>
+<a class="boton" href="curso.html">Ver curso</a>
+</div>
+
+<div class="servicio-card">
+<h3>Mentoría 1 a 1</h3>
+<p>Implementa herramientas de IA adaptadas a tu trabajo docente.</p>
+<a class="boton" href="#contacto">Contactar</a>
+</div>
+
+<div class="servicio-card">
+<h3>Soluciones personalizadas</h3>
+<p>Diseño asistentes y automatizaciones para docentes.</p>
+<a class="boton" href="#contacto">Consultar</a>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contacto" class="contacto">
+
+<h2>Contacto</h2>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+<span>💬</span>
+<p>WhatsApp</p>
+<a href="https://wa.me/5493435508780" target="_blank">
+Enviar mensaje
 </a>
 </div>
 
-<div class="info">
-
-<h2>Clases prácticas de IA que te servirán para ahorrar tiempo</h2>
-
-<p>
-Cada semana aprenderás una herramienta nueva de Inteligencia Artificial aplicada a la educación.
-</p>
-
-<p>
-Prompts, evaluaciones y recursos listos para usar.
-</p>
-
-</div>
-
-<div class="video-temario">
-
-<div class="video-container">
-
-<iframe src="https://www.youtube.com/embed/1umqS76Hlm0"
-title="Video explicativo del curso"
-frameborder="0"
-allowfullscreen></iframe>
-
-</div>
-
-<div class="temario-container">
-
-<div class="temario">
-
-<h3>Temario de las clases</h3>
-
-<ul>
-
-<li>
-<span class="nombre">Clase 1: IA para docentes — lo que realmente te va a ahorrar horas de trabajo</span>
-<span class="descripcion">
-Descubrirás cómo funciona la inteligencia artificial aplicada al trabajo docente y aprenderás a usarla para generar actividades, explicaciones, consignas y materiales en segundos.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 2: Tu asistente personal docente con IA</span>
-<span class="descripcion">
-Crearás un asistente que te permitirá organizar tu trabajo diario enviando simples audios.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 3: Crear planificaciones completas en minutos</span>
-<span class="descripcion">
-Construirás un asistente de planificación que generará automáticamente objetivos, contenidos, actividades y evaluaciones.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 4: Digitalizar y mejorar todo tu material docente</span>
-<span class="descripcion">
-Aprenderás a transformar fotocopias y apuntes en documentos digitales editables.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 5: Crear materiales visuales increíbles</span>
-<span class="descripcion">
-Generarás infografías, fichas de estudio y presentaciones profesionales.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 6: Crear banco infinito de actividades</span>
-<span class="descripcion">
-Construirás un repositorio reutilizable de actividades y evaluaciones.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 7: Generar devoluciones automáticas</span>
-<span class="descripcion">
-Aprenderás a redactar devoluciones personalizadas automáticamente.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 8: Crear videos y recursos multimedia</span>
-<span class="descripcion">
-Descubrirás cómo crear videos, audios y recursos educativos con IA.
-</span>
-</li>
-
-</ul>
-
+<div class="contact-card">
+<span>✉️</span>
+<p>Email</p>
+<a href="mailto:melfernandez@educ.ar">
+melfernandez@educ.ar
+</a>
 </div>
 
 </div>
 
-</div>
-
-<div class="buzon">
-
-<h2>¿Qué te gustaría aprender?</h2>
-
-<p>
-Puedes sugerir herramientas de IA o problemas del aula que te gustaría que abordemos.
-</p>
-
-<textarea id="sugerencia" placeholder="Escribe tu sugerencia aquí"></textarea>
-
-<br>
-
-<button onclick="enviarSugerencia()">Enviar sugerencia</button>
-
-<p id="mensaje-buzon"></p>
-
-</div>
-
-<script>
-
-function actualizarContador(){
-
-let fechaInicio=new Date("May 2, 2026 10:00:00").getTime();
-
-let ahora=new Date().getTime();
-
-let diferencia=fechaInicio-ahora;
-
-let dias=Math.floor(diferencia/(1000*60*60*24));
-let horas=Math.floor((diferencia%(1000*60*60*24))/(1000*60*60));
-let minutos=Math.floor((diferencia%(1000*60*60))/(1000*60));
-let segundos=Math.floor((diferencia%(1000*60))/1000);
-
-document.getElementById("contador").innerHTML=
-dias+" días "+horas+" horas "+minutos+" min "+segundos+" seg";
-
-}
-
-setInterval(actualizarContador,1000);
-
-function enviarSugerencia(){
-
-let texto = document.getElementById("sugerencia").value;
-
-if(texto===""){
-alert("Escribe una sugerencia");
-return;
-}
-
-fetch("https://sheetdb.io/api/v1/380mce8arpjln",{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-data:[
-{
-sugerencia:texto,
-fecha:new Date().toLocaleDateString()
-}
-]
-})
-})
-
-.then(res=>res.json())
-.then(data=>{
-
-document.getElementById("mensaje-buzon").innerText="¡Gracias por tu sugerencia!";
-document.getElementById("sugerencia").value="";
-
-})
-
-.catch(error=>{
-
-alert("Error al enviar sugerencia");
-
-});
-
-}
-
-</script>
+</section>
 
 <footer>
 
 © 2026 Melisa Fernández — IA para docentes
 
 </footer>
+
+<a class="whatsapp" href="https://wa.me/5493435508780" target="_blank">💬</a>
+<a class="email" href="mailto:melfernandez@educ.ar">✉️</a>
 
 </body>
 </html>
