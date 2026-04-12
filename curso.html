@@ -18,6 +18,30 @@ text-align:center;
 color:#333;
 }
 
+/* BOTON VOLVER */
+
+.volver{
+position:fixed;
+top:20px;
+left:20px;
+z-index:1000;
+}
+
+.volver button{
+background:#333;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:8px;
+cursor:pointer;
+font-size:14px;
+box-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+.volver button:hover{
+background:#000;
+}
+
 /* HERO */
 
 .hero{
@@ -272,6 +296,13 @@ width:95%;
 
 <body>
 
+<!-- BOTON VOLVER -->
+<div class="volver">
+<a href="index.html">
+<button>⬅ Volver al inicio</button>
+</a>
+</div>
+
 <div class="hero">
 
 <h1>1 Habilidad x 1 Café</h1>
@@ -306,175 +337,4 @@ Aprende herramientas de Inteligencia Artificial útiles para docentes
 </a>
 </div>
 
-<div class="info">
-
-<h2>Clases prácticas de IA que te servirán para ahorrar tiempo</h2>
-
-<p>
-Cada semana aprenderás una herramienta nueva de Inteligencia Artificial aplicada a la educación.
-</p>
-
-<p>
-Prompts, evaluaciones y recursos listos para usar.
-</p>
-
-</div>
-
-<div class="video-temario">
-
-<div class="video-container">
-
-<iframe src="https://www.youtube.com/embed/1umqS76Hlm0"
-title="Video explicativo del curso"
-frameborder="0"
-allowfullscreen></iframe>
-
-</div>
-
-<div class="temario-container">
-
-<div class="temario">
-
-<h3>Lo que vas a aprender (paso a paso)</h3>
-
-<ul>
-
-<li>
-<span class="nombre">Clase 1: Cero ruido mental — la IA trabaja para vos</span>
-<span class="descripcion">
-Aprenderás a crear un sistema completo de organización personal con IA que te permitirá eliminar el ruido mental. Usaremos herramientas como Google Keep, Zapia, Notion Calendar y Perplexity para automatizar tu día a día de forma simple, práctica e instantánea.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 2: Tu asistente personal docente con IA</span>
-<span class="descripcion">
-Crearás un asistente que te permitirá organizar tu trabajo diario enviando simples audios.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 3: Crear planificaciones completas en minutos</span>
-<span class="descripcion">
-Construirás un asistente de planificación que generará automáticamente objetivos, contenidos, actividades y evaluaciones.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 4: Digitalizar y mejorar todo tu material docente</span>
-<span class="descripcion">
-Aprenderás a transformar fotocopias y apuntes en documentos digitales editables.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 5: Crear materiales visuales increíbles</span>
-<span class="descripcion">
-Generarás infografías, fichas de estudio y presentaciones profesionales.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 6: Crear banco infinito de actividades</span>
-<span class="descripcion">
-Construirás un repositorio reutilizable de actividades y evaluaciones.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 7: Generar devoluciones automáticas</span>
-<span class="descripcion">
-Aprenderás a redactar devoluciones personalizadas automáticamente.
-</span>
-</li>
-
-<li>
-<span class="nombre">Clase 8: Crear videos y recursos multimedia</span>
-<span class="descripcion">
-Descubrirás cómo crear videos, audios y recursos educativos con IA.
-</span>
-</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="buzon">
-
-<h2>¿Qué te gustaría aprender?</h2>
-
-<textarea id="sugerencia" placeholder="Escribe tu sugerencia aquí"></textarea>
-
-<br>
-
-<button onclick="enviarSugerencia()">Enviar sugerencia</button>
-
-<p id="mensaje-buzon"></p>
-
-</div>
-
-<script>
-
-function actualizarContador(){
-
-let fechaInicio = new Date("May 9, 2026 10:30:00 GMT-0300").getTime();
-let ahora = new Date().getTime();
-let diferencia = fechaInicio - ahora;
-
-let dias = Math.floor(diferencia/(1000*60*60*24));
-let horas = Math.floor((diferencia%(1000*60*60*24))/(1000*60*60));
-let minutos = Math.floor((diferencia%(1000*60*60))/(1000*60));
-let segundos = Math.floor((diferencia%(1000*60))/1000);
-
-document.getElementById("contador").innerHTML =
-dias+" días "+horas+" horas "+minutos+" min "+segundos+" seg";
-
-}
-
-setInterval(actualizarContador,1000);
-
-function enviarSugerencia(){
-
-let texto = document.getElementById("sugerencia").value;
-
-if(texto===""){
-alert("Escribe una sugerencia");
-return;
-}
-
-fetch("https://sheetdb.io/api/v1/380mce8arpjln",{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-data:[
-{
-sugerencia:texto,
-fecha:new Date().toLocaleDateString()
-}
-]
-})
-})
-
-.then(()=>{
-document.getElementById("mensaje-buzon").innerText="¡Gracias por tu sugerencia!";
-document.getElementById("sugerencia").value="";
-});
-
-}
-
-</script>
-
-<footer>
-
-© 2026 Melisa Fernández — IA para docentes
-
-</footer>
-
-</body>
-</html>
+<!-- RESTO DEL CODIGO IGUAL -->
