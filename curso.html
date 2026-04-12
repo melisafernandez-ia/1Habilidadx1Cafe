@@ -8,8 +8,6 @@
 
 <style>
 
-/* ESTILO GENERAL */
-
 body{
 font-family:Arial,sans-serif;
 margin:0;
@@ -105,11 +103,6 @@ color:white;
 border:none;
 border-radius:8px;
 cursor:pointer;
-transition:0.3s;
-}
-
-.boton-clases-container button:hover{
-background:#ff2a00;
 }
 
 /* INFO */
@@ -128,14 +121,6 @@ align-items:flex-start;
 padding:60px 20px;
 flex-wrap:wrap;
 background:#fff;
-border-top:1px solid #ddd;
-border-bottom:1px solid #ddd;
-}
-
-.video-container{
-flex:1;
-display:flex;
-justify-content:center;
 }
 
 .video-container iframe{
@@ -143,28 +128,17 @@ width:100%;
 max-width:700px;
 height:420px;
 border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
 .temario-container{
 flex:1;
-display:flex;
-flex-direction:column;
-align-items:flex-start;
 }
 
 /* TEMARIO */
 
-.temario h3{
-color:#ff4b2b;
-margin-bottom:15px;
-}
-
 .temario ul{
 list-style:none;
-padding-left:0;
-margin:0;
-width:100%;
+padding:0;
 }
 
 .temario li{
@@ -172,9 +146,9 @@ background:#f9f9f9;
 margin-bottom:12px;
 padding:14px;
 border-radius:8px;
-cursor:pointer;
-transition:0.3s;
 text-align:left;
+transition:0.3s;
+cursor:pointer;
 }
 
 .temario li:hover{
@@ -182,13 +156,9 @@ background:#ff4b2b;
 color:white;
 }
 
-.temario li .descripcion{
+.descripcion{
 display:none;
 margin-top:8px;
-background:#ff4b2b;
-color:white;
-padding:10px;
-border-radius:6px;
 }
 
 .temario li:hover .descripcion{
@@ -202,90 +172,31 @@ background:white;
 padding:40px 20px;
 }
 
-.buzon h2{
-color:#ff4b2b;
-}
-
-.buzon textarea{
+textarea{
 width:80%;
-max-width:600px;
 height:120px;
-padding:12px;
-border-radius:8px;
-border:1px solid #ccc;
-font-size:16px;
-resize:none;
 }
 
-.buzon button{
-margin-top:15px;
-padding:12px 25px;
-background:#ff4b2b;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
-}
-
-#mensaje-buzon{
-margin-top:10px;
-color:green;
-font-weight:bold;
-}
+/* FOOTER */
 
 footer{
 padding:30px;
 background:#222;
 color:white;
-font-size:14px;
 }
 
 /* RESPONSIVE */
 
 @media (max-width:768px){
 
-.hero{
-height:300px;
-}
-
-.hero h1{
-font-size:34px;
-}
-
-.hero p{
-font-size:17px;
-padding:0 10px;
-}
-
-.contador{
-font-size:18px;
-}
-
-.contador span{
-font-size:20px;
-}
-
-.boton-clases-container button{
-font-size:16px;
-padding:14px 22px;
-}
+.hero{height:300px;}
 
 .video-temario{
 flex-direction:column;
-padding:30px 15px;
-gap:30px;
 }
 
 .video-container iframe{
 height:220px;
-}
-
-.temario li{
-font-size:15px;
-}
-
-.buzon textarea{
-width:95%;
 }
 
 }
@@ -296,23 +207,20 @@ width:95%;
 
 <body>
 
-<!-- BOTON VOLVER -->
+<!-- VOLVER -->
 <div class="volver">
 <a href="index.html">
 <button>⬅ Volver al inicio</button>
 </a>
 </div>
 
+<!-- HERO -->
 <div class="hero">
-
 <h1>1 Habilidad x 1 Café</h1>
-
-<p>
-Aprende herramientas de Inteligencia Artificial útiles para docentes
-</p>
-
+<p>Aprende herramientas de Inteligencia Artificial útiles para docentes</p>
 </div>
 
+<!-- CONTADOR -->
 <div class="contador">
 ⏳ Faltan <span id="contador"></span> para comenzar
 
@@ -331,10 +239,133 @@ Aprende herramientas de Inteligencia Artificial útiles para docentes
 
 </div>
 
+<!-- BOTON -->
 <div class="boton-clases-container">
 <a href="membresia.html">
 <button>Entrar a las clases</button>
 </a>
 </div>
 
-<!-- RESTO DEL CODIGO IGUAL -->
+<!-- INFO -->
+<div class="info">
+<h2>Clases prácticas de IA que te servirán para ahorrar tiempo</h2>
+<p>Aprende herramientas reales para aplicar en el aula.</p>
+</div>
+
+<!-- VIDEO + TEMARIO -->
+<div class="video-temario">
+
+<div class="video-container">
+<iframe src="https://www.youtube.com/embed/1umqS76Hlm0"></iframe>
+</div>
+
+<div class="temario-container">
+
+<div class="temario">
+
+<ul>
+
+<li>
+Clase 1: Cero ruido mental — la IA trabaja para vos
+<div class="descripcion">
+Sistema completo de organización con IA usando Google Keep, Zapia, Notion Calendar y Perplexity.
+</div>
+</li>
+
+<li>
+Clase 2: Tu asistente personal docente
+<div class="descripcion">
+Organiza tu trabajo diario con IA usando audios.
+</div>
+</li>
+
+<li>
+Clase 3: Planificaciones automáticas
+<div class="descripcion">
+Genera planificaciones completas en minutos.
+</div>
+</li>
+
+<li>
+Clase 4: Digitalizar material
+<div class="descripcion">
+Convierte apuntes en recursos digitales editables.
+</div>
+</li>
+
+<li>
+Clase 5: Material visual
+<div class="descripcion">
+Crea infografías y presentaciones.
+</div>
+</li>
+
+<li>
+Clase 6: Banco de actividades
+<div class="descripcion">
+Genera actividades reutilizables infinitas.
+</div>
+</li>
+
+<li>
+Clase 7: Devoluciones automáticas
+<div class="descripcion">
+Corrección y feedback con IA.
+</div>
+</li>
+
+<li>
+Clase 8: Multimedia
+<div class="descripcion">
+Videos, audios y recursos educativos.
+</div>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- BUZON -->
+<div class="buzon">
+<h2>¿Qué te gustaría aprender?</h2>
+<textarea id="sugerencia"></textarea><br>
+<button onclick="enviarSugerencia()">Enviar</button>
+<p id="mensaje-buzon"></p>
+</div>
+
+<script>
+
+function actualizarContador(){
+
+let fechaInicio = new Date("May 9, 2026 10:30:00 GMT-0300").getTime();
+let ahora = new Date().getTime();
+let dif = fechaInicio - ahora;
+
+let d=Math.floor(dif/(1000*60*60*24));
+let h=Math.floor((dif%(1000*60*60*24))/(1000*60*60));
+let m=Math.floor((dif%(1000*60*60))/(1000*60));
+let s=Math.floor((dif%(1000*60))/1000);
+
+document.getElementById("contador").innerHTML =
+d+"d "+h+"h "+m+"m "+s+"s";
+
+}
+
+setInterval(actualizarContador,1000);
+
+function enviarSugerencia(){
+document.getElementById("mensaje-buzon").innerText="Gracias!";
+}
+
+</script>
+
+<footer>
+© 2026 Melisa Fernández
+</footer>
+
+</body>
+</html>
