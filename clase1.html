@@ -23,19 +23,6 @@ top:20px;
 left:20px;
 }
 
-.volver button{
-background:#444;
-color:white;
-border:none;
-padding:10px 18px;
-border-radius:6px;
-cursor:pointer;
-}
-
-.volver button:hover{
-background:#666;
-}
-
 /* PORTADA */
 
 .video{
@@ -43,8 +30,8 @@ position:relative;
 width:900px;
 max-width:100%;
 margin:auto;
-overflow:hidden;
 border-radius:12px;
+overflow:hidden;
 margin-top:40px;
 box-shadow:0 0 25px rgba(0,0,0,0.8);
 }
@@ -53,6 +40,7 @@ box-shadow:0 0 25px rgba(0,0,0,0.8);
 width:100%;
 height:500px;
 object-fit:cover;
+object-position:center top; /* 🔥 FIX CORTE */
 filter:brightness(0.5);
 }
 
@@ -60,28 +48,38 @@ filter:brightness(0.5);
 
 .overlay{
 position:absolute;
-top:50%;
+top:55%; /* 🔥 baja un poco el contenido */
 left:50%;
 transform:translate(-50%,-50%);
-text-align:center;
+width:90%;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-.overlay h2{
-font-size:30px;
+/* TEXTO IZQUIERDA */
+
+.info{
+text-align:left;
+max-width:55%;
+}
+
+.info h2{
 margin:0;
+font-size:28px;
 }
 
-.overlay p{
+.info p{
 margin-top:10px;
 font-size:18px;
 color:#ddd;
 }
 
-/* HORARIOS */
+/* HORARIOS DERECHA */
 
 .horarios{
-margin-top:15px;
-font-size:16px;
+text-align:right;
+font-size:15px;
 line-height:1.6;
 }
 
@@ -104,7 +102,15 @@ color:white;
 /* PROMPTS */
 
 .prompts{
-margin-top:50px;
+margin-top:60px;
+}
+
+.gamma-container{
+max-width:900px;
+margin:auto;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 0 20px rgba(0,0,0,0.6);
 }
 
 /* MATERIALES */
@@ -117,20 +123,30 @@ border-radius:12px;
 display:inline-block;
 }
 
-.materiales h3{
-margin-bottom:15px;
+/* RESPONSIVE */
+
+@media (max-width:768px){
+
+.overlay{
+flex-direction:column;
+text-align:center;
+top:50%;
 }
 
-.materiales a{
-display:block;
-margin:10px;
-font-size:18px;
-color:#8ab4f8;
-text-decoration:none;
+.info{
+max-width:100%;
+text-align:center;
 }
 
-.materiales a:hover{
-text-decoration:underline;
+.horarios{
+text-align:center;
+margin-top:15px;
+}
+
+.video img{
+height:350px;
+}
+
 }
 
 </style>
@@ -140,15 +156,11 @@ text-decoration:underline;
 <body>
 
 <div class="volver">
-<a href="clases.html">
-<button>⬅ Volver</button>
-</a>
+<a href="clases.html"><button>⬅ Volver</button></a>
 </div>
 
 <h1>Clase 1</h1>
 <h2>Cero ruido mental — la IA trabaja para vos</h2>
-
-<!-- PORTADA -->
 
 <div class="video">
 
@@ -156,30 +168,28 @@ text-decoration:underline;
 
 <div class="overlay">
 
+<div class="info">
 <h2>Próximamente clase en vivo</h2>
-
 <p>📅 9 de mayo — 10:30 hs (Argentina)</p>
 
-<div class="horarios">
-🇦🇷 Argentina: 10:30<br>
-🇨🇱 Chile: 10:30<br>
-🇺🇾 Uruguay: 10:30<br>
-🇵🇾 Paraguay: 10:30<br>
-🇧🇴 Bolivia: 09:30<br>
-🇵🇪 Perú: 08:30<br>
-🇨🇴 Colombia: 08:30<br>
-🇲🇽 México: 07:30<br>
-🇪🇸 España: 15:30
-</div>
-
 <div class="meet">
-<a id="botonMeet" href="#" target="_blank">
-Clase no disponible aún
-</a>
+<a id="botonMeet">Clase no disponible aún</a>
+</div>
+</div>
+
+<div class="horarios">
+🇦🇷 10:30<br>
+🇨🇱 10:30<br>
+🇺🇾 10:30<br>
+🇵🇾 10:30<br>
+🇧🇴 09:30<br>
+🇵🇪 08:30<br>
+🇨🇴 08:30<br>
+🇲🇽 07:30<br>
+🇪🇸 15:30
 </div>
 
 </div>
-
 </div>
 
 <!-- PROMPTS -->
@@ -188,11 +198,12 @@ Clase no disponible aún
 
 <h2>Prompts de la clase</h2>
 
+<div class="gamma-container">
 <iframe src="https://gamma.app/embed/b9qnkyftrj301y9"
-style="width: 700px; max-width: 100%; height: 450px"
-allow="fullscreen"
-title="PROMP PARA ZAPIA">
+style="width:100%; height:450px; border:none;"
+allow="fullscreen">
 </iframe>
+</div>
 
 </div>
 
@@ -208,53 +219,9 @@ title="PROMP PARA ZAPIA">
 
 </div>
 
-<script type="module">
+<script>
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import { getAuth, onAuthStateChanged }
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-const firebaseConfig = {
-
-apiKey:"AIzaSyBFJH3LRuaS8yc6iDsXXcwACzpddA8lr5c",
-authDomain:"habilidadx1cafe.firebaseapp.com",
-projectId:"habilidadx1cafe",
-storageBucket:"habilidadx1cafe.firebasestorage.app",
-messagingSenderId:"113035104487",
-appId:"1:113035104487:web:1427b58f5263136d321242"
-
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-/* VERIFICAR USUARIO */
-
-onAuthStateChanged(auth, async (user)=>{
-
-if(!user){
-window.location.href="login.html";
-return;
-}
-
-const email = user.email;
-
-const url = "https://sheetdb.io/api/v1/i8l8o8fhonpzj/search?email="+email;
-
-const res = await fetch(url);
-const data = await res.json();
-
-if(data.length===0){
-alert("Tu cuenta aún no está habilitada");
-window.location.href="membresia.html";
-return;
-}
-
-});
-
-/* CONTROL BOTON MEET */
+/* BOTON MEET INTELIGENTE */
 
 function controlarMeet(){
 
@@ -271,8 +238,7 @@ boton.style.background = "#00c853";
 
 }else{
 
-boton.href = "#";
-boton.innerText = "Disponible el 9 de mayo 10:30 (ARG)";
+boton.innerText = "Disponible el 9 de mayo";
 boton.style.background = "#555";
 boton.style.cursor = "not-allowed";
 
@@ -282,20 +248,11 @@ boton.style.cursor = "not-allowed";
 
 controlarMeet();
 
-/* BLOQUEOS */
-
-document.addEventListener("contextmenu",e=>e.preventDefault());
-document.addEventListener("selectstart",e=>e.preventDefault());
-
 </script>
 
 <footer>
-
 © 2026 Melisa Fernández — IA para docentes
-
 </footer>
 
 </body>
 </html>
-
-
