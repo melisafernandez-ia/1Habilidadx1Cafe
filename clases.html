@@ -118,6 +118,7 @@ padding:20px;
 border-radius:12px;
 box-shadow:0 0 15px rgba(0,0,0,0.6);
 transition:0.3s;
+position:relative;
 }
 
 .clase:hover{
@@ -129,7 +130,7 @@ box-shadow:0 0 20px rgba(0,0,0,0.8);
 width:100%;
 height:170px;
 object-fit:cover;
-object-position:top; /* 🔥 SOLUCIÓN: evita que se corte el texto */
+object-position:top;
 border-radius:10px;
 margin-bottom:12px;
 }
@@ -141,6 +142,24 @@ margin-bottom:5px;
 .clase p{
 color:#ccc;
 font-size:14px;
+}
+
+/* ---------- DESCRIPCION HOVER ---------- */
+
+.clase .descripcion{
+display:none;
+margin-top:10px;
+background:#ff4b2b;
+color:white;
+padding:12px;
+border-radius:8px;
+font-size:13px;
+line-height:1.5;
+text-align:left;
+}
+
+.clase:hover .descripcion{
+display:block;
 }
 
 /* ---------- BOTONES ---------- */
@@ -230,6 +249,8 @@ Cerrar sesión
 
 <div class="contenedor">
 
+<!-- CLASE 1 -->
+
 <div class="clase">
 
 <img src="PORTADA_CLASE1.webp">
@@ -238,11 +259,20 @@ Cerrar sesión
 
 <p>La IA trabaja para vos</p>
 
+<div class="descripcion">
+✔ Crearás un sistema de organización personal con IA<br><br>
+✔ Usarás herramientas como Google Keep, Zapia, Notion Calendar y Perplexity<br><br>
+✔ Automatizarás tareas diarias y tu agenda<br><br>
+✔ Reducirás el estrés y el “ruido mental” en tu trabajo docente
+</div>
+
 <a href="clase1.html">
 <button>Ver clase</button>
 </a>
 
 </div>
+
+<!-- CLASE 2 -->
 
 <div class="clase">
 
