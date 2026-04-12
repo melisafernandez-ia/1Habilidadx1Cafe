@@ -277,8 +277,6 @@ Ver membresía
 
 <script type="module">
 
-/* ---------- FIREBASE ---------- */
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
@@ -289,20 +287,16 @@ sendPasswordResetEmail
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
-
 apiKey: "AIzaSyBFJH3LRuaS8yc6iDsXXcwACzpddA8lr5c",
 authDomain: "habilidadx1cafe.firebaseapp.com",
 projectId: "habilidadx1cafe",
 storageBucket: "habilidadx1cafe.firebasestorage.app",
 messagingSenderId: "113035104487",
 appId: "1:113035104487:web:1427b58f5263136d321242"
-
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
-/* ---------- API GOOGLE SHEET ---------- */
 
 const API_URL =
 "https://script.google.com/macros/s/AKfycbybDXMPiZyDtzkYmvotmf1RUeWsG_XIz7ba6EVq8GYnbLDOE9WcdaI-HLSgNvrrKK5k/exec";
@@ -332,16 +326,12 @@ body:JSON.stringify({email:email})
 
 const data = await res.json();
 
-/* NO REGISTRADO */
-
 if(data.estado === "no_registrado"){
 alert("Este email no está registrado. Primero debes adquirir la membresía.");
 btn.innerText="Ingresar";
 btn.disabled=false;
 return;
 }
-
-/* PAGO PENDIENTE */
 
 if(data.estado === "pendiente"){
 alert(
@@ -354,13 +344,12 @@ btn.disabled=false;
 return;
 }
 
-/* USUARIO ACTIVO */
-
 if(data.estado === "activo"){
 
 await signInWithEmailAndPassword(auth,email,password);
 
-window.location.href="clases.html";
+/* 🔥 CAMBIO CLAVE */
+window.location.href="curso.html";
 
 }
 
@@ -385,12 +374,7 @@ window.togglePassword = function(){
 
 const pass = document.getElementById("password");
 
-if(pass.type === "password"){
-pass.type="text";
-}
-else{
-pass.type="password";
-}
+pass.type = pass.type === "password" ? "text" : "password";
 
 }
 
@@ -406,7 +390,6 @@ return;
 }
 
 sendPasswordResetEmail(auth,email)
-
 .then(()=>{
 alert("Te enviamos un email para recuperar tu contraseña");
 });
@@ -417,4 +400,3 @@ alert("Te enviamos un email para recuperar tu contraseña");
 
 </body>
 </html>
-
